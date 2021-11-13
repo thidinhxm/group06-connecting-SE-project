@@ -1,0 +1,9 @@
+Project Plan
+    - Sửa lại mục 2.2 Assumptions and Constraints
+    - Sửa lại mục 4.3.4 Configuration Management
+ 
+Vision Document
+    - Sửa lại mục 1.1 References
+    - Sửa lại mục 4.2 Assumptions and Dependencies
+    - Sửa lại mục 5 Product Features
+ 
