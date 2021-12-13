@@ -26,12 +26,12 @@ function initModels(sequelize) {
 
   grade.belongsToMany(subject, { as: 'subject_id_subjects', through: gradesubject, foreignKey: "grade_id", otherKey: "subject_id" });
   subject.belongsToMany(grade, { as: 'grade_id_grades', through: gradesubject, foreignKey: "subject_id", otherKey: "grade_id" });
-  admin.belongsTo(account, { as: "admin", foreignKey: "admin_id"});
-  account.hasOne(admin, { as: "admin", foreignKey: "admin_id"});
-  student.belongsTo(account, { as: "student", foreignKey: "student_id"});
-  account.hasOne(student, { as: "student", foreignKey: "student_id"});
-  tutor.belongsTo(account, { as: "tutor", foreignKey: "tutor_id"});
-  account.hasOne(tutor, { as: "tutor", foreignKey: "tutor_id"});
+  admin.belongsTo(account, { as: "admin_account", foreignKey: "admin_id"});
+  account.hasOne(admin, { as: "admin_account", foreignKey: "admin_id"});
+  student.belongsTo(account, { as: "student_account", foreignKey: "student_id"});
+  account.hasOne(student, { as: "student_account", foreignKey: "student_id"});
+  tutor.belongsTo(account, { as: "tutor_account", foreignKey: "tutor_id"});
+  account.hasOne(tutor, { as: "tutor_account", foreignKey: "tutor_id"});
   gradesubject.belongsTo(grade, { as: "grade", foreignKey: "grade_id"});
   grade.hasMany(gradesubject, { as: "gradesubjects", foreignKey: "grade_id"});
   studentrequest.belongsTo(gradesubject, { as: "grade", foreignKey: "grade_id"});

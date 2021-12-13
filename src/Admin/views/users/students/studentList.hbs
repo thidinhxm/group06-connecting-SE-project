@@ -17,65 +17,32 @@
 					</tr>
 				</thead>
 				<tbody>
+					{{#each students}}
 					<tr>
-						<th scope="row"><b>#122349</b></th>
-						<td><b>Nguyễn Nam</b></td>
-						<td><b>TP.HCM</b></td>
-						<td><b>0879221443</b></td>
-						<td><b>13/04/2002</b></td>
-						<td><button class="btn-open"><i class="fas fa-lock"></i></button></td>
+						<th scope="row"><b>{{student_id}}</b></th>
+						<td><b>{{fullname}}</b></td>
+						<td><b>{{address}}</b></td>
+						<td><b>{{phone}}</b></td>
+						<td><b>{{birthday}}</b></td>
+						<td>
+							<button class="btn-open">
+								{{#if is_locked}}
+									<i class="fas fa-lock"></i>
+								{{else}}
+									<i class="fas fa-lock-open"></i>
+								{{/if}}
+							</button>
+						</td>
 					</tr>
-					<tr>
-						<th scope="row"><b>#122348</b></th>
-						<td><b>Lê An Khương</b></td>
-						<td><b>BRVT</b></td>
-						<td><b>0879221443</b></td>
-						<td><b>13/04/2002</b></td>
-						<td><button class="btn-open"><i class="fas fa-lock"></i></button></td>
-
-					</tr>
-					<tr>
-						<th scope="row"><b>#122347</b></th>
-						
-						<td><b>Đinh Trần Xuân Thi</b></td>
-						<td><b>Hà Nội </b></td>
-						<td><b>0879221443</b></td>
-						<td><b>13/04/2002</b></td>
-						<td><button class="btn-open"><i class="fas fa-lock-open"></i></button></td>
-					</tr>
-					<tr>
-						<th scope="row"><b>#122346</b></th>
-						<td><b>Châu Lý Phương Trinh</b></td>
-						<td><b>Gia Lai</b></td>
-						<td><b>0879221443</b></td>
-						<td><b>13/04/2002</b></td>
-						<td><button class="btn-open"><i class="fas fa-lock-open"></i></button></td>
-					</tr>
-					<tr>
-						<th scope="row"><b>#122345</b></th>
-						<td><b>Nguyễn Thành Nam</b></td>
-						<td><b>Thanh Hoá</b></td>
-						<td><b>0879221443</b></td>
-						<td><b>13/04/2002</b></td>
-						<td><button class="btn-open"><i class="fas fa-lock-open"></i></button></td>
-					</tr>
-					<tr>
-						<th scope="row"><b>#122349</b></th>
-						<td><b>Nguyễn Nam</b></td>
-						<td><b>TP.HCM</b></td>
-						<td><b>0879221443</b></td>
-						<td><b>13/04/2002</b></td>
-						<td><button class="btn-open"><i class="fas fa-lock-open"></i></button></td>
-					</tr>
+					{{/each}}
 					<tr>
 						<th scope="row"><b>#122348</b></th>
 						<td><b>Lê An Khương</b></td>
 						<td><b>BRVT</b></td>
 						<td><b>0879221443</b></td>
 						<td><b>13/04/2002</b></td>
-						<td><button class="btn-open"><i class="fas fa-lock-open"></i></button></td>
+						<td><button class="btn-open"><i class="fas fa-lock-open"></i></i></button></td>
 					</tr>
-					
 				</tbody>
 			</table>
 		</div>
