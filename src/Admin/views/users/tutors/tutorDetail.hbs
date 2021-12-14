@@ -60,9 +60,9 @@
                         <div class="col-md-7">
                             <p>
                                 {{#if gender}}
-                                Nữ
+                                    Nữ
                                 {{else}}
-                                Nam
+                                    Nam
                                 {{/if}}
                             </p>
                         </div>
@@ -80,7 +80,22 @@
                             <label>Ngày sinh : </label>
                         </div>
                         <div class="col-md-7">
-                            <p>{{bithday}}</p>
+                            <p>{{birthday}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label>Trạng thái : </label>
+                        </div>
+                        <div class="col-md-7">
+                            <p>
+                                {{#if (isLocked 'tutor_account.is_locked')}}
+                                    Bị khóa
+                                {{else}}
+                                    Được hoạt động
+                                {{/if}}
+                            </p>
+                            
                         </div>
                     </div>
                     {{/with}}

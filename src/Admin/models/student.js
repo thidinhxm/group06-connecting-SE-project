@@ -33,11 +33,6 @@ module.exports = function(sequelize, DataTypes) {
     birthday: {
       type: DataTypes.DATEONLY,
       allowNull: false
-    },
-    is_locked: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-      defaultValue: 0
     }
   }, {
     sequelize,

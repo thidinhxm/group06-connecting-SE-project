@@ -227,16 +227,9 @@ button:focus {
 	text-align: center;
 }
 
-table, th, td {
-	border: 1px solid #fff;
-}
-
 thead {
 	background-color: #B2C2F8;
 	color: #000;
-}
-.table thead th {
-	border: 1px solid #fff;
 }
 
 .tm-status-circle {
@@ -389,7 +382,7 @@ thead {
 }
 .table td,
 .table th {
-	border-top: 1px solid #415a70;
+	border-top: 1px solid #fff;
 	padding: 15px 25px;
 	vertical-align: middle;
 }
@@ -487,7 +480,7 @@ input[type="checkbox"]:focus {
 .tm-product-delete-link {
 	padding: 10px;
 	border-radius: 50%;
-	background-color: #394e64;
+	background-color: #758ECD;
 	display: inline-block;
 	width: 40px;
 	height: 40px;
@@ -859,14 +852,12 @@ h1.tm-site-title.mb-0{
 }
 
 .btn-open {
-	color: #fff;
-	height: 30px;
-	width: 70px;
-	background-color: #758ECD;
-	border: 2px solid #758ECD;
-	border-radius: 10px;
-	font-size: 90%;
-	font-weight: 600;
+	color: #4F72C9;
+	font-size: 1.3rem;
+}
+
+.btn-open:hover {
+	color: #070a13;
 }
 
 

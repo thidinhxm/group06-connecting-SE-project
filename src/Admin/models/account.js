@@ -14,6 +14,11 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.CHAR(60),
       allowNull: false
+    },
+    is_locked: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: 0
     }
   }, {
     sequelize,

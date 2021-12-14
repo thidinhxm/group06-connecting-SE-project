@@ -37,11 +37,6 @@ module.exports = function(sequelize, DataTypes) {
     gender: {
       type: DataTypes.BOOLEAN,
       allowNull: false
-    },
-    is_locked: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-      defaultValue: 0
     }
   }, {
     sequelize,
