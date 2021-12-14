@@ -2,7 +2,7 @@
     <div class="row tm-content-row">
         <div class="col-12 tm-block-col">
             <div class="page-title">
-                <span>Tài khoản gia sư</span>
+                <span>Tài khoản học sinh</span>
             </div>
         </div>
     </div>
@@ -22,42 +22,58 @@
                 <div class="about">
                     {{#with tutor}}
                     <div class="row">
-                        <div class="col-md-5">
-                            <label>Tên hiển thị</label>
+                        <div class="col-3 col-sm-4">
+                            <label>Tên hiển thị:</label>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-9 col-sm-8">
                             <p>{{display_name}}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-3 col-sm-4">
                             <label>Họ và tên : </label>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-9 col-sm-8">
                             <p>{{fullname}}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-3 col-sm-4">
                             <label>Email : </label>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-9 col-sm-8">
                             <p>{{'tutor_account.email'}}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-3 col-sm-4">
                             <label>Số điện thoại : </label>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-9 col-sm-8">
                             <p>{{phone}}</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-5">
-                            <label>Giới tính : </label>
+                        <div class="col-3 col-sm-4">
+                            <label>Địa Chỉ : </label>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-9 col-sm-8">
+                            <p>{{address}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 col-sm-4">
+                            <label>Ngày sinh : </label>
+                        </div>
+                        <div class="col-9 col-sm-8">
+                            <p>{{birthday}}</p>
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-3 col-sm-4">
+                            <label>Giới tính: </label>
+                        </div>
+                        <div class="col-9 col-sm-8">
                             <p>
                                 {{#if gender}}
                                     Nữ
@@ -68,28 +84,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-5">
-                            <label>Địa Chỉ : </label>
-                        </div>
-                        <div class="col-md-7">
-                            <p>{{address}}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <label>Ngày sinh : </label>
-                        </div>
-                        <div class="col-md-7">
-                            <p>{{birthday}}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-3 col-sm-4">
                             <label>Trạng thái : </label>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-9 col-sm-8">
                             <p>
-                                {{#if (isLocked 'tutor_account.is_locked')}}
+                                {{#if 'tutor_account.is_locked'}}
                                     Bị khóa
                                 {{else}}
                                     Được hoạt động

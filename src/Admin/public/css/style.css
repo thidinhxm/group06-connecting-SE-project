@@ -80,7 +80,7 @@ button:focus {
 }
 .tm-block-avatar {
 	height: auto;
-	padding-bottom: 70px;
+	padding-bottom: 110px;
 }
 .tm-block-h-auto {
 	min-height: 1px;
@@ -296,7 +296,7 @@ thead {
 	padding-right: 15px;
 }
 .tm-col-account-settings {
-	max-width: 800px;
+	max-width: 900px;
 	width: 63%;
 	padding-left: 15px;
 	padding-right: 15px;
