@@ -1,5 +1,3 @@
-const e = require("express");
-
 exports.listTutorRequests = (req, res, next) => {
     res.render('requests/tutorRequests/tutorRequestList');
 };

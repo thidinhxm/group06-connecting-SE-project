@@ -26,20 +26,20 @@
 						<td><b>{{phone}}</b></td>
 						<td><b>{{birthday}}</b></td>
 						<td>
-							<a class="tm-product-delete-link" href="/users/tutors/{{tutor_id}}">
-								<i class="fas fa-eye tm-product-delete-icon"></i>
+							<a class="tm-user-lock-link" href="/users/tutors/{{tutor_id}}">
+								<i class="fas fa-eye tm-user-lock-icon"></i>
 							</a>
 						</td>
 						<td>
 							{{#if is_locked}}
-							<a class="tm-product-delete-link btn-danger" href="" data-toggle="modal"
+							<a class="tm-user-lock-link btn-danger" href="" data-toggle="modal"
 								data-target="#unlock-tutor-modal" data-id="{{tutor_id}}">
-									<i class="fas fa-lock tm-product-delete-icon"></i> 
+									<i class="fas fa-lock tm-user-lock-icon"></i> 
 							</a>
 							{{else}}
-							<a class="tm-product-delete-link btn-danger" href="" data-toggle="modal"
+							<a class="tm-user-lock-link btn-danger" href="" data-toggle="modal"
 								data-target="#lock-tutor-modal" data-id="{{tutor_id}}">
-									<i class="fas fa-lock-open tm-product-delete-icon"></i>
+									<i class="fas fa-lock-open tm-user-lock-icon"></i>
 							</a>
 							{{/if}}
 							
