@@ -6,7 +6,9 @@ const exphbs = require('express-handlebars');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
-// const tutorRouter = require('./routes/tutor');
+const accountRouter = require('./routes/account');
+const tutorRouter = require('./routes/tutor');
+const studentRouter = require('./routes/student');
 const app = express();
 
 // view engine setup
@@ -25,7 +27,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-// app.use('/tutor', tutorRouter);
+app.use('/', accountRouter);
+app.use('/tutors', tutorRouter);
+app.use('/students', studentRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
 	next(createError(404));

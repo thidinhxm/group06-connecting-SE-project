@@ -201,3 +201,377 @@ h2 {
     width: 40px;
     height: 40px;
 }
+
+
+
+/* --------- Begin css Profile ----------- */
+.account-settings .user-profile {
+  margin: 0 0 1rem 0;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+.account-settings .user-profile .user-avatar {
+  margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar img {
+  width: 90px;
+  height: 90px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
+.account-settings .user-profile h5.user-name {
+  margin: 0 0 0.5rem 0;
+}
+.account-settings .user-profile h6.user-email {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #9fa8b9;
+}
+
+.profile .form-control {
+  border: 1px solid #cfd1d8;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-size: .825rem;
+  background: #ffffff;
+  color: #2e323c;
+}
+
+.profile .card {
+  background: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 0;
+  margin-bottom: 1rem;
+}
+
+.profile .change-password{
+  padding: 6px 2px;
+  border-radius: 4px;
+}
+
+.profile .change-password:hover {
+  background-color: rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+/* --------- end css Profile ----------- */
+
+/* --------- Begin css Form request ----------- */
+.form-request{
+  padding: 20px 12px;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+}
+.form-request_body{
+  margin: 0 auto;
+}
+
+.form-request .form-heading{
+  font-weight: bold;
+  margin: 24px 0;
+}
+
+.form-request .form-select {
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.form-request .form-control{
+  border-color: #666;
+}
+
+.form-request .form-request-btn{
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* --------- End css Form request ----------- */
+
+
+/* --------- header footer ----------- */
+.navbar {
+	height: 80px;
+	background-color: #758ECD;
+	padding: 0;
+}
+.navbar .container {
+	position: relative;
+}
+
+.navbar .container>i {
+	color: #fff;
+	font-size: 2rem;
+}
+
+
+.tm-logout-icon {
+	font-size: 1.5em;
+}
+.tm-mt-big {
+	margin-top: 57px;
+}
+.tm-mb-big {
+	margin-bottom: 60px;
+}
+.tm-mt-small {
+	margin-top: 20px;
+}
+.tm-block-col {
+	margin-bottom: 30px;
+}
+.tm-block {
+	padding: 40px 40px 10px 40px;
+	-webkit-box-shadow: 1px 1px 5px 0 #455c71;
+	-moz-box-shadow: 1px 1px 5px 0 #455c71;
+	box-shadow: 1px 1px 5px 0 #455c71;
+	height: 100%;
+}
+.tm-block-avatar,
+.tm-block-settings {
+	max-height: none;
+}
+.tm-block-avatar {
+	height: auto;
+	padding-bottom: 110px;
+}
+.tm-block-h-auto {
+	min-height: 1px;
+	max-height: none;
+	height: auto;
+}
+.tm-block-scroll {
+	overflow-y: scroll;
+}
+.tm-block-overflow {
+	overflow: hidden;
+}
+.tm-block-title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #fff;
+	margin-bottom: 30px;
+	text-align: center;
+}
+.nav-link {
+	color: #fff;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 90%;
+}
+
+.nav-link > i {
+	margin-bottom: 10px;
+	margin-right: 0;
+	font-size: 1.5rem;
+}
+.dropdown-item,
+.nav-link {
+	padding: 15px 20px;
+}
+.dropdown-menu {
+	font-size: 90%;
+	color: #fff;
+	background-color: #F2F7F9;
+	border-radius: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	min-width: auto;
+}
+.dropdown-item {
+	color: #000;
+	padding: 15px 30px;
+}
+
+.navbar-nav .active > .nav-link,
+.navbar-nav .nav-link.active {
+	background-color: #F2F7F9;
+	color: #5074ce;
+}
+.navbar-nav .nav-link.active i {
+	color: #fff;
+}
+
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+	background-color: #F2F7F9;
+	color: #5074ce;
+}
+.navbar-nav .nav-link:hover i, .navbar-nav .nav-link:focus i {
+	color: #5074ce;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+	background-color: #758ECD;
+	color: #fff;
+}
+.navbar-nav a:hover,
+.navbar-nav a:hover i {
+	color: #fff;
+}
+.nav-item {
+	text-align: center;
+}
+.nav-item:last-child {
+	margin-right: 0;
+}
+.dropdown-toggle::after {
+	display: none;
+}
+.dropdown-menu {
+	margin-top: 0;
+	border: 0;
+}
+
+.tm-footer {
+	background-color: #758ECD;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	-webkit-box-shadow: 0 -3px 5px 0 rgba(69, 92, 113, 0.59);
+	-moz-box-shadow: 0 -3px 5px 0 rgba(69, 92, 113, 0.59);
+	box-shadow: 0 -3px 5px 0 rgba(69, 92, 113, 0.59);
+}
+
+.navbar-toggler {
+	border-color: #708da8;
+	box-shadow: rgba(255, 255, 255, 0.1) 0 1px 1px 2px;
+	border-radius: 0;
+	padding: 10px 15px;
+	transition: all 0.2s ease;
+}
+.navbar-toggler:hover {
+	border-color: #f5a623;
+	color: #f5a623;
+}
+.tm-nav-icon {
+	color: #fff;
+}
+.navbar-toggler:hover .tm-nav-icon {
+	color: #f5a623;
+}
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+::-webkit-scrollbar-track {
+	background: #6187a8;
+}
+::-webkit-scrollbar-thumb {
+	background: #7da2be;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #8ab5d6;
+}
+
+.tm-footer-link {
+	color: white;
+}
+
+.tm-footer-link:hover,
+.tm-footer-link:focus {
+	color: #aacbea;
+}
+
+@media (min-width: 1200px) {
+	.navbar-expand-xl .navbar-nav .nav-link {
+		padding-left: 28px;
+		padding-right: 28px;
+	}
+	.navbar-collapse {
+		height: 100%;
+		font-size: 20px;
+		font-weight: 600;
+	}
+	
+}
+@media (min-width: 992px) {
+	.navbar-expand-lg .navbar-nav .nav-link {
+		padding: 15px 20px;
+	}
+}
+@media (max-width: 1275px) and (min-width: 1200px) {
+	.nav-item {
+		margin-right: 15px;
+	}
+}
+@media (max-width: 1350px) {
+	.nav-item {
+		margin-right: 1px;
+	}
+}
+@media (max-width: 1199px) {
+	.tm-col-big,
+	.tm-col-small {
+		width: 49.65%;
+	}
+	.navbar-collapse {
+		padding: 0;
+		box-shadow: rgba(255, 255, 255, 0.1) 0 1px 1px 1px;
+		position: absolute;
+		top: 72px;
+		right: 20px;
+		width: 200px;
+		z-index: 1000;
+	}
+	.dropdown-menu {
+		text-align: center;
+	}
+	.nav-link {
+		color: #fff;
+		background-color: #758ECD;
+		padding: 15px;
+		flex-direction: row;
+	}
+	.nav-link > i {
+		font-size: 1rem;
+		margin-right: 10px;
+		margin-bottom: 0;
+	}
+	.nav-item {
+		margin-right: 0;
+	}
+	.tm-block-taller {
+		max-height: 520px;
+	}
+}
+@media (max-width: 1199.98px) {
+	.navbar-expand-xl > .container,
+	.navbar-expand-xl > .container-fluid {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.navbar-collapse {
+		right: 15px;
+	}
+}
+
+@media (max-width: 574px) {
+	.navbar-collapse {
+		top: 47px;
+	}
+	.navbar {
+		height: 50px;
+	}
+	.tm-site-title {
+		font-size: 1.4rem;
+		margin-left: 7px;
+	 
+		
+	}
+	.tm-site-icon {
+		font-size: 2em;
+	}
+}
+
+
+
+
+
+
+
+

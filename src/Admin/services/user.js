@@ -1,13 +1,23 @@
 const {models} = require('../models');
 
-exports.listTutors = () => {
-    return models.tutor.findAll({
+exports.listTutors = async () => {
+    const tutors = await models.tutor.findAll({
+        include: [{
+            model: models.account,
+            as: 'tutor_account',
+            attributes: ['is_locked'],
+        }],
         raw: true,
     });
+    tutors.forEach(tutor => {
+        tutor.is_locked = tutor['tutor_account.is_locked'];
+    });
+
+    return tutors;
 }
 
-exports.showTutor = (id) => {
-    return models.tutor.findOne({
+exports.showTutor = async (id) => {
+    const tutor = await models.tutor.findOne({
         where: {
             tutor_id: id,
         },
@@ -18,16 +28,28 @@ exports.showTutor = (id) => {
         }],
         raw: true,
     });
+    tutor.is_locked = tutor['tutor_account.is_locked'];
+    return tutor;
 }
 
-exports.listStudents = () => {
-    return models.student.findAll({
+exports.listStudents = async () => {
+    const students = await models.student.findAll({
+        include: [{
+            model: models.account,
+            as: 'student_account',
+            attributes: ['is_locked'],
+        }],
         raw: true,
     });
+
+    students.forEach(student => {
+        student.is_locked = student['student_account.is_locked'];
+    });
+    return students;
 }
 
-exports.showStudent = (id) => {
-    return models.student.findOne({
+exports.showStudent = async (id) => {
+    const student = await models.student.findOne({
         where: {
             student_id: id,
         },
@@ -38,6 +60,8 @@ exports.showStudent = (id) => {
         }],
         raw: true,
     });
+    student.is_locked = student['student_account.is_locked'];
+    return student;
 }
 
 exports.lock = (id) => {

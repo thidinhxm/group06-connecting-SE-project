@@ -1,0 +1,61 @@
+<body>
+    <style>
+        div.post {
+            background-color:white;
+            color:black;
+            margin-top: 30px;
+            margin-left:150px;
+            margin-right: 150px;
+            margin-bottom: 30px;
+            padding:20px;
+            border: 6px solid #758ECD;
+        }
+
+        div.post button {
+            width: 200px;
+            height: 50px;
+            background-color:#1ECB44;
+            color:white;
+            margin-top: 30px;
+            margin-left: 680px;
+            margin-bottom: 10px;
+        }
+        div.text {
+            word-wrap: break-word;
+        }
+    </style>
+<script>
+    
+    class Post {
+        //Hàm khởi tạo 
+        constructor(hoTen, sdt, diaChi, trinhDo, kinhNghiem, yeuCauKhac="") {
+            this.hoTen=hoTen
+            this.sdt=sdt
+            this.diaChi=diaChi
+            this.trinhDo=trinhDo
+            this.kinhNghiem=kinhNghiem
+            this.yeuCauKhac=yeuCauKhac
+        }
+        
+    }
+    var post1 = new post("Nguyễn Trọng Thái", "092283077", "Tiền Giang, Gò Công Đông", "Năm 3", "1 năm 3 tháng")
+    
+</script>
+
+<div class="post">
+    <div class="text">
+        <p><strong>Mã bài đăng: </strong></p>
+        <p><strong>Môn học: </strong></p>
+        <p><strong>Lớp: </strong></p>
+        <p><strong>Địa chỉ: </strong></p>
+        <p><strong>Lương/Giờ: </strong></p>
+        <p><strong>Yêu cầu khác: </strong></p>
+    </div>
+
+    <!-- Đại diện cho nút yêu cầu nhận lớp -->
+    <button name="button" type="button"><h4>Yêu cầu nhận lớp</h4>></button>
+</div>
+
+
+</div>
+</body>
