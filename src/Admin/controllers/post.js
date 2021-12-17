@@ -1,5 +1,7 @@
 exports.list = (req, res, next) => {
     res.render('posts/postList');
+
+
 }
 
 exports.show = (req, res, next) => {
@@ -9,4 +11,5 @@ exports.show = (req, res, next) => {
 exports.create = (req, res, next) => {
     res.render('posts/createPost');
 }
+
 

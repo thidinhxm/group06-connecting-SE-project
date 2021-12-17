@@ -10,6 +10,11 @@ body {
 a {
   transition: all 0.3s ease;
 }
+
+.clear {
+    clear:both;
+    line-height:0;
+}
 a:focus,
 a:hover {
   text-decoration: none;
