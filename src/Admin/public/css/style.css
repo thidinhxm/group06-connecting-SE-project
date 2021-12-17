@@ -912,3 +912,10 @@ h1.tm-site-title.mb-0 {
   cursor: pointer;
 }
 /* --------- end css Profile ----------- */
+
+/* ---------  css Request Detail ----------- */
+.tm-col-request-settings {
+  margin: auto;
+  margin-bottom: 30px;
+}
+/* ---------  end css Request Detail ----------- */
