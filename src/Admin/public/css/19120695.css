@@ -706,6 +706,28 @@ label small {
 .title-add-post{
    justify-content: center;
    text-align: center;
-   text-decoration: underline;
+   /* text-decoration: underline; */
    /* border: bottom 2px saddlebrown; */
+
+   display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: center;
+} 
+
+.form-control ,.form-control:focus {
+    background-color: #fff;
+    color: #000
+
+}
+
+.custom-underline{
+    width: 25%;
+    height: 5px;
+    background-color: #758ECD;
+border-radius: 10px;
+margin-bottom: 20px;
+
+    
+    
 }
