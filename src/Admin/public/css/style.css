@@ -369,16 +369,16 @@ thead {
 }
 .btn-primary {
   color: #fff;
-  background-color: #f5a623;
-  border: 2px solid #f5a623;
+  background-color: #0a8eec;
+  border: 2px solid #0a8eec;
   font-size: 90%;
   font-weight: 600;
 }
 .btn-primary:active,
 .btn-primary:hover {
-  color: #f5a623;
+  color: #0a8eec;
   background-color: transparent;
-  border: 2px solid #f5a623;
+  border: 2px solid #0a8eec;
 }
 .custom-file-input {
   cursor: pointer;

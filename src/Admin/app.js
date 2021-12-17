@@ -4,12 +4,15 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const exphbs = require('express-handlebars');
+const session = require('express-session');
+const flash = require('connect-flash');
 
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const accountRouter = require('./routes/account');
 const postRouter = require('./routes/post');
 const requestRouter = require('./routes/request');
+const passport = require('./middlewares/passport');
 
 const app = express();
 
@@ -33,6 +36,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+	secret: process.env.SESSION_SECRET,
+	resave: false,
+	saveUninitialized: true,
+	cookie: { 
+		maxAge: 1000 * 60 * 60 * 24 * 7,
+	}
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+app.use((req, res, next) => {
+	res.locals.user = req.user;
+	next();
+});
 
 app.use('/', indexRouter);
 app.use('/', accountRouter);

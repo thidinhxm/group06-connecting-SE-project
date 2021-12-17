@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 const postController = require('../controllers/post');
+const auth = require('../middlewares/auth');
 
-router.get('/', postController.list);
+router.get('/', auth.isLogin, postController.list);
 // router.get('/edit', postController.edit);
 
-router.get('/edit', postController.show);
+router.get('/edit', auth.isLogin, postController.show);
 
-router.get('/create', postController.create);
+router.get('/create', auth.isLogin, postController.create);
 
 module.exports = router;
