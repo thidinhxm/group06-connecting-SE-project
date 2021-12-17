@@ -1,54 +1,122 @@
 
-<div class="content">
 <div class="container">
-	<div class="row">
-		<div class="col-md-6 order-md-2">
-			<img src="/images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
-		</div>
-		<div class="col-md-6 contents">
-			<div class="row justify-content-center">
-				<div class="col-md-8">
-					<div class="mb-4">
-						<!-- <h1 class="mb-6">Web kết nối gia sư</h1> -->
-					<h3>Đăng nhập </h3>
-					<p class="mb-4 mt-4">Chào mừng bạn đến với trang <b>Web kết nối gia sư</b></p>
-				</div>
-				<form action="/tutor" method="post">
-					<div class="form-group first">
-						<label for="username">Tên đăng nhập</label>
-						<input type="text" class="form-control" id="username">
+      <meta charset="UTF-8">
 
-					</div>
-					<div class="form-group last mb-4">
-						<label for="password">Mật khẩu</label>
-						<input type="password" class="form-control" id="password">
-						
-					</div>
-					
-					<div class=" d-flex mb-5 align-items-center ">
-						<span class=""><a href="#" class="forgot-pass">Đăng kí tài khoản</a></span> 
-						<span class="ml-auto "><a href="#" class="forgot-pass">Quên mật khẩu</a></span> 
-					</div>
+      <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
 
-					<input type="submit" value="Đăng nhập" class="btn text-white btn-block btn-primary">
-				
-					<div class=" d-flex mb-8 align-items-center justify-content-sm-around ">
-						<span class="d-block text-left my-4 text-muted text-sm-left "> Hoặc đăng nhập với </span>
-						<div class="social-login ml-auto ">
-							<a href="#" class="google">
-								<span class="icon-google mr-3"></span> 
-							</a>
-						</div>
-					</div>
+      <div class="login-card">
+        <h1>Login</h1><br>
+      <form>
+        <input type="text" name="user" placeholder="Email" required>
+        <input type="password" name="pass" placeholder="Password" required>
+        <input type="submit" name="login" class="login login-submit" value="Login">
+      </form>
 
-		
-						</a>
-					</div>
-				</form>
-				</div>
-			</div>
-			
-		</div>
-		
-	</div>
-</div>
+      <div class="login-help">
+        <a href="#"><strong>Sign up</strong></a> • <a href="#"><strong>Forgot Password</strong></a>
+      </div>
+    </div>
+    </div>
+    <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
+    <style>
+      .login-card {
+          padding: 60px;
+          width: 400px;
+          background-color: #0ffc85;
+          margin: 0 auto 10px;
+          border-radius: 2px;
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
+        }
+
+        .login-card h1 {
+          font-weight: 100;
+          text-align: center;
+          font-size: 3em;
+        }
+
+        .login-card input[type=submit] {
+          width: 100%;
+          display: block;
+          margin-top: 20px;
+          margin-bottom: 10px;
+          position: relative;
+          border-radius: 10px;
+        }
+
+        .login-card input[type=text], input[type=password] {
+          height: 44px;
+          font-size: 16px;
+          width: 100%;
+          margin-top: 18px;
+          margin-bottom: 10px;
+          -webkit-appearance: none;
+          background: #fff;
+          border: 1px solid #d9d9d9;
+          border-top: 1px solid #c0c0c0;
+          border-radius: 10px;
+          /* border-radius: 2px; */
+          padding: 0 8px;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+        }
+
+        .login-card input[type=text]:hover, input[type=password]:hover {
+          border: 1px solid #b9b9b9;
+          border-top: 1px solid #a0a0a0;
+          -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+          -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+          box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .login {
+          text-align: center;
+          font-size: 14px;
+          font-family: 'Arial', sans-serif;
+          font-weight: 700;
+          height: 36px;
+          padding: 0 8px;
+        /* border-radius: 3px; */
+        /* -webkit-user-select: none;
+          user-select: none; */
+        }
+
+        .login-submit {
+          /* border: 1px solid #3079ed; */
+          border: 0px;
+          color: #fff;
+          text-shadow: 0 1px rgba(0,0,0,0.1); 
+          background-color: #4d90fe;
+          /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+        }
+
+        .login-submit:hover {
+          /* border: 1px solid #2f5bb7; */
+          border: 0px;
+          text-shadow: 0 1px rgba(0,0,0,0.3);
+          background-color: #357ae8;
+          /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+        }
+
+        .login-card a {
+          text-decoration: none;
+          color: #666;
+          font-weight: 400;
+          text-align: center;
+          display: inline-block;
+          opacity: 0.6;
+          transition: opacity ease 0.5s;
+        }
+
+        .login-card a:hover {
+          opacity: 1;
+        }
+
+        .login-help {
+          width: 100%;
+          text-align: center;
+          font-size: 16px;
+          margin-top: 30px;
+          margin-bottom: 60px;
+        }
+    </style>
