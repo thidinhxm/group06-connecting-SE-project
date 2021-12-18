@@ -1,63 +1,78 @@
-<body>
-    <style>
-        div.post {
-            background-color:white;
-            color:black;
-            margin-top: 30px;
-            margin-left:150px;
-            margin-right: 150px;
-            margin-bottom: 30px;
-            padding:20px;
-            border: 6px solid #758ECD;
-            border-radius: 29px;
-        }
-
-        div.post button {
-            width: 200px;
-            height: 50px;
-            background-color:#1ECB44;
-            color:white;
-            margin-top: 30px;
-            margin-left: 690px;
-            margin-bottom: 10px;
-            border-radius: 50px;
-        }
-        div.text {
-            word-wrap: break-word;
-        }
-    </style>
-<script>
-    
-    class Post {
-        //Hàm khởi tạo 
-        constructor(hoTen, sdt, diaChi, trinhDo, kinhNghiem, yeuCauKhac="") {
-            this.hoTen=hoTen
-            this.sdt=sdt
-            this.diaChi=diaChi
-            this.trinhDo=trinhDo
-            this.kinhNghiem=kinhNghiem
-            this.yeuCauKhac=yeuCauKhac
-        }
-        
-    }
-    var post1 = new post("Nguyễn Trọng Thái", "092283077", "Tiền Giang, Gò Công Đông", "Năm 3", "1 năm 3 tháng")
-    
-</script>
-
-<div class="post">
-    <div class="text">
-        <p><strong>Mã bài đăng: </strong></p>
-        <p><strong>Môn học: </strong></p>
-        <p><strong>Lớp: </strong></p>
-        <p><strong>Địa chỉ: </strong></p>
-        <p><strong>Lương/Giờ: </strong></p>
-        <p><strong>Yêu cầu khác: </strong></p>
+<div class="container">
+    <h1>Danh sách bài viết tìm gia sư</h1>
+    <div class=post>
+        <h3><strong>Mã bài đăng: </strong><span style="color: #4200FF;">001123</span></h3>
+        <h3><strong>Môn học: </strong><span>Toán</span></h3>
+        <h3><strong>Lớp: </strong><span>9</span></h3>
+        <h3><strong>Địa chỉ: </strong><span>Phường 4, Quận 5, Thành Phố Hồ Chí Minh</span></h3>
+        <h3><strong>Lương/Tháng: </strong><span>2.000.000vnđ</span></h3>
+        <h3><strong>Yêu cầu khác: </strong><span>Bé học tốt sẵn. Cần gia sư có kinh nghiệm tốt. Là nam sinh viên. Bé học tốt sẵn. Cần gia sư có kinh nghiệm tốt. Là nam sinh viên. Bé học tốt sẵn. Cần gia sư có kinh nghiệm tốt. Là nam sinh viên.</span></h3>
+        <div class="btn-box">
+            <br>
+            <button type="submit">Yêu cầu nhận lớp</button>
+        </div>
     </div>
-
-    <!-- Đại diện cho nút yêu cầu nhận lớp -->
-    <button name="button" type="button"><h4>Yêu cầu nhận lớp</h4>></button>
+    <div class=post>
+        <h3><strong>Mã bài đăng: </strong><span style="color: #4200FF;">001123</span></h3>
+        <h3><strong>Môn học: </strong><span>Toán</span></h3>
+        <h3><strong>Lớp: </strong><span>12</span></h3>
+        <h3><strong>Địa chỉ: </strong><span>Phường 4, Quận 5, Thành Phố Hồ Chí Minh</span></h3>
+        <h3><strong>Lương/Tháng: </strong><span>2.500.000vnđ</span></h3>
+        <h3><strong>Yêu cầu khác: </strong><span>Bé học tốt sẵn. Cần gia sư có kinh nghiệm tốt. Là nam sinh viên. Bé học tốt sẵn. Cần gia sư có kinh nghiệm tốt. Là nam sinh viên. Bé học tốt sẵn. Cần gia sư có kinh nghiệm tốt. Là nam sinh viên.</span></h3>
+        <div class="btn-box">
+            <br>
+            <button type="submit">Yêu cầu nhận lớp</button>
+        </div>
+    </div>
 </div>
-
-
-</div>
-</body>
+<style>
+    .container h1{
+        text-align: center;
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+    .post{
+        width: 70%;
+        max-width: 1600px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: white;
+        border: 6px solid #758ECD;
+        border-radius: 29px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .post h3{
+        font-size: 16px;
+        margin-left: 20px;
+        word-wrap: break-word;
+        color: black;
+        margin-top: 10px;
+        }
+    .post span{
+        color: black;
+        }
+    .button{
+        width: 20px;
+        height: 15px;
+        color: rgb(14, 20, 20);
+    }
+    .btn-box{
+            font-size: 20px;
+            text-align: right;
+            margin-bottom: 0px;
+            margin-right: 10px;
+        }
+    .btn-box button{
+        padding: 15px 35px;
+        background-color: #1ECB44;
+        margin-left: 10px;
+        color: white;
+        border-radius: 50px;
+        font-family: roboto;
+        font-style: medium;
+        font-size: 17px;
+    }    
+</style>
