@@ -4,49 +4,49 @@
                     <h1>Đăng ký tài khoản gia sư</h1>
                     <h2>Thông tin đăng nhập</h2>
                     <div class="input-box">
-                      <input type="text" placeholder="Nhập email(*)" email="email" required>
+                      <input type="text" placeholder="Nhập email(*)" name="email" required>
                   </div>
                   <div class="input-box">
 
-                      <input type="password" name = "pass" placeholder="Nhập mật khẩu(*)" password="password" required>
+                      <input type="password" name = "pass" placeholder="Nhập mật khẩu(*)" name="password" required>
                   </div>
                   <div class="input-box">
 
-                    <input type="password" name = "pass" placeholder="Nhập lại mật khẩu(*)" password="password" required>
+                    <input type="password" name = "pass" placeholder="Nhập lại mật khẩu(*)" name="password" required>
                 </div>
                   
                   <h2>Thông tin tài khoản</h2>
                     <div class="input-box">
-                      <input type="text" placeholder="Nhập họ và tên(*)" fullname="fullname" required>
+                      <input type="text" placeholder="Nhập họ và tên(*)" name="fullname" required>
                     </div>
 
                     <div class="input-box">
-                      <input type="text" placeholder="Nhập tên hiển thị(*)" displayname="displayname" required>
+                      <input type="text" placeholder="Nhập tên hiển thị(*)" name="displaynanameme" required>
                     </div>
                     
                     <div class="input-box">
-                      <input type="text" placeholder="Nhập CMND/CCCD(*)" displayname="displayname" required>
+                      <input type="text" placeholder="Nhập CMND/CCCD(*)" name="cmnd" required>
                     </div>
 
                     <div class="input-box">
-                      <input type="tel" placeholder="Nhập số điện thoại(*)" phone="phone" required>
+                      <input type="tel" placeholder="Nhập số điện thoại(*)" name="phone" required>
                     </div>
 
                     <div class="input-box">
-                        <input type="text" placeholder="Nhập địa chỉ(*)" address="address" required>
+                        <input type="text" placeholder="Nhập địa chỉ(*)"  name="address" required>
                     </div>
 
                     <div class="input-box">
                         <div class="col-6">
-                            <label for="ngaysinh">Ngày sinh(*)</label>
+                            <label for="birthday">Ngày sinh(*)</label>
                             <br>
-                            <input type="date" id="ngaysinh" required/>
+                            <input type="date" id="birthday" required/>
                         </div>
 
                         <div class="col-6">
-                            <label for="gioitinh">Giới tính(*)</label>
+                            <label for="gender">Giới tính(*)</label>
                             <br>
-                            <select id="gioitinh">
+                            <select id="gender">
                                 <option value="nam">Nam</option>
                                 <option value="nu">Nữ</option>
                             </select>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="input-box">
                             <label>Chọn avarta</label>
-                            <input type="file" accept="image/*" /> <!-- all image types --> 
+                            <input name="avarta" type="file" accept="image/*" /> <!-- all image types --> 
                     </div>
                     
                     <div class="input-box">
@@ -114,17 +114,17 @@
                         <div class="col-12">
                             <table border="0" class="tablebox">
                                 <tr>
-                                <td><label><input type="checkbox" name="monday[]" id="monday" value="M1M"  />Lớp 6</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M2M" />Lớp 7</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M3M" />Lớp 8</label></td>
+                                <td><label><input type="checkbox" name="tday[]" id="tday" value="M1M"  />Lớp 6</label></td>
+                                <td><label><input type="checkbox" name="tday[]" value="M2M" />Lớp 7</label></td>
+                                <td><label><input type="checkbox" name="tday[]" value="M3M" />Lớp 8</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="monday[]" value="M4M" />Lớp 9</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M5M" />Lớp 10</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M6M" />Lớp 11</label></td>
+                                <td><label><input type="checkbox" name="tday[]" value="M4M" />Lớp 9</label></td>
+                                <td><label><input type="checkbox" name="tday[]" value="M5M" />Lớp 10</label></td>
+                                <td><label><input type="checkbox" name="tday[]" value="M6M" />Lớp 11</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="monday[]" value="M4M" />Lớp 12</label></td>
+                                <td><label><input type="checkbox" name="tday[]" value="M4M" />Lớp 12</label></td>
                                 </tr>
                                 
                             </table> 
@@ -137,17 +137,17 @@
                         <div class="col-12">
                             <table border="0" class="tablebox">
                                 <tr>
-                                <td><label><input type="checkbox" name="monday[]" id="monday" value="M1M"  />Thứ 2</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M2M" />Thứ 3</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M3M" />Thứ 4</label></td>
+                                <td><label><input type="checkbox" name="wday[]" id="wday" value="M1M"  />Thứ 2</label></td>
+                                <td><label><input type="checkbox" name="wday[]" value="M2M" />Thứ 3</label></td>
+                                <td><label><input type="checkbox" name="wday[]" value="M3M" />Thứ 4</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="monday[]" value="M4M" />Thứ 5</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M5M" />Thứ 6</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M6M" />Thứ 7</label></td>
+                                <td><label><input type="checkbox" name="wday[]" value="M4M" />Thứ 5</label></td>
+                                <td><label><input type="checkbox" name="wday[]" value="M5M" />Thứ 6</label></td>
+                                <td><label><input type="checkbox" name="wday[]" value="M6M" />Thứ 7</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="monday[]" value="M4M" />Chủ nhật</label></td>
+                                <td><label><input type="checkbox" name="wday[]" value="M4M" />Chủ nhật</label></td>
                                 </tr>
                                 
                             </table> 
