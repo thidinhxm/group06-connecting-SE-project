@@ -1,136 +1,182 @@
+<div class="container">
+    <div class="register-form">
+                <form action="" method="post">
+                    <h1>Đăng ký tìm gia sư</h1>
+                    <h2>Thông tin đăng nhập</h2>
+                    <div class="input-box">
+                      <input type="text" placeholder="Nhập email(*)" email="email" required>
+                  </div>
+                  <div class="input-box">
 
-<main>
-    <div class="container">
-        <div class="register-form">
-            <form action="" method="post">
-                <h1>Đăng ký tài khoản mới</h1>
-                <div class="input-box">
-                    <input type="email" placeholder="Email" email="email" required>
-                </div>
+                      <input type="password" name = "pass" placeholder="Nhập mật khẩu(*)" password="password" required>
+                  </div>
+                  <div class="input-box">
 
-                <div class="input-box">
-                    <input type="password" placeholder="Mật khẩu" password="password" required>
+                    <input type="password" name = "pass" placeholder="Nhập lại mật khẩu(*)" password="password" required>
                 </div>
-                        
-                <div class="input-box">
-                    <input type="password" name = "pass" placeholder="Xác nhận mật khẩu" password="password" required>
-                </div>
+                  
+                  <h2>Thông tin tài khoản</h2>
+                    <div class="input-box">
 
-                <div class="input-box">
-                    <input type="text" placeholder="Họ và tên" fullname="fullname" required>
-                </div>
-
-                <div class="input-box">
-                    <input type="text" placeholder="Tên hiển thị" displayname="displayname" required>
-                </div>
-
-                <div class="input-box">
-                    <input type="text" placeholder="Số điện thoại" phone="phone" required>
-                </div>
-
-                <div class="input-box">
-                    <input type="text" placeholder="Địa chỉ" address="address" required>
-                </div>
-
-                <div class="input-box row">
-                    <div class="col-6">
-                        <label for="ngaysinh">Ngày sinh</label>
-                        <br>
-                        <input type="date" id="ngaysinh" required/>
+                      <input type="text" placeholder="Nhập họ và tên(*)" fullname="fullname" required>
                     </div>
-                    <div class="col-6">
-                        <label for="gioitinh">Giới tính</label>
-                        <br>
-                        <select id="gioitinh" required>
-                            <option value="nam">Nam</option>
-                            <option value="nu">Nữ</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="input-box">
-                    <label for="type">Loại</label>
-                    <select id="type" required>
-                        <option value="hocsinh">Học sinh</option>
-                        <option value="giasu">Gia sư</option>
-                    </select>
-                </div>
-                <div class="btn-box">
-                    <button type="submit">
-                        Đăng ký
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</main>
+                    <div class="input-box">
 
+                      <input type="text" placeholder="Nhập tên hiển thị(*)" displayname="displayname" required>
+                    </div>
+                    
+
+                    <div class="input-box">
+
+                      <input type="tel" placeholder="Nhập số điện thoại(*)" phone="phone" required>
+                    </div>
+                    <div class="input-box">
+
+                        <input type="text" placeholder="Nhập địa chỉ(*)" address="address" required>
+                    </div>
+                    <div class="input-box">
+                        <div class="col-6">
+                            <label for="ngaysinh">Ngày sinh(*)</label>
+                            <br>
+                            <input type="date" id="ngaysinh" required/>
+                        </div>
+                        <div class="col-6">
+                            <label for="gioitinh">Giới tính(*)</label>
+                            <br>
+                            <select id="gioitinh" required>
+                                <option value="nam">Nam</option>
+                                <option value="nu">Nữ</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <label>Chọn avarta</label>
+                            <input type="file" accept="image/*" /> <!-- all image types --> 
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    
+                    <div class="btn-box">
+                        <br>
+                        <button type="reset">Reset</button>
+                        <button type="submit">Sign up</button>
+                    </div>
+                    <a>Đăng ký làm gia sư: </a><a href="http://127.0.0.1:3000/signupTutor"><strong style="color: blue;">Tại đây</strong></a>
+                    <br>
+                    <a>Đã có tài khoản: </a><a href="http://127.0.0.1:3000/login"><strong style="color: blue;">Đăng nhập</strong></a>
+                </form>
+            </div>
 <style>
-*{
-    padding: 0px;
-    margin: 0px;
-    font-family: sans-serif;
-    box-sizing: border-box;
-}
-.container{
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
+    *{
+        padding: 0px;
+        margin: 0px;
+        font-family: sans-serif;
+        box-sizing: border-box;
+        border: 2px;
+    }
+    .col-6{
+        float: left;
+        width: 46%;
+        margin-right: 4%;
+    }
+    .margin_b{
+        margin-bottom: 7.5px;
+    }
+    .clear{
+        clear: both;
+    }
+    h1{
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+    h2{
+        color:black;
+        font-size: 20px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
 
-main {
-    background-color: #dddddd;
-    min-height: 300px;
-    padding: 7.5px 15px;
-    margin-bottom: -15px;
-}
+    .register-form{
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #0ffc85;
+        padding: 25px;
+        border: 2px dotted #cccccc;
+        border-radius: 10px;
+    }
 
-h1 {
-    color: #009999;
-    font-size: 20px;
-    margin-bottom: 30px;
-}
-
-.register-form{
-    width: 100%;
-    max-width: 400px;
-    margin: 20px auto;
-    background-color: #ffffff;
-    padding: 15px;
-    border: 2px solid #cccccc;
-    border-radius: 10px;
-}
-
-.input-box {
-    margin-bottom: 15px;
-}
-
-.input-box input,
-.input-box select,
-.input-box select option {
-    padding: 7.5px 15px;
-    width: 100%;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    outline: none;
-    font-size: 16px;
-    display: inline-block;
-    height: 40px;
-    color: #666666;
-}
-
-.btn-box {
-    text-align: center;
-    margin-top: 30px;
-    padding: 5px;
-    border-radius: 10px;
-}
-.btn-box button{
-    padding: 7.5px 15px;
-    border-radius: 5px;
-    background-color: #009999;
-    color: #ffffff;
-    border: none;
-    outline: none;
-}
-</style>
+    .input-box{
+        margin-bottom: 10px;
+    }
+    .input-box input[type='text'],
+    .input-box input[type='password'],
+    .input-box input[type='date'],
+    .input-box input[type='tel']{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        display: inline-block;
+        height: 40px;
+        color: #666666;
+    }
+    .col-6{
+        margin-bottom: 15px;
+    }
+    .input-box input[type="file"]{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        display: inline-block;
+        height: 40px;
+        color: #666666;
+        padding-top: 10px;
+        background-color: white;
+    }
+    .input-box select{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        display: inline-block;
+        height: 40px;
+        color: #666666;
+    }
+    .input-box option{
+        font-size: 16px;
+    }
+    .input-box input[type='checkbox']{
+        height: 1.5em;
+        width: 1.5em;
+        vertical-align: middle;
+        line-height: 2em;
+    }
+    .input-box textarea{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        min-height: 120px;
+        color: #666666;
+    }
+    .btn-box{
+        text-align: right;
+        margin-top: 30px;
+    }
+    .btn-box button{
+        padding: 12px 40px;
+        background-color: #357ae8;
+        color: #ffffff;
+        border-radius: 5px;
+        margin-left: 10px;
+    }
+    </style>
+</div>
