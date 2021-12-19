@@ -9,3 +9,7 @@ exports.login = (req, res, next) => {
 exports.signup = (req, res, next) => {
     res.render('account/signup');
 }
+
+exports.signupTutor = (req, res, next) => {
+    res.render('account/signupTutor');
+}
