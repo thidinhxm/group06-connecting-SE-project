@@ -1,0 +1,281 @@
+<div class="container">
+    <div class="register-form">
+                <form action="" method="post">
+                    <h1>Đăng ký để làm gia sư</h1>
+                    <h2>Thông tin đăng nhập</h2>
+                    <div class="input-box">
+                      <input type="text" placeholder="Nhập email(*)" email="email" required>
+                  </div>
+                  <div class="input-box">
+
+                      <input type="password" name = "pass" placeholder="Nhập mật khẩu(*)" password="password" required>
+                  </div>
+                  <div class="input-box">
+
+                    <input type="password" name = "pass" placeholder="Nhập lại mật khẩu(*)" password="password" required>
+                </div>
+                  
+                  <h2>Thông tin tài khoản</h2>
+                    <div class="input-box">
+                      <input type="text" placeholder="Nhập họ và tên(*)" fullname="fullname" required>
+                    </div>
+
+                    <div class="input-box">
+                      <input type="text" placeholder="Nhập tên hiển thị(*)" displayname="displayname" required>
+                    </div>
+                    
+                    <div class="input-box">
+                      <input type="text" placeholder="Nhập CMND/CCCD(*)" displayname="displayname" required>
+                    </div>
+
+                    <div class="input-box">
+                      <input type="tel" placeholder="Nhập số điện thoại(*)" phone="phone" required>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="text" placeholder="Nhập địa chỉ(*)" address="address" required>
+                    </div>
+
+                    <div class="input-box">
+                        <div class="col-6">
+                            <label for="ngaysinh">Ngày sinh(*)</label>
+                            <br>
+                            <input type="date" id="ngaysinh" required/>
+                        </div>
+
+                        <div class="col-6">
+                            <label for="gioitinh">Giới tính(*)</label>
+                            <br>
+                            <select id="gioitinh">
+                                <option value="nam">Nam</option>
+                                <option value="nu">Nữ</option>
+                            </select>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="input-box">
+                            <label>Chọn avarta</label>
+                            <input type="file" accept="image/*" /> <!-- all image types --> 
+                    </div>
+                    
+                    <div class="input-box">
+                        <div class="col-6">
+                            <label>Nghề nghiệp:</label>
+                            <br>
+                            <select id="nghenghiep">
+                                <option value="1">Giáo viên</option>
+                                <option value="2">Sinh viên</option>
+                                <option value="3">Đã tốt nghiệp</option>
+                            </select>
+                        </div>
+
+                        <div class="col-6">
+                            <label>Trình độ: </label>
+                            <select id="trinhdo">
+                                <option value="1">Cao Đẳng</option>
+                                <option value="2">Đại Học</option>
+                                <option value="3">Cử nhân</option>
+                                <option value="4">Thạc sỹ</option>
+                                <option value="5">Tiến sỹ</option>
+                                <option value="6">Kỹ sư</option>
+                                <option value="7">Bằng cấp khác</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <h2>Thông tin môn học</h2>
+                    <div class="input-box">
+                        <label>Môn dạy:</label>
+                        <br>
+                        <div class="col-12">
+                            <table border="0" class="tablebox">
+                                <tr>
+                                <td><label><input type="checkbox" name="monday[]" id="monday" value="M1M"  />Toán</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M2M" />Lý</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M3M" />Hóa</label></td>
+                                </tr>
+                                <tr>
+                                <td><label><input type="checkbox" name="monday[]" value="M4M" />Văn</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M5M" />Tiếng Anh</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M6M" />Sinh</label></td>
+                                </tr>
+                                <tr>
+                                <td><label><input type="checkbox" name="monday[]" value="M4M" />Sử</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M5M" />Địa</label></td>
+                                </tr>
+                                
+                            </table> 
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Lớp dạy:</label>
+                        <br>
+                        <div class="col-12">
+                            <table border="0" class="tablebox">
+                                <tr>
+                                <td><label><input type="checkbox" name="monday[]" id="monday" value="M1M"  />Lớp 6</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M2M" />Lớp 7</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M3M" />Lớp 8</label></td>
+                                </tr>
+                                <tr>
+                                <td><label><input type="checkbox" name="monday[]" value="M4M" />Lớp 9</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M5M" />Lớp 10</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M6M" />Lớp 11</label></td>
+                                </tr>
+                                <tr>
+                                <td><label><input type="checkbox" name="monday[]" value="M4M" />Lớp 12</label></td>
+                                </tr>
+                                
+                            </table> 
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Thời gian dạy:</label>
+                        <br>
+                        <div class="col-12">
+                            <table border="0" class="tablebox">
+                                <tr>
+                                <td><label><input type="checkbox" name="monday[]" id="monday" value="M1M"  />Thứ 2</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M2M" />Thứ 3</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M3M" />Thứ 4</label></td>
+                                </tr>
+                                <tr>
+                                <td><label><input type="checkbox" name="monday[]" value="M4M" />Thứ 5</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M5M" />Thứ 6</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M6M" />Thứ 7</label></td>
+                                </tr>
+                                <tr>
+                                <td><label><input type="checkbox" name="monday[]" value="M4M" />Chủ nhật</label></td>
+                                </tr>
+                                
+                            </table> 
+                        </div>
+                    </div>
+
+                    <div class="btn-box">
+                        <br>
+                        <button type="reset">Reset</button>
+                        <button type="submit">Sign up</button>
+                    </div>
+                    <a>Đăng ký tìm gia sư: </a><a href="http://127.0.0.1:3000/signup"><strong style="color: blue;">Tại đây</strong></a>
+                    <br>
+                    <a>Đã có tài khoản: </a><a href="http://127.0.0.1:3000/login"><strong style="color: blue;">Đăng nhập</strong></a>
+                </form>
+            </div>
+<style>
+    *{
+        padding: 0px;
+        margin: 0px;
+        font-family: sans-serif;
+        box-sizing: border-box;
+    }
+    .col-6{
+        float: left;
+        width: 46%;
+        margin-right: 4%;
+    }
+    .margin_b{
+        margin-bottom: 7.5px;
+    }
+    .clear{
+        clear: both;
+    }
+    h1{
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+    h2{
+        color:black;
+        font-size: 20px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .register-form{
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #0ffc85;
+        padding: 25px;
+        border: 2px dotted #cccccc;
+        border-radius: 10px;
+    }
+
+    .input-box{
+        margin-bottom: 10px;
+    }
+    .input-box input[type='text'],
+    .input-box input[type='password'],
+    .input-box input[type='date'],
+    .input-box input[type='tel']{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        display: inline-block;
+        height: 40px;
+        color: #666666;
+    }
+    .col-6{
+        margin-bottom: 15px;
+    }
+    .input-box input[type="file"]{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        display: inline-block;
+        height: 40px;
+        color: #666666;
+        padding-top: 10px;
+        background-color: white;
+    }
+    .input-box select{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        display: inline-block;
+        height: 40px;
+        color: #666666;
+    }
+    .input-box option{
+        font-size: 16px;
+    }
+    .input-box input[type='checkbox']{
+        height: 1.5em;
+        width: 1.5em;
+        vertical-align: middle;
+        line-height: 2em;
+    }
+    .input-box textarea{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        min-height: 120px;
+        color: #666666;
+    }
+    .btn-box{
+        text-align: right;
+        margin-top: 30px;
+    }
+    .btn-box button{
+        padding: 10px 50px;
+        background-color: #357ae8;
+        color: #ffffff;
+        border-radius: 5px;
+        margin-left: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    </style>
+</div>
