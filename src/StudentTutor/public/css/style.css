@@ -639,3 +639,8 @@ h2 {
     font-size: 2em;
   }
 }
+
+/* CheckBox */
+input[type=checkbox] {
+  transform: scale(1.6);
+}
