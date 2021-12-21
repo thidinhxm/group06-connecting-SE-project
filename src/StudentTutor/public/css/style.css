@@ -452,44 +452,64 @@ h2 {
   width: 400px;
   height: 400px;
 }
-.login-form .form-group .btn-login-submit {
+.login-form .form-group .btn-login-submit,
+.signup-form .form-group .btn-signup-submit {
   background-color: #8e5ece;
   border-color: #6515ce;
 }
-.login-form .form-group .btn-login-submit:hover, .btn-login-submit:focus{
+.login-form .form-group .btn-login-submit:hover, 
+.login-form .form-group .btn-login-submit:focus, 
+.signup-form .form-group .btn-signup-submit:hover, 
+.signup-form .form-group .btn-signup-submit:focus {
   background-color: #6515ce !important;
   border-color: #8e5ece !important;
   color: #fff;
 }
 
-.login-form .error-block {
+.login-form .error-block,
+.signup-form .error-block {
   height: 20px;
   margin-bottom: 10px;
 }
 
-.login-choice {
+.login-choice, 
+.signup-choice {
   color: #333;
   font-weight: 300;
 }
-.login-choice:hover {
+.login-choice:hover,
+.signup-choice:hover {
   color: #000;
   font-weight: 600;
 }
-.login-text {
+.login-text,
+.signup-text {
   color: #000;
   font-weight: 400;
 }
 
-.login-form .input-group input:focus {
+.login-form .input-group input:focus,
+.signup-form .input-group input:focus,
+.signup-form .input-group select:focus {
   border-color: #8e5ece;
   box-shadow: 0 0 0 0.2rem rgba(69, 92, 113, 0.25);
 }
 
-.login-form .form-group button:focus {
+.login-form .form-group button:focus,
+.signup-form .form-group button:focus {
   border-color: #8e5ece;
   box-shadow: 0 0 0 0.2rem rgba(69, 92, 113, 0.25);
 }
 
+.turn-back-link {
+  color: #8e5ece;
+  font-weight: 400;
+}
+
+.turn-back-link:hover{
+  color: #4a2081;
+  font-weight: 500;
+}
 /*------------ end login form ---------*/
 
 
