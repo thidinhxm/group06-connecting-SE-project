@@ -4,11 +4,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const exphbs = require('express-handlebars');
 const logger = require('morgan');
+const session = require('express-session');
+const flash = require('connect-flash');
 
 const indexRouter = require('./routes/index');
 const accountRouter = require('./routes/account');
 const tutorRouter = require('./routes/tutor');
 const studentRouter = require('./routes/student');
+const passport = require('./middlewares/passport');
 const app = express();
 
 // view engine setup
@@ -25,6 +28,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+	secret: process.env.SESSION_SECRET,
+	resave: false,
+	saveUninitialized: true,
+	cookie: {
+		maxAge: 1000 * 60 * 60 * 24 * 7,
+	},
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/', accountRouter);
