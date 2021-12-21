@@ -467,6 +467,29 @@ input[type=checkbox] {
   margin-bottom: 10px;
 }
 
+.login-choice {
+  color: #333;
+  font-weight: 300;
+}
+.login-choice:hover {
+  color: #000;
+  font-weight: 600;
+}
+.login-text {
+  color: #000;
+  font-weight: 400;
+}
+
+.login-form .input-group input:focus {
+  border-color: #8e5ece;
+  box-shadow: 0 0 0 0.2rem rgba(69, 92, 113, 0.25);
+}
+
+.login-form .form-group button:focus {
+  border-color: #8e5ece;
+  box-shadow: 0 0 0 0.2rem rgba(69, 92, 113, 0.25);
+}
+
 /*------------ end login form ---------*/
 
 
