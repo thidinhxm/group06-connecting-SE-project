@@ -2,45 +2,51 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('studentrequest', {
     student_request_id: {
-      type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+      autoIncrement: true,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'request',
-        key: 'request_id'
-      }
+      primaryKey: true
     },
     student_id: {
-      type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'student',
         key: 'student_id'
       }
     },
-    grade_id: {
-      type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
-      allowNull: false,
-      references: {
-        model: 'gradesubject',
-        key: 'grade_id'
-      }
+    address: {
+      type: DataTypes.TEXT,
+      allowNull: false
     },
-    subject_id: {
-      type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
-      allowNull: false,
-      references: {
-        model: 'gradesubject',
-        key: 'subject_id'
-      }
+    phone: {
+      type: DataTypes.CHAR(10),
+      allowNull: false
     },
-    tuition: {
+    salary: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    grade: {
+      type: DataTypes.STRING(40),
+      allowNull: true
+    },
+    subject: {
+      type: DataTypes.STRING(40),
+      allowNull: true
+    },
+    time: {
+      type: DataTypes.TEXT,
+      allowNull: true
     },
     other_request: {
       type: DataTypes.TEXT,
       allowNull: true
+    },
+    status: {
+      type: DataTypes.STRING(20),
+      allowNull: false,
+      defaultValue: "Chưa duyệt"
     }
   }, {
     sequelize,
@@ -60,14 +66,6 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "student_id" },
-        ]
-      },
-      {
-        name: "FK_StudentRequest_GradeSubject",
-        using: "BTREE",
-        fields: [
-          { name: "grade_id" },
-          { name: "subject_id" },
         ]
       },
     ]

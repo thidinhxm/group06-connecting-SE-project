@@ -2,16 +2,13 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('tutorrequest', {
     tutor_request_id: {
-      type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+      autoIncrement: true,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'request',
-        key: 'request_id'
-      }
+      primaryKey: true
     },
     post_id: {
-      type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'post',
@@ -19,20 +16,29 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     tutor_id: {
-      type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'tutor',
         key: 'tutor_id'
       }
     },
-    degree: {
-      type: DataTypes.TEXT,
+    phone: {
+      type: DataTypes.CHAR(10),
+      allowNull: false
+    },
+    payment_option: {
+      type: DataTypes.STRING(40),
       allowNull: false
     },
     other_request: {
       type: DataTypes.TEXT,
       allowNull: true
+    },
+    status: {
+      type: DataTypes.STRING(20),
+      allowNull: false,
+      defaultValue: "Chưa duyệt"
     }
   }, {
     sequelize,

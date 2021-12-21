@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('student', {
     student_id: {
-      type: DataTypes.INTEGER.UNSIGNED.ZEROFILL,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       references: {
@@ -32,7 +32,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     birthday: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: true
     }
   }, {
     sequelize,
