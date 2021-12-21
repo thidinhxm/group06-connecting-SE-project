@@ -1,77 +1,80 @@
+
+
 <div class="container">
     <div class="register-form">
                 <form action="" method="post">
                     <h1>Đăng ký tài khoản gia sư</h1>
                     <h2>Thông tin đăng nhập</h2>
                     <div class="input-box">
-                      <input type="text" placeholder="Nhập email(*)" name="email" required>
+                        <label><span style="color: red;">*</span></label>
+                        <input type="text" placeholder="Email" name="email" required>
                   </div>
                   <div class="input-box">
-
-                      <input type="password" name = "pass" placeholder="Nhập mật khẩu(*)" name="password" required>
+                        <label><span style="color: red;">*</span></label>
+                        <input type="password" placeholder="Mật khẩu" name="password" required>
                   </div>
                   <div class="input-box">
-
-                    <input type="password" name = "pass" placeholder="Nhập lại mật khẩu(*)" name="password" required>
+                        <label><span style="color: red;">*</span></label>
+                        <input type="password" name = "password" placeholder="Xác nhận mật khẩu" password="password" required>
                 </div>
                   
                   <h2>Thông tin tài khoản</h2>
                     <div class="input-box">
-                      <input type="text" placeholder="Nhập họ và tên(*)" name="fullname" required>
+                        <label><span style="color: red;">*</span></label>
+                        <input type="text" placeholder="Họ và tên" fullname="fullname" required>
+                    </div>
+                    <div class="input-box">
+                        <label><span style="color: red;">*</span></label>
+                        <input type="text" placeholder="Tên hiển thị" displayname="displayname" required>
+                    </div>
+                    <div class="input-box">
+                        <label><span style="color: red;">*</span></label>
+                        <input type="text" placeholder="Nhập CMND/CCCD" displayname="cmnd/cccd" required>
                     </div>
 
                     <div class="input-box">
-                      <input type="text" placeholder="Nhập tên hiển thị(*)" name="displaynanameme" required>
+                        <label><span style="color: red;">*</span></label>
+                        <input type="tel" placeholder="Số điện thoại" phone="phone" required>
                     </div>
-                    
                     <div class="input-box">
-                      <input type="text" placeholder="Nhập CMND/CCCD(*)" name="cmnd" required>
+                        <label><span style="color: red;">*</span></label>
+                        <input type="text" placeholder="Địa chỉ" address="address" required>
                     </div>
-
                     <div class="input-box">
-                      <input type="tel" placeholder="Nhập số điện thoại(*)" name="phone" required>
-                    </div>
-
-                    <div class="input-box">
-                        <input type="text" placeholder="Nhập địa chỉ(*)"  name="address" required>
-                    </div>
-
-                    <div class="input-box">
-                        <div class="col-6">
-                            <label for="birthday">Ngày sinh(*)</label>
+                        <div class="col-6 row">
+                            <label for="ngaysinh">Ngày sinh<span style="color: red;">*</span></label>
                             <br>
-                            <input type="date" id="birthday" name="birthday" required/>
+                            <input type="date" id="ngaysinh" required style="border: 1px solid black;"/>
                         </div>
-
-                        <div class="col-6">
-                            <label for="gender">Giới tính(*)</label>
+                        <div class="col-6 row">
+                            <label for="gioitinh">Giới tính<span style="color: red;">*</span></label>
                             <br>
-                            <select id="gender" name="gender">
+                            <select id="gioitinh" required style="border: 1px solid black;">
                                 <option value="nam">Nam</option>
                                 <option value="nu">Nữ</option>
                             </select>
                         </div>
-                        <div class="clear"></div>
                     </div>
+
                     <div class="input-box">
-                            <label>Chọn avarta</label>
-                            <input name="avarta" type="file" accept="image/*" /> <!-- all image types --> 
+                        <label>Chọn avatar</label>
+                        <input type="file" accept="image/*" style="border: 1px solid black;" /> <!-- all image types --> 
                     </div>
                     
                     <div class="input-box">
-                        <div class="col-6">
+                        <div class="col-6 row">
                             <label>Nghề nghiệp:</label>
                             <br>
-                            <select id="nghenghiep">
+                            <select id="nghenghiep" style="border: 1px solid black;">
                                 <option value="1">Giáo viên</option>
                                 <option value="2">Sinh viên</option>
                                 <option value="3">Đã tốt nghiệp</option>
                             </select>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-6 row">
                             <label>Trình độ: </label>
-                            <select id="trinhdo">
+                            <select id="trinhdo" style="border: 1px solid black;">
                                 <option value="1">Cao Đẳng</option>
                                 <option value="2">Đại Học</option>
                                 <option value="3">Cử nhân</option>
@@ -82,15 +85,14 @@
                             </select>
                         </div>
                     </div>
-                    
                     <h2>Thông tin môn học</h2>
                     <div class="input-box">
                         <label>Môn dạy:</label>
                         <br>
                         <div class="col-12">
-                            <table border="0" class="tablebox">
+                            <table border="0" class="tablebox" id="monday">
                                 <tr>
-                                <td><label><input type="checkbox" name="monday[]" id="monday" value="M1M"  />Toán</label></td>
+                                <td><label><input type="checkbox" name="monday[]" value="M1M"  />Toán</label></td>
                                 <td><label><input type="checkbox" name="monday[]" value="M2M" />Lý</label></td>
                                 <td><label><input type="checkbox" name="monday[]" value="M3M" />Hóa</label></td>
                                 </tr>
@@ -112,19 +114,19 @@
                         <label>Lớp dạy:</label>
                         <br>
                         <div class="col-12">
-                            <table border="0" class="tablebox">
+                            <table border="0" class="tablebox" id="lopday">
                                 <tr>
-                                <td><label><input type="checkbox" name="tday[]" id="tday" value="M1M"  />Lớp 6</label></td>
-                                <td><label><input type="checkbox" name="tday[]" value="M2M" />Lớp 7</label></td>
-                                <td><label><input type="checkbox" name="tday[]" value="M3M" />Lớp 8</label></td>
+                                <td><label><input type="checkbox" name="lopday[]" value="L6L" value="M1M"  />Lớp 6</label></td>
+                                <td><label><input type="checkbox" name="lopday[]" value="L7L" />Lớp 7</label></td>
+                                <td><label><input type="checkbox" name="lopday[]" value="L8L" />Lớp 8</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="tday[]" value="M4M" />Lớp 9</label></td>
-                                <td><label><input type="checkbox" name="tday[]" value="M5M" />Lớp 10</label></td>
-                                <td><label><input type="checkbox" name="tday[]" value="M6M" />Lớp 11</label></td>
+                                <td><label><input type="checkbox" name="lopday[]" value="L9L" />Lớp 9</label></td>
+                                <td><label><input type="checkbox" name="lopday[]" value="L10L" />Lớp 10</label></td>
+                                <td><label><input type="checkbox" name="lopday[]" value="L11L" />Lớp 11</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="tday[]" value="M4M" />Lớp 12</label></td>
+                                <td><label><input type="checkbox" name="loday[]" value="L12L" />Lớp 12</label></td>
                                 </tr>
                                 
                             </table> 
@@ -135,41 +137,73 @@
                         <label>Thời gian dạy:</label>
                         <br>
                         <div class="col-12">
-                            <table border="0" class="tablebox">
+                            <table border="0" class="tablebox" id="thoigianday">
                                 <tr>
-                                <td><label><input type="checkbox" name="wday[]" id="wday" value="M1M"  />Thứ 2</label></td>
-                                <td><label><input type="checkbox" name="wday[]" value="M2M" />Thứ 3</label></td>
-                                <td><label><input type="checkbox" name="wday[]" value="M3M" />Thứ 4</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="2S" />Thứ 2 - Sáng</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="2C" />Thứ 2 - Chiều</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="2T" />Thứ 2 - Tối</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="wday[]" value="M4M" />Thứ 5</label></td>
-                                <td><label><input type="checkbox" name="wday[]" value="M5M" />Thứ 6</label></td>
-                                <td><label><input type="checkbox" name="wday[]" value="M6M" />Thứ 7</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="3S" />Thứ 3 - Sáng</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="3C" />Thứ 3 - Chiều</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="3T" />Thứ 3 - Tối</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="wday[]" value="M4M" />Chủ nhật</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="4S" />Thứ 4 - Sáng</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="4C" />Thứ 4 - Chiều</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="4T" />Thứ 4 - Tối</label></td>
                                 </tr>
-                                
-                            </table> 
+                                <tr>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="5S" />Thứ 5 - Sáng</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="5C" />Thứ 5 - Chiều</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="5T" />Thứ 5 - Tối</label></td>
+                                </tr>
+                                <tr>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="6S" />Thứ 6 - Sáng</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="6C" />Thứ 6 - Chiều</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="6T" />Thứ 6 - Tối</label></td>
+                                </tr>
+                                <tr>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="7S" />Thứ 7 - Sáng</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="7C" />Thứ 7 - Chiều</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="7T" />Thứ 7 - Tối</label></td>
+                                </tr>
+                                <tr>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="CNS" />CN - Sáng</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="CNC" />CN - Chiều</label></td>
+                                <td><label><input type="checkbox" name="thoigianday[]" value="CNT" />CN - Tối</label></td>
+                                </tr>
+                         </table>
                         </div>
                     </div>
 
                     <div class="btn-box">
                         <br>
-                        <button type="reset">Reset</button>
-                        <button type="submit">Sign up</button>
+                        <button type="reset" style="display: 3s;">Điền lại</button>
+                        <button type="submit">Đăng ký</button>
                     </div>
-                    <a>Đăng ký tài khoản học sinh: </a><a href="/signup"><strong style="color: blue;">Tại đây</strong></a>
                     <br>
-                    <a>Đã có tài khoản: </a><a href="/login"><strong style="color: blue;">Đăng nhập</strong></a>
+                    <a style="padding:0px; margin:0px">Đăng ký tài khoản học sinh: </a><a href="/signup"><strong style="color: blue;padding:0px; margin:0px">Tại đây</strong></a>
+                    <br>
+                    <a style="padding:0px; margin:0px">Đã có tài khoản: </a><a href="/login"><strong style="color: blue;padding:0px; margin:0px">Đăng nhập</strong></a>
                 </form>
             </div>
 <style>
     *{
         padding: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
         margin: 0px;
-        font-family: sans-serif;
-        box-sizing: border-box;
+        border: 2px;
+    }
+    .input-box textarea{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        min-height: 120px;
+        color: #666666;
     }
     .col-6{
         float: left;
@@ -199,9 +233,9 @@
         width: 100%;
         max-width: 600px;
         margin: 20px auto;
-        background-color: #0ffc85;
+        background-color: #00ffdd;
         padding: 25px;
-        border: 2px dotted #cccccc;
+        border: 1px solid black;
         border-radius: 10px;
     }
 
@@ -214,7 +248,7 @@
     .input-box input[type='tel']{
         padding: 7.5px 15px;
         width: 100%;
-        border: 1px solid #cccccc;
+        border: 1px solid #000000;
         outline: none;
         font-size: 16px;
         display: inline-block;
@@ -269,13 +303,11 @@
         margin-top: 30px;
     }
     .btn-box button{
-        padding: 10px 50px;
-        background-color: #357ae8;
+        padding: 12px 40px;
+        background-color: DodgerBlue;
         color: #ffffff;
         border-radius: 5px;
         margin-left: 10px;
-        margin-top: 20px;
-        margin-bottom: 20px;
     }
     </style>
 </div>
