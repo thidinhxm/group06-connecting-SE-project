@@ -6,7 +6,7 @@
                     <h4 class="card-title text-center mb-4 mt-1">Đăng nhập tài khoản</h4>
                     <hr />
                     <br />
-                    <form>
+                    <form action="/login" method="POST" id="form-login">
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -27,7 +27,7 @@
                             <button type="submit" class="btn btn-primary btn-block btn-login-submit">Đăng nhập</button>
                         </div> <!-- form-group// -->
                         <div class="error-block">
-                            <p class="text-danger text-center text-notification-error">Thông tin tài khoản chưa chính xác</p>
+                            <p class="text-danger text-center" id="login-err-notification"></p>
                         </div>
                         <p class="text-primary text-center"><a href="#">Quên mật khẩu?</a></p>
                         <p class="text-center">Chưa có tài khoản?<a href="#"> Đăng ký</a></p>
@@ -40,3 +40,4 @@
         </div>
     </div>
 </div>
+

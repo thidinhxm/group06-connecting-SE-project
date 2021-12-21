@@ -467,8 +467,4 @@ input[type=checkbox] {
   margin-bottom: 10px;
 }
 
-.login-form .error-block .text-notification-error {
-  display: none;
-}
-
 /*------------ end login form ---------*/

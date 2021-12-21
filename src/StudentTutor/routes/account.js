@@ -4,6 +4,7 @@ const router = express.Router();
 const accountController = require('../controllers/account');
 const passport = require('../middlewares/passport');
 const auth = require('../middlewares/auth');
+const accountAPI = require('../api/account');
 
 router.get('/profile', accountController.profile);
 router.get('/login', accountController.login);
@@ -16,5 +17,7 @@ router.post('/login', passport.authenticate('local', {
     failureRedirect: '/login',
     failureFlash: true,
 }));
+
+router.post('/api/check-account', accountAPI.checkAccount);
 
 module.exports = router;
