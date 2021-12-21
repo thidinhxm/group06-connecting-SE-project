@@ -1,0 +1,184 @@
+<div class="container">
+    <div class="register-form">
+                <form action="" method="post">
+                    <h1>Đăng ký tài khoản học sinh</h1>
+                    <h2>Thông tin đăng nhập</h2>
+                    <div class="input-box">
+                        <label><span style="color: red;">*</span></label>
+                        <input type="text" placeholder="Email" name="email" required>
+                  </div>
+                  <div class="input-box">
+                        <label><span style="color: red;">*</span></label>
+                        <input type="password" placeholder="Mật khẩu" name="password" required>
+                  </div>
+                  <div class="input-box">
+                        <label><span style="color: red;">*</span></label>
+                        <input type="password" name = "password" placeholder="Xác nhận mật khẩu" password="password" required>
+                </div>
+                  
+                  <h2>Thông tin tài khoản</h2>
+                    <div class="input-box">
+                        <label><span style="color: red;">*</span></label>
+                        <input type="text" placeholder="Họ và tên" fullname="fullname" required>
+                    </div>
+                    <div class="input-box">
+                        <label><span style="color: red;">*</span></label>
+                        <input type="text" placeholder="Tên hiển thị" displayname="displayname" required>
+                    </div>
+                    
+
+                    <div class="input-box">
+                        <label><span style="color: red;">*</span></label>
+                        <input type="tel" placeholder="Số điện thoại" phone="phone" required>
+                    </div>
+                    <div class="input-box">
+                        <label><span style="color: red;">*</span></label>
+                        <input type="text" placeholder="Địa chỉ" address="address" required>
+                    </div>
+                    <div class="input-box">
+                        <div class="col-6 row" >
+                            <label for="ngaysinh">Ngày sinh<span style="color: red;">*</span></label>
+                            <br>
+                            <input type="date" id="ngaysinh" required style="border: 1px solid black;"/>
+                        </div>
+                        <div class="col-6 row">
+                            <label for="gioitinh">Giới tính<span style="color: red;">*</span></label>
+                            <br>
+                            <select style="border: 1px solid black;" id="gioitinh" required>
+                                <option value="nam">Nam</option>
+                                <option value="nu">Nữ</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Chọn avatar</label>
+                        <input type="file" accept="image/*" style="border: 1px solid black;"/> <!-- all image types --> 
+                    </div>
+                    
+                    
+                    <div class="btn-box">
+                        <br>
+                        <button type="reset">Điền lại</button>
+                        <button type="submit">Đăng ký</button>
+                    </div>
+                    <br>
+                    <a style="padding:0px; margin:0px">Đăng ký tài khoản gia sư: </a><a href="/signupTutor"><strong style="color: blue;padding:0px; margin:0px">Tại đây</strong></a>
+                    <br>
+                    <a style="padding:0px; margin:0px">Đã có tài khoản: </a><a href="/login"><strong style="color: blue;padding:0px; margin:0px">Đăng nhập</strong></a>
+                </form>
+            </div>
+<style>
+    *{
+        padding: 0px;
+        margin: 0px;
+        border: 2px;
+    }
+    .col-6{
+        float: left;
+        width: 46%;
+        margin-right: 4%;
+    }
+    .margin_b{
+        margin-bottom: 7.5px;
+    }
+    .clear{
+        clear: both;
+    }
+    h1{
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+    h2{
+        color:black;
+        font-size: 20px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .register-form{
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #00ffdd;
+        padding: 25px;
+        border-radius: 10px;
+        border: 1px solid black;
+    }
+
+    .input-box{
+        margin-bottom: 10px;
+    }
+    .input-box input[type='text'],
+    .input-box input[type='password'],
+    .input-box input[type='date'],
+    .input-box input[type='tel'],
+    .input-box input[type='file']{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        display: inline-block;
+        height: 40px;
+        color: #666666;
+        border: 1px solid #000000;
+    }
+    .col-6{
+        margin-bottom: 15px;
+    }
+    .input-box input[type="file"]{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        display: inline-block;
+        height: 40px;
+        color: #666666;
+        padding-top: 10px;
+        background-color: white;
+    }
+    .input-box select{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        display: inline-block;
+        height: 40px;
+        color: #666666;
+    }
+    .input-box option{
+        font-size: 16px;
+    }
+    .input-box input[type='checkbox']{
+        height: 1.5em;
+        width: 1.5em;
+        vertical-align: middle;
+        line-height: 2em;
+    }
+    .input-box textarea{
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+        font-size: 16px;
+        min-height: 120px;
+        color: #666666;
+    }
+    .btn-box{
+        text-align: right;
+        margin-top: 30px;
+    }
+    .btn-box button{
+        padding: 12px 40px;
+        background-color: #357ae8;
+        color: #ffffff;
+        border-radius: 5px;
+        margin-left: 10px;
+    }
+    </style>
+</div>

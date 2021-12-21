@@ -468,3 +468,40 @@ input[type=checkbox] {
 }
 
 /*------------ end login form ---------*/
+
+
+/*------------ signup choice ---------*/
+.signup-box {
+  margin-top: 100px;
+}
+
+.signup-title-box {
+  margin: 50px auto;
+}
+
+.signup-title {
+  font-size: 30px;
+  font-weight: 500;
+  color: #333;
+}
+
+.card-img {
+  display: flex;
+  justify-content: center;
+}
+.card-signup {
+  height: 300px;
+  width: 200px;
+}
+
+.card-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-option {
+  border: 1px solid #7f4d94;
+  color: #7f4d94;
+}
+
+/*------------ end signup choice ---------*/

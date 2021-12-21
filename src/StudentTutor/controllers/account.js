@@ -10,6 +10,10 @@ exports.signup = (req, res, next) => {
     res.render('account/signup');
 }
 
+exports.signupStudent = (req, res, next) => {
+    res.render('account/signupStudent');
+}
+
 exports.signupTutor = (req, res, next) => {
     res.render('account/signupTutor');
 }

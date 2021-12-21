@@ -8,8 +8,10 @@ const accountAPI = require('../api/account');
 
 router.get('/profile', accountController.profile);
 router.get('/login', accountController.login);
+
 router.get('/signup', accountController.signup);
-router.get('/signupTutor', accountController.signupTutor);
+router.get('/signup/student', accountController.signupStudent);
+router.get('/signup/tutor', accountController.signupTutor);
 
 
 router.post('/login', passport.authenticate('local', {

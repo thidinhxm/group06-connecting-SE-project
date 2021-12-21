@@ -1,8 +1,8 @@
 /*------- CHECK LOGIN -------*/
 $('.btn-login-submit').click(function(e) {
     e.preventDefault();
-    const email = $('#email').val();
-    const password = $('#password').val();
+    const email = $('#email-login').val();
+    const password = $('#password-login').val();
     if (email == '' || password == '') {
         $('#login-err-notification').text('Vui lòng nhập đầy đủ thông tin');
         return false;
