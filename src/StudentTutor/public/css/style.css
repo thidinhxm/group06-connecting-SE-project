@@ -438,7 +438,7 @@ h2 {
 }
 
 /* CheckBox */
-input[type=checkbox] {
+.form-request input[type=checkbox] {
   transform: scale(1.6);
 }
 
