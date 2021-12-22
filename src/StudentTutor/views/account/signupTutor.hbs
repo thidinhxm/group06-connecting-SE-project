@@ -1,80 +1,87 @@
-
-
 <div class="container">
+
+    <div class="col-lg-7 col-12 row justify-content-center" style="margin:20px;font-size:larger;">
+        <div class="col-12 col-md-10">
+                 <a href="/signup" class="turn-back-link"><i class="fas fa-long-arrow-alt-left"></i>&nbsp;Thay đổi vai trò</a>
+             </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <div class="register-form">
                 <form action="" method="post">
                     <h1>Đăng ký tài khoản gia sư</h1>
-                    <h2>Thông tin đăng nhập</h2>
+                    <h4>Thông tin đăng nhập</h4>
                     <div class="input-box">
-                        <label><span style="color: red;">*</span></label>
+                        <i class="fa fa-envelope"></i>
                         <input type="text" placeholder="Email" name="email" required>
-                  </div>
-                  <div class="input-box">
-                        <label><span style="color: red;">*</span></label>
-                        <input type="password" placeholder="Mật khẩu" name="password" required>
-                  </div>
-                  <div class="input-box">
-                        <label><span style="color: red;">*</span></label>
-                        <input type="password" name = "password" placeholder="Xác nhận mật khẩu" password="password" required>
-                </div>
-                  
-                  <h2>Thông tin tài khoản</h2>
+                    </div>
                     <div class="input-box">
-                        <label><span style="color: red;">*</span></label>
+                        <i class="fa fa-lock"></i>
+                        <input type="password" placeholder="Mật khẩu" name="password" required>
+                    </div>
+                    <div class="input-box">
+                        <i class="fa fa-lock"></i>
+                        <input type="password" name = "password" placeholder="Xác nhận mật khẩu" name="password" required>
+                    </div>
+                  
+                  <h4>Thông tin tài khoản</h4>
+                    <div class="input-box">
+                        <i class="fa fa-user"></i>
                         <input type="text" placeholder="Họ và tên" fullname="fullname" required>
                     </div>
                     <div class="input-box">
-                        <label><span style="color: red;">*</span></label>
+                        <i class="fa fa-user"></i>
                         <input type="text" placeholder="Tên hiển thị" displayname="displayname" required>
                     </div>
                     <div class="input-box">
-                        <label><span style="color: red;">*</span></label>
+                        <i class="fa fa-id-card"></i>
                         <input type="text" placeholder="Nhập CMND/CCCD" displayname="cmnd/cccd" required>
                     </div>
 
                     <div class="input-box">
-                        <label><span style="color: red;">*</span></label>
+                        <i class="fa fa-phone"></i>
                         <input type="tel" placeholder="Số điện thoại" phone="phone" required>
                     </div>
                     <div class="input-box">
-                        <label><span style="color: red;">*</span></label>
+                        <i class="fas fa-location-arrow"></i>
                         <input type="text" placeholder="Địa chỉ" address="address" required>
+
                     </div>
-                    <div class="input-box">
-                        <div class="col-6 row">
-                            <label for="ngaysinh">Ngày sinh<span style="color: red;">*</span></label>
-                            <br>
-                            <input type="date" id="ngaysinh" required style="border: 1px solid black;"/>
+                    <div class="input-box" style="display: flex;flex-wrap: wrap;border: none;margin: 0px;padding: 0px; margin-bottom: 10px;">
+                        <div class="ngaysinh-gioitinh" style="display: flex;flex-wrap: wrap;width:48%;border: 1px solid black;">
+                            <span style="margin-top: 10px;"><i class="fas fa-birthday-cake"></i></span>                   
+                            <input style="width: 80%;" name="birthday" class="form-control" placeholder="Ngày sinh" type="text" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" id="student-birthday">
                         </div>
-                        <div class="col-6 row">
-                            <label for="gioitinh">Giới tính<span style="color: red;">*</span></label>
-                            <br>
-                            <select id="gioitinh" required style="border: 1px solid black;">
+                        <div class="ngaysinh-gioitinh" style="width:40%;margin-left:4%;border: 1px solid black;">
+                            <i class="fas fa-transgender-alt"></i>                      
+                            <select id="gioitinh" required style="border: none;background-color: none;width: 80%;">
+                                <option>Giới tính</option>
                                 <option value="nam">Nam</option>
                                 <option value="nu">Nữ</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="input-box">
-                        <label>Chọn avatar</label>
-                        <input type="file" accept="image/*" style="border: 1px solid black;" /> <!-- all image types --> 
+                    <h4>Avatar</h4>
+                    <div class="input-box-avatar">
+                        <span style="margin-top: 20px;"><i class="fas fa-user-tie"></i></span>
+                        <input style="margin-top: 5px;" type="file" accept="image/*" placeholder="avatar"/> <!-- all image types --> 
                     </div>
-                    
-                    <div class="input-box">
-                        <div class="col-6 row">
-                            <label>Nghề nghiệp:</label>
-                            <br>
-                            <select id="nghenghiep" style="border: 1px solid black;">
+                    <!--copy ngaysinh gioitinh-->
+                    <div class="input-box" style="display: flex;flex-wrap: wrap;border: none;margin: 0px;padding: 0px; margin-bottom: 10px;">
+                        <div class="ngaysinh-gioitinh" style="display: flex;flex-wrap: wrap;width:48%;border: 1px solid black;">
+                            <span style="margin-top: 10px;"><i class="fas fa-user-md"></i></span>
+                            <select id="nghenghiep" name="nghenghiep" style="border: none;background-color: none;width: 80%;">
+                                <option>Nghề nghiệp</option>
                                 <option value="1">Giáo viên</option>
                                 <option value="2">Sinh viên</option>
                                 <option value="3">Đã tốt nghiệp</option>
                             </select>
                         </div>
-
-                        <div class="col-6 row">
-                            <label>Trình độ: </label>
-                            <select id="trinhdo" style="border: 1px solid black;">
+                        <div class="ngaysinh-gioitinh" style="width:40%;margin-left:4%;border: 1px solid black;">
+                            <i class="fas fa-layer-group"></i>
+                            <select id="trinhdo" style="border: none;background-color: none;width: 80%;">
+                                <option>Trình độ</option>
                                 <option value="1">Cao Đẳng</option>
                                 <option value="2">Đại Học</option>
                                 <option value="3">Cử nhân</option>
@@ -85,12 +92,16 @@
                             </select>
                         </div>
                     </div>
-                    <h2>Thông tin môn học</h2>
-                    <div class="input-box">
+
+                    
+                    <h4>Thông tin môn học</h4>
+                    <div class="input-box" style="margin: 10px;margin-left: 0px;">
+                        <br>
                         <label>Môn dạy:</label>
                         <br>
-                        <div class="col-12">
-                            <table border="0" class="tablebox" id="monday">
+                        <br>
+                        <div class="col-30 row-10" style="margin-bottom: 10px;">
+                            <table class="tablebox" id="monday" style="margin-bottom: 5px;">
                                 <tr>
                                 <td><label><input type="checkbox" name="monday[]" value="M1M"  />Toán</label></td>
                                 <td><label><input type="checkbox" name="monday[]" value="M2M" />Lý</label></td>
@@ -110,11 +121,13 @@
                         </div>
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" style="margin: 10px;margin-left: 0px;">
+                        <br>
                         <label>Lớp dạy:</label>
                         <br>
-                        <div class="col-12">
-                            <table border="0" class="tablebox" id="lopday">
+                        <br>
+                        <div class="col-30 row-10" style="margin-bottom: 10px;">
+                            <table class="tablebox" id="lopday">
                                 <tr>
                                 <td><label><input type="checkbox" name="lopday[]" value="L6L" value="M1M"  />Lớp 6</label></td>
                                 <td><label><input type="checkbox" name="lopday[]" value="L7L" />Lớp 7</label></td>
@@ -133,11 +146,13 @@
                         </div>
                     </div>
 
-                    <div class="input-box">
+                    <div class="input-box" style="margin: 10px;margin-left: 0px;">
+                        <br>
                         <label>Thời gian dạy:</label>
                         <br>
-                        <div class="col-12">
-                            <table border="0" class="tablebox" id="thoigianday">
+                        <br>
+                        <div class="col-30 row-10" style="margin-bottom: 10px;">
+                            <table class="tablebox" id="thoigianday">
                                 <tr>
                                 <td><label><input type="checkbox" name="thoigianday[]" value="2S" />Thứ 2 - Sáng</label></td>
                                 <td><label><input type="checkbox" name="thoigianday[]" value="2C" />Thứ 2 - Chiều</label></td>
@@ -178,14 +193,11 @@
                     </div>
 
                     <div class="btn-box">
-                        <br>
-                        <button type="reset" style="display: 3s;">Điền lại</button>
                         <button type="submit">Đăng ký</button>
                     </div>
-                    <br>
-                    <a style="padding:0px; margin:0px">Đăng ký tài khoản học sinh: </a><a href="/signup"><strong style="color: blue;padding:0px; margin:0px">Tại đây</strong></a>
-                    <br>
-                    <a style="padding:0px; margin:0px">Đã có tài khoản: </a><a href="/login"><strong style="color: blue;padding:0px; margin:0px">Đăng nhập</strong></a>
+                    <div style="text-align: center;">
+                        <a style="padding:0px; margin:0px;text-align: center;">Đã có tài khoản: </a><a href="/login">Đăng nhập</a>
+                    </div>
                 </form>
             </div>
 <style>
@@ -196,25 +208,19 @@
         margin: 0px;
         border: 2px;
     }
-    .input-box textarea{
-        padding: 7.5px 15px;
+    .nghenghiep-trinhdo{
+        text-align: center;
         width: 100%;
-        border: 1px solid #cccccc;
         outline: none;
         font-size: 16px;
-        min-height: 120px;
+        display: inline-block;
+        height: 40px;
         color: #666666;
-    }
-    .col-6{
-        float: left;
-        width: 46%;
-        margin-right: 4%;
-    }
-    .margin_b{
-        margin-bottom: 7.5px;
-    }
-    .clear{
-        clear: both;
+        background-color: white;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px;
+        padding: 0px;
     }
     h1{
         text-align: center;
@@ -222,7 +228,7 @@
         margin-bottom: 30px;
         margin-top: 20px;
     }
-    h2{
+    h4{
         color:black;
         font-size: 20px;
         margin-top: 30px;
@@ -233,34 +239,44 @@
         width: 100%;
         max-width: 600px;
         margin: 20px auto;
-        background-color: #00ffdd;
+        background-color: none;
         padding: 25px;
-        border: 1px solid black;
+        border: none;
         border-radius: 10px;
     }
 
     .input-box{
         margin-bottom: 10px;
+        border: 1px solid rgb(51, 45, 45);
+    }
+    .input-box-avatar{
+        width: 96%;
+        border: 1px solid black;
+        outline: none;
+        font-size: 16px;
+        display: inline-block;
+        height: 40px;
+        color: #666666;
+        padding-top: 10px;
+        margin-bottom: 10px;
+        background-color: white;
     }
     .input-box input[type='text'],
     .input-box input[type='password'],
     .input-box input[type='date'],
     .input-box input[type='tel']{
         padding: 7.5px 15px;
-        width: 100%;
-        border: 1px solid #000000;
+        width: 90%;
         outline: none;
         font-size: 16px;
         display: inline-block;
         height: 40px;
         color: #666666;
-    }
-    .col-6{
-        margin-bottom: 15px;
+        border: none;
     }
     .input-box input[type="file"]{
         padding: 7.5px 15px;
-        width: 100%;
+        width: 90%;
         border: 1px solid #cccccc;
         outline: none;
         font-size: 16px;
@@ -289,25 +305,18 @@
         vertical-align: middle;
         line-height: 2em;
     }
-    .input-box textarea{
-        padding: 7.5px 15px;
-        width: 100%;
-        border: 1px solid #cccccc;
-        outline: none;
-        font-size: 16px;
-        min-height: 120px;
-        color: #666666;
-    }
     .btn-box{
         text-align: right;
         margin-top: 30px;
     }
     .btn-box button{
         padding: 12px 40px;
+        width: 100%;
         background-color: DodgerBlue;
         color: #ffffff;
         border-radius: 5px;
-        margin-left: 10px;
+        margin: 0px;
+        margin-bottom: 30px;
     }
     </style>
 </div>
