@@ -1,14 +1,13 @@
-	{{> header}}
+{{> header}}
 <div class="row justify-content-center">
     <div class="form-request col-lg-8 col-md-10 col-sm-12">
         <div class="form-request_body col-lg-10">
             <h3 class="form-heading text-center">FORM YÊU CẦU NHẬN LỚP</h3>
 
-            <form class="" action="" method="POST">
+            <form class="form-request" action="" method="POST">
                 <div class="form-group mb-3">
-                    <label for="fname" class="form-label">Họ tên (<span style="color: red">*</span>)</label>
-                    <input type="text" class="form-control" id="fname" placeholder="Ví dụ: Nguyễn Văn A" name="name"
-                        required>
+                    <label for="fidpost" class="form-label">Mã bài đăng</label>
+                    <input type="text" class="form-control" id="fidpost" value="BD001" name="idpost">
                 </div>
                 <div class="form-group mb-3">
                     <label for="fphone" class="form-label">Số điện thoại (<span style="color: red">*</span>)</label>
@@ -16,33 +15,24 @@
                         required>
                 </div>
                 <div class="form-group mb-3">
-                    <label for="faddress" class="form-label">Địa chỉ (<span style="color: red">*</span>)</label>
-                    <input type="text" class="form-control" id="faddress" placeholder="Ví dụ: Thủ Đức, TP.Hồ Chí Minh"
-                        name="address" required>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="flevel" class="form-label">Trình độ hiện tại (<span style="color: red">*</span>)</label>
-                    <input type="text" class="form-control" id="flevel"
-                        placeholder="Ví dụ: SV năm 2 Khoa CNTT trường ĐHKHTN" name="level" required>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="fexperience" class="form-label">Kinh nghiệm dạy (<span
+                    <label for="fpay" class="form-label">Hình thức thanh toán (<span
                             style="color: red">*</span>)</label>
-                    <input type="text" class="form-control" id="fexperience"
-                        placeholder="Ví dụ: 1 năm dạy môn toán lớp 9" name="experience" required>
+                    <select class="form-select w-100" id="fpay" name="class" required>
+                        <option value="TPHCM">Chuyển khoản</option>
+                        </option>
+                        <option value="TPHCM">Thanh toán trưc tiếp tại trung tâm</option>
+                    </select>
                 </div>
-
                 <div class="form-group mb-3">
                     <label for="fdifferent" class="form-label">Yêu cầu khác (nếu có)</label>
-                    <input type="text" class="form-control" id="fdifferent" placeholder="Ví dụ: Có 1 năm kinh nghiệm"
-                        name="different">
+                    <input type="text" class="form-control" id="fdifferent" placeholder="" name="different">
                 </div>
 
-                <div class="form-group mb-3">
+                <div class="form-group mb-2">
                     <button type="submit" class="btn btn-success mb-3 w-100 f-btn">SUBMIT</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-	{{> footer}}
+{{> footer}}

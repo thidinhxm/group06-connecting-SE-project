@@ -57,3 +57,11 @@ $('.form-change-password input').click(()=>{
 })
 
 // ----------- End JS Profile ---------------
+
+// ----------- End JS PostList ---------------
+$('.postList .btn-request-form').click((e)=>{
+    const idNode = e.target.offsetParent.firstElementChild.firstElementChild.children[1]
+    const idValue = $(idNode).val();
+    $('.postList #fidpost').val(idValue);
+})
+// ----------- End JS PostList ---------------
