@@ -22,11 +22,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('hbs', exphbs.engine({
 	extname: 'hbs',
 	defaultLayout: 'layout',
-	helpers: {
-		isLocked: (isLocked) => {
-			return isLocked == 1;
-		},
-	}
 }));
 app.set('view engine', 'hbs');
 

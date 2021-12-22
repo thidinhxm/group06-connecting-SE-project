@@ -11,7 +11,7 @@ router.get('/login', accountController.login);
 
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login?message=Login failed',
+    failureRedirect: '/login',
     failureFlash: true,
 }));
 
