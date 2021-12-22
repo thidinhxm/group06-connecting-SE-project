@@ -19,7 +19,9 @@ exports.checkAccount = async (req, res, next) => {
 exports.checkExistAccount = async (req, res, next) => {
     try {
         const {email} = req.body;
-        const account = await accountService.getUserByEmail(email);
+        console.log(req.body);
+        const account = await accountService.getAccountByEmail(email);
+        console.log(account);
         if (account) {
             res.json(true);
         }

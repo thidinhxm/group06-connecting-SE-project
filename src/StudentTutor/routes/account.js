@@ -19,6 +19,9 @@ router.post('/login', passport.authenticate('local', {
     failureFlash: true,
 }));
 
+router.post('/signup-student', accountController.signupStudentPost);
+
 router.post('/api/check-account', accountAPI.checkAccount);
 
+router.post('/api/check-exists-account', accountAPI.checkExistAccount);
 module.exports = router;
