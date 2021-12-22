@@ -31,20 +31,16 @@
                     </div>
                     <div class="input-box">
                         <i class="fa fa-user"></i>
-                        <input type="text" placeholder="Tên hiển thị" name="displayname" required>
-                    </div>
-                    <div class="input-box">
-                        <i class="fa fa-id-card"></i>
-                        <input type="text" placeholder="Nhập CMND/CCCD" name="cmnd/cccd" required>
+                        <input type="text" placeholder="Tên hiển thị" name="dis_playname" required>
                     </div>
 
                     <div class="input-box">
                         <i class="fa fa-phone"></i>
-                        <input type="tel" placeholder="Số điện thoại" phone="phone" required>
+                        <input type="tel" placeholder="Số điện thoại" name="phone" required>
                     </div>
                     <div class="input-box">
                         <i class="fas fa-location-arrow"></i>
-                        <input type="text" placeholder="Địa chỉ" address="address" required>
+                        <input type="text" placeholder="Địa chỉ" name="address" required>
 
                     </div>
                     <div class="input-box" style="display: flex;flex-wrap: wrap;border: none;margin: 0px;padding: 0px; margin-bottom: 10px;">
@@ -61,17 +57,12 @@
                             </select>
                         </div>
                     </div>
-
-                    <h4>Avatar</h4>
-                    <div class="input-box-avatar">
-                        <span style="margin-top: 20px;"><i class="fas fa-user-tie"></i></span>
-                        <input style="margin-top: 5px;" type="file" accept="image/*" placeholder="avatar"/> <!-- all image types --> 
-                    </div>
+                    
                     <!--copy ngaysinh gioitinh-->
                     <div class="input-box" style="display: flex;flex-wrap: wrap;border: none;margin: 0px;padding: 0px; margin-bottom: 10px;">
                         <div class="ngaysinh-gioitinh" style="display: flex;flex-wrap: wrap;width:48%;border: 1px solid black;">
                             <span style="margin-top: 10px;"><i class="fas fa-user-md"></i></span>
-                            <select id="nghenghiep" name="nghenghiep" style="border: none;background-color: none;width: 80%;">
+                            <select id="job" name="job" style="border: none;background-color: none;width: 80%;">
                                 <option>Nghề nghiệp</option>
                                 <option value="1">Giáo viên</option>
                                 <option value="2">Sinh viên</option>
@@ -79,17 +70,8 @@
                             </select>
                         </div>
                         <div class="ngaysinh-gioitinh" style="width:40%;margin-left:4%;border: 1px solid black;">
-                            <i class="fas fa-layer-group"></i>
-                            <select id="trinhdo" style="border: none;background-color: none;width: 80%;">
-                                <option>Trình độ</option>
-                                <option value="1">Cao Đẳng</option>
-                                <option value="2">Đại Học</option>
-                                <option value="3">Cử nhân</option>
-                                <option value="4">Thạc sỹ</option>
-                                <option value="5">Tiến sỹ</option>
-                                <option value="6">Kỹ sư</option>
-                                <option value="7">Bằng cấp khác</option>
-                            </select>
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <input type="number" name="min_salary" placeholder="Lương thấp nhất" style="background-color: none;width: 80%;margin-top: 6px;padding: 10px;">
                         </div>
                     </div>
 
@@ -101,20 +83,20 @@
                         <br>
                         <br>
                         <div class="col-30 row-10" style="margin-bottom: 10px;">
-                            <table class="tablebox" id="monday" style="margin-bottom: 5px;">
+                            <table class="tablebox" id="subject" style="margin-bottom: 5px;">
                                 <tr>
-                                <td><label><input type="checkbox" name="monday[]" value="M1M"  />Toán</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M2M" />Lý</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M3M" />Hóa</label></td>
+                                <td><label><input type="checkbox" name="subject[]" value="M1M"  />Toán</label></td>
+                                <td><label><input type="checkbox" name="subject[]" value="M2M" />Lý</label></td>
+                                <td><label><input type="checkbox" name="subject[]" value="M3M" />Hóa</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="monday[]" value="M4M" />Văn</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M5M" />Tiếng Anh</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M6M" />Sinh</label></td>
+                                <td><label><input type="checkbox" name="subject[]" value="M4M" />Văn</label></td>
+                                <td><label><input type="checkbox" name="subject[]" value="M5M" />Tiếng Anh</label></td>
+                                <td><label><input type="checkbox" name="subject[]" value="M6M" />Sinh</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="monday[]" value="M4M" />Sử</label></td>
-                                <td><label><input type="checkbox" name="monday[]" value="M5M" />Địa</label></td>
+                                <td><label><input type="checkbox" name="subject[]" value="M4M" />Sử</label></td>
+                                <td><label><input type="checkbox" name="subject[]" value="M5M" />Địa</label></td>
                                 </tr>
                                 
                             </table> 
@@ -127,19 +109,19 @@
                         <br>
                         <br>
                         <div class="col-30 row-10" style="margin-bottom: 10px;">
-                            <table class="tablebox" id="lopday">
+                            <table class="tablebox" id="grade">
                                 <tr>
-                                <td><label><input type="checkbox" name="lopday[]" value="L6L" value="M1M"  />Lớp 6</label></td>
-                                <td><label><input type="checkbox" name="lopday[]" value="L7L" />Lớp 7</label></td>
-                                <td><label><input type="checkbox" name="lopday[]" value="L8L" />Lớp 8</label></td>
+                                <td><label><input type="checkbox" name="grade[]" value="L6L" value="M1M"  />Lớp 6</label></td>
+                                <td><label><input type="checkbox" name="grade[]" value="L7L" />Lớp 7</label></td>
+                                <td><label><input type="checkbox" name="grade[]" value="L8L" />Lớp 8</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="lopday[]" value="L9L" />Lớp 9</label></td>
-                                <td><label><input type="checkbox" name="lopday[]" value="L10L" />Lớp 10</label></td>
-                                <td><label><input type="checkbox" name="lopday[]" value="L11L" />Lớp 11</label></td>
+                                <td><label><input type="checkbox" name="grade[]" value="L9L" />Lớp 9</label></td>
+                                <td><label><input type="checkbox" name="grade[]" value="L10L" />Lớp 10</label></td>
+                                <td><label><input type="checkbox" name="grade[]" value="L11L" />Lớp 11</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="loday[]" value="L12L" />Lớp 12</label></td>
+                                <td><label><input type="checkbox" name="grade[]" value="L12L" />Lớp 12</label></td>
                                 </tr>
                                 
                             </table> 
@@ -152,41 +134,41 @@
                         <br>
                         <br>
                         <div class="col-30 row-10" style="margin-bottom: 10px;">
-                            <table class="tablebox" id="thoigianday">
+                            <table class="tablebox" id="time">
                                 <tr>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="2S" />Thứ 2 - Sáng</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="2C" />Thứ 2 - Chiều</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="2T" />Thứ 2 - Tối</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="2S" />Thứ 2 - Sáng</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="2C" />Thứ 2 - Chiều</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="2T" />Thứ 2 - Tối</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="3S" />Thứ 3 - Sáng</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="3C" />Thứ 3 - Chiều</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="3T" />Thứ 3 - Tối</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="3S" />Thứ 3 - Sáng</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="3C" />Thứ 3 - Chiều</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="3T" />Thứ 3 - Tối</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="4S" />Thứ 4 - Sáng</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="4C" />Thứ 4 - Chiều</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="4T" />Thứ 4 - Tối</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="4S" />Thứ 4 - Sáng</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="4C" />Thứ 4 - Chiều</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="4T" />Thứ 4 - Tối</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="5S" />Thứ 5 - Sáng</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="5C" />Thứ 5 - Chiều</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="5T" />Thứ 5 - Tối</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="5S" />Thứ 5 - Sáng</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="5C" />Thứ 5 - Chiều</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="5T" />Thứ 5 - Tối</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="6S" />Thứ 6 - Sáng</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="6C" />Thứ 6 - Chiều</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="6T" />Thứ 6 - Tối</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="6S" />Thứ 6 - Sáng</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="6C" />Thứ 6 - Chiều</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="6T" />Thứ 6 - Tối</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="7S" />Thứ 7 - Sáng</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="7C" />Thứ 7 - Chiều</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="7T" />Thứ 7 - Tối</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="7S" />Thứ 7 - Sáng</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="7C" />Thứ 7 - Chiều</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="7T" />Thứ 7 - Tối</label></td>
                                 </tr>
                                 <tr>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="CNS" />CN - Sáng</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="CNC" />CN - Chiều</label></td>
-                                <td><label><input type="checkbox" name="thoigianday[]" value="CNT" />CN - Tối</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="CNS" />CN - Sáng</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="CNC" />CN - Chiều</label></td>
+                                <td><label><input type="checkbox" name="time[]" value="CNT" />CN - Tối</label></td>
                                 </tr>
                          </table>
                         </div>
