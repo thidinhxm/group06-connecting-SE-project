@@ -1,71 +1,91 @@
 <nav class="navbar navbar-expand-xl">
-    <div class="container h-100">
-        <i class="fas fa-book-open"></i>
-        <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars tm-nav-icon"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto h-100">
-                <li class="nav-item">
-                    <a class="active dashboard nav-link " href="/">
-                        TRANG CHỦ
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a 
-                        class="nav-link  dropdown-toggle" 
-                        href="#" 
-                        id="navbarDropdown" 
-                        role="button" 
-                        data-toggle="dropdown"
-                        aria-haspopup="true" 
-                        aria-expanded="false"
-                    >
-                        <span>&nbsp;GIA SƯ&nbsp;</span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/tutors/posts"><i class="fas fa-search"></i>&nbsp;Bài đăng tìm gia sư</a>
-                        <a class="dropdown-item" href="/tutors/send-request"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Gửi yêu cầu nhận lớp</a>
-                    </div>
-                </li>
+  <div class="container h-100">
+    <i class="fas fa-book-open"></i>
+    <button
+      class="navbar-toggler ml-auto mr-0"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars tm-nav-icon"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav h-100">
+        <li class="nav-item">
+          <a class="active dashboard nav-link" href="/">
+            TRANG CHỦ
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span>&nbsp;GIA SƯ&nbsp;</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/tutors/posts"><i
+                class="fas fa-search"
+              ></i>&nbsp;Bài đăng tìm gia sư</a>
+            <a class="dropdown-item" href="/tutors/send-request"><i
+                class="fas fa-chalkboard-teacher"
+              ></i>&nbsp;Gửi yêu cầu nhận lớp</a>
+          </div>
+        </li>
 
-                <li class="nav-item dropdown">
-                    <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="navbarDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                    >
-                        <span>HỌC SINH</span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/students/send-request"><i class="fas fa-user-graduate"></i>&nbsp;Gửi yêu cầu tìm gia sư</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-chalkboard-teacher"></i>&nbsp;Thông tin gia sư</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="navbarDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                    >
-                        <span><i class="far fa-user-circle"></i>&nbsp;Tài khoản</span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/profile">Thông tin cá nhân</a>
-                        <a class="dropdown-item" href="#">Đăng xuất</a>
-                    </div>
-                </li>
-            </ul>
-            
-        </div>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span>HỌC SINH</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/students/send-request"><i
+                class="fas fa-user-graduate"
+              ></i>&nbsp;Gửi yêu cầu tìm gia sư</a>
+            <a class="dropdown-item" href="#"><i
+                class="fas fa-chalkboard-teacher"
+              ></i>&nbsp;Thông tin gia sư</a>
+          </div>
+        </li>
+        {{! <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span><i class="far fa-user-circle"></i>&nbsp;Tài khoản</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/profile">Thông tin cá nhân</a>
+            <a class="dropdown-item" href="#">Đăng xuất</a>
+          </div>
+        </li> }}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/login">
+            <span>ĐĂNG NHẬP</span>
+          </a>
+        </li>
+      </ul>
+
     </div>
+  </div>
 </nav>
