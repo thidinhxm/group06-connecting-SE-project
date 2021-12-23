@@ -3,7 +3,7 @@
     <div class="row align-items-start">
         <div class="col id-col ">
             <div class="btn id-content">
-                <h6>19120695</h6>
+                <h6>{{post.post_id}}</h6>
             </div>
         </div>
     </div>
@@ -14,13 +14,13 @@
             <div class="row criteria-line ">
 
                 <div class="col-4 criteria-title ">Lớp</div>
-                <input class="col" type="text" id="grade" name="grade" value="9" required>
+                <input class="col" type="text" id="grade" name="grade" value="{{post.grade}}" required>
             </div>
 
 
             <div class="row criteria-line">
                 <div class="col-4 criteria-title ">Môn học</div>
-                <input class="col" type="text" id="subject" name="subject" value="Toán" required>
+                <input class="col" type="text" id="subject" name="subject" value="{{post.subject}}" required>
 
 
             </div>
@@ -28,14 +28,14 @@
 
             <div class="row criteria-line">
                 <div class="col-4 criteria-title">Mức lương/h</div>
-                <input class="col" type="text" id="salary" name="salary" value="100000" required>
+                <input class="col" type="text" id="salary" name="salary" value="{{post.salary}}" required>
 
 
             </div>
 
             <div class="row criteria-line">
                 <div class="col-4 criteria-title">Địa chỉ</div>
-                <input class="col" type="text" id="address" placeholder="" name="address" value="Thủ Đức, TPHCM"
+                <input class="col" type="text" id="address" placeholder="" name="address" value="{{post.address}}"
                     required>
 
             </div>
@@ -43,7 +43,7 @@
             <div class="row criteria-line">
                 <div class="col-4 criteria-title">Yêu cầu khác</div>
                 <textarea class="col" id="more" name="more" rows="3" cols="200 "
-                    wrap="soft ">có kiến thức vững và trách nhiệm với học viên. Yêu cầu tối thiểu 1 năm kinh nghiệm làm gia sư. 1m70 đẹp trai quê Vũng Tàu, tên Xuân Thi là lợi thế</textarea>
+                    wrap="soft ">{{post.other_request}}</textarea>
             </div>
 
             <div class="row criteria-line ">
@@ -51,11 +51,11 @@
                 <div class="col-5 ">
 
                     <select class="form-select " aria-label="Default select example" name="status">
-                        <option value=" " selected>Đang chờ duyệt</option>
+                        <option value=" " {{#ifStr postStatus "Chưa duyệt"}} selected {{/ifStr}}>Đang chờ duyệt</option>
                         <!-- <option selected>Đang chờ duyệt</option> -->
-                        <option value="1">Hoàn thành</option>
-                        <option value="2">Đang chờ duyệt</option>
-                        <option value="3">Từ chối</option>
+                        <option value="1" {{#ifStr postStatus "Hoàn thành"}} selected {{/ifStr}}>Hoàn thành</option>
+                        <option value="2" {{#ifStr postStatus "Chưa duyệt"}} selected {{/ifStr}}>Đang chờ duyệt</option>
+                        <option value="3" {{#ifStr postStatus "Từ chối"}} selected {{/ifStr}}>Từ chối</option>
                     </select>
                 </div>
             </div>

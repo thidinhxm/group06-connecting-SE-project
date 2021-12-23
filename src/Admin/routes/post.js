@@ -7,7 +7,7 @@ const auth = require('../middlewares/auth');
 router.get('/', auth.isLogin, postController.list);
 // router.get('/edit', postController.edit);
 
-router.get('/edit', auth.isLogin, postController.show);
+router.get('/edit/:postID', auth.isLogin, postController.show);
 
 router.get('/create', auth.isLogin, postController.create);
 

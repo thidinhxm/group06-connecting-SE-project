@@ -20,12 +20,13 @@
                 <div class="table100-body js-pscroll">
                     <table>
                         <tbody>
+                            {{#each posts}}
                             <tr class="row100 body">
-                                <td class="cell100 column1">1809231123</td>
-                                <td class="cell100 column2">12455123421</td>
-                                <td class="cell100 column1">Toán</td>
+                                <td class="cell100 column1">{{post_id}}</td>
+                                <td class="cell100 column2">{{student_request_id}}</td>
+                                <td class="cell100 column1">{{subject}}</td>
 
-                                <td class="cell100 column2">Đang chờ duyệt</td>
+                                <td class="cell100 column2">{{'student_request.status'}}</td>
                                 <td class="cell100 column2">
                                     <div class="dropdown show">
                                         <a class="" href="#" role="button" id="dropdownMenuLink"
@@ -34,7 +35,7 @@
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <a class="dropdown-item item-more dropdown-item-edit"
-                                                href="/posts/edit">
+                                                href="/posts/edit/{{post_id}}">
                                                 <i class="far fa-edit"></i>&nbsp;&nbsp;&nbsp;Chỉnh sửa bài viết</a>
                                             <a class="dropdown-item item-more dropdown-item-edit" href="#">
                                                 <i class="far fa-eye-slash"></i>&nbsp;&nbsp;&nbsp;Ẩn bài viết</a>
@@ -54,6 +55,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            {{/each}}
                         </tbody>
                     </table>
                 </div>

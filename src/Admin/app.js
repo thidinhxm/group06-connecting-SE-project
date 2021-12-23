@@ -22,6 +22,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('hbs', exphbs.engine({
 	extname: 'hbs',
 	defaultLayout: 'layout',
+	helpers: {
+        ifStr(str1, str2, options) { if (str1 == str2) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+        }
+    }
 }));
 app.set('view engine', 'hbs');
 
