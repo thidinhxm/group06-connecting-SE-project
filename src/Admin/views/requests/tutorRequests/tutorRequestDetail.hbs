@@ -14,60 +14,45 @@
 			<div class="tm-bg-primary-dark tm-block tm-block-settings">
 				<h2 class="tm-block-title">YÊU CẦU NHẬN LỚP</h2>
 				<div class="about-request">
+					{{#with tutorRequest}}
 					<div class="row">
 						<div class="col-md-5">
-							<label>Mã lớp</label>
+							<label>ID</label>
 						</div>
 						<div class="col-md-7">
-							<p>001</p>
+							<p>{{tutor_request_id}}</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-5">
-							<label>Ngay dang </label>
+							<label>Mã bài đăng</label>
 						</div>
 						<div class="col-md-7">
-							<p>12/10/2021</p>
+							<p>{{post_id}}</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-5">
-							<label>Ho va ten gia su</label>
+							<label>Mã gia sư</label>
 						</div>
 						<div class="col-md-7">
-							<p>Nguyen Van A</p>
+							<p>{{tutor_id}}</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-5">
-							<label>So dien thoai </label>
+							<label>Số điện thoại</label>
 						</div>
 						<div class="col-md-7">
-							<p>0123456789</p>
+							<p>{{phone}}</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-5">
-							<label>Dia chi </label>
+							<label>Hình thức thanh toán</label>
 						</div>
 						<div class="col-md-7">
-							<p>Quan 7, Tp Ho Chi Minh</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-5">
-							<label>Trinh do hien tai </label>
-						</div>
-						<div class="col-md-7">
-							<p>Dai hoc</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-5">
-							<label>Kinh nghiem day</label>
-						</div>
-						<div class="col-md-7">
-							<p>2 nam kinh nghiem </p>
+							<p>{{payment_option}}</p>
 						</div>
 					</div>
 					<div class="row">
@@ -75,9 +60,14 @@
 							<label>Yêu cầu khác</label>
 						</div>
 						<div class="col-md-7">
-							<p>Khong</p>
+							{{#if other_request}}
+							<p>{{other_request}}</p>
+							{{else}}
+							<p>Không có yêu cầu khác</p>
+							{{/if}}
 						</div>
 					</div>
+					{{/with}}
 				</div>
 			</div>
 		</div>

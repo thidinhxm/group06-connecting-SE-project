@@ -14,20 +14,29 @@
 			<div class="tm-bg-primary-dark tm-block tm-block-settings">
 				<h2 class="tm-block-title">YÊU CẦU TÌM GIA SƯ</h2>
 				<div class="about-request">
+					{{#with studentRequest}}
 					<div class="row">
 						<div class="col-md-5">
-							<label>Họ và tên học sinh</label>
+							<label>ID</label>
 						</div>
 						<div class="col-md-7">
-							<p>{{'student_request.name'}}</p>
+							<p>{{student_request_id}}</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-5">
-							<label>Môn học</label>
+							<label>Điện thoại</label>
 						</div>
 						<div class="col-md-7">
-							<p>Toan</p>
+							<p>{{phone}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label>Địa chỉ</label>
+						</div>
+						<div class="col-md-7">
+							<p>{{address}}</p>
 						</div>
 					</div>
 					<div class="row">
@@ -35,15 +44,15 @@
 							<label>Lớp</label>
 						</div>
 						<div class="col-md-7">
-							<p>7</p>
+							<p>{{grade}}</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-5">
-							<label>Địa chỉ </label>
+							<label>Môn học</label>
 						</div>
 						<div class="col-md-7">
-							<p>Quan 7, Tp Ho Chi Minh</p>
+							<p>{{subject}}</p>
 						</div>
 					</div>
 					<div class="row">
@@ -51,7 +60,7 @@
 							<label>Lương </label>
 						</div>
 						<div class="col-md-7">
-							<p>2.000.000 VND</p>
+							<p>{{salary}} vnđ</p>
 						</div>
 					</div>
 					<div class="row">
@@ -59,7 +68,7 @@
 							<label>Thời gian </label>
 						</div>
 						<div class="col-md-7">
-							<p>7h-9h 2b/tuan sap xep</p>
+							<p>{{time}}</p>
 						</div>
 					</div>
 					<div class="row">
@@ -67,10 +76,18 @@
 							<label>Yêu cầu khác</label>
 						</div>
 						<div class="col-md-7">
-							<p>Gia su co kinh nghiem </p>
+							<p>{{other_request}}</p>
 						</div>
 					</div>
-
+					<div class="row">
+						<div class="col-md-5">
+							<label>Trạng thái</label>
+						</div>
+						<div class="col-md-7">
+							<p>{{status}}</p>
+						</div>
+					</div>
+					{{/with}}
 				</div>
 			</div>
 		</div>

@@ -10,69 +10,29 @@
 				<thead>
 					<tr>
 						<th scope="col">ID</th>
-						<th scope="col">Ngày gửi</th>
-						<th scope="col">Họ và tên</th>
+						<th scope="col">Số điện thoại</th>
+						<th scope="col">Hình thức thanh toán</th>
 						<th scope="col">Trạng thái</th>
 						<th scope="col">Thao tác</th>
 					</tr>
 				</thead>
 				<tbody>
+					{{#each tutorRequests}}
 					<tr>
-						<th scope="row"><b>004</b></th>
-						<td><b>12/11/2021</b></td>
-						<td><b>Châu Lý Phương Trinh</b></td>
-						<td><b>Đang chờ duyệt</b></td>
+						<th scope="row"><b>{{tutor_request_id}}</b></th>
+						<td><b>{{phone}}</b></td>
+						<td><b>{{payment_option}}</b></td>
+						<td><b>{{status}}</b></td>
 						<td>
 							<a
 								class="tm-product-delete-link"
-								href="/requests/tutor-requests/1"
+								href="/requests/tutor-requests/{{tutor_request_id}}"
 							>
 								<i class="fas fa-eye tm-product-delete-icon"></i>
 							</a>
 						</td>
 					</tr>
-					<tr>
-						<th scope="row"><b>003</b></th>
-						<td><b>11/11/2021</b></td>
-						<td><b>Trần Văn Thái</b></td>
-						<td><b>Đang chờ duyệt</b></td>
-						<td>
-							<a
-								class="tm-product-delete-link"
-								href="/requests/tutor-requests/1"
-							>
-								<i class="fas fa-eye tm-product-delete-icon"></i>
-							</a>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row"><b>002</b></th>
-						<td><b>09/11/2021</b></td>
-						<td><b>Trần Văn Quân</b></td>
-						<td><b>Đã hủy</b></td>
-						<td>
-							<a
-								class="tm-product-delete-link"
-								href="/requests/tutor-requests/1"
-							>
-								<i class="fas fa-eye tm-product-delete-icon"></i>
-							</a>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row"><b>001</b></th>
-						<td><b>05/11/2021</b></td>
-						<td><b>Định Trần Xuân Thi</b></td>
-						<td><b>Đã duyệt</b></td>
-						<td>
-							<a
-								class="tm-product-delete-link"
-								href="/requests/tutor-requests/1"
-							>
-								<i class="fas fa-eye tm-product-delete-icon"></i>
-							</a>
-						</td>
-					</tr>
+					{{/each}}
 				</tbody>
 			</table>
 		</div>

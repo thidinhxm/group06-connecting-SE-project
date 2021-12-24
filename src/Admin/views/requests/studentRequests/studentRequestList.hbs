@@ -10,8 +10,8 @@
 				<thead>
 					<tr>
 						<th scope="col">ID</th>
-						<th scope="col">Ngày gửi</th>
-						<th scope="col">Họ và tên</th>
+						<th scope="col">Điện thoại</th>
+						<th scope="col">Địa chỉ</th>
 						<th scope="col">Trạng thái</th>
 						<th scope="col">Thao tác</th>
 					</tr>
@@ -20,9 +20,9 @@
 					{{#each studentRequests}}
 						<tr>
 							<th scope="row"><b>{{student_request_id}}</b></th>
-							<td><b>{{student_id}}</b></td>
-							<td><b>{{grade_id}}</b></td>
-							<td><b>{{subject_id}}</b></td>
+							<td><b>{{phone}}</b></td>
+							<td><b>{{address}}</b></td>
+							<td><b>{{status}}</b></td>
 							<td>
 								<a
 								class="tm-product-delete-link"
