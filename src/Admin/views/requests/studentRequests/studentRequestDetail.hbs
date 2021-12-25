@@ -1,5 +1,6 @@
 	{{> header}}
 <div class="container mt-5">
+	{{#with studentRequest}}
 	<div class="row tm-content-row">
 		<div class="col-12 tm-block-col">
 			<div class="page-title">
@@ -14,7 +15,7 @@
 			<div class="tm-bg-primary-dark tm-block tm-block-settings">
 				<h2 class="tm-block-title">YÊU CẦU TÌM GIA SƯ</h2>
 				<div class="about-request">
-					{{#with studentRequest}}
+					
 					<div class="row">
 						<div class="col-md-5">
 							<label>ID</label>
@@ -87,14 +88,19 @@
 							<p>{{status}}</p>
 						</div>
 					</div>
-					{{/with}}
+					
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 		<button class="btn btn-primary me-md-2 option" type="button">Tạo lớp mới</button>
-		<button class="btn btn-danger option" type="button">Hủy yêu cầu</button>
+		<form action="/requests/student-requests/cancel" method="post">
+			<input id="userType" name="userType" value="student" type="text" hidden>
+			<input id="id" name="id" type="number" value={{student_request_id}} hidden>
+			<button class="btn btn-danger option" type="submit">Hủy yêu cầu</button>
+		</form>
 	</div>
+	{{/with}}
 </div>
 {{> footer}}

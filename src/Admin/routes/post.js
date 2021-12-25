@@ -1,14 +1,13 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const postController = require('../controllers/post');
-const auth = require('../middlewares/auth');
+const requestController = require("../controllers/request");
 
-router.get('/', auth.isLogin, postController.list);
-// router.get('/edit', postController.edit);
+router.get("/tutor-requests", requestController.listTutorRequests);
+router.get("/tutor-requests/:id", requestController.showTutorRequest);
 
-router.get('/edit/:postID', auth.isLogin, postController.show);
-
-router.get('/create', auth.isLogin, postController.create);
-
+router.get("/student-requests", requestController.listStudentRequests);
+router.get("/student-requests/:student_request_id", requestController.showStudentRequest);
+router.post("/student-requests/cancel", requestController.cancel);
+router.post("/tutor-requests/cancel", requestController.cancel);
 module.exports = router;

@@ -20,3 +20,14 @@ exports.showStudentRequest = async (req, res, next) => {
     console.log(studentRequest);
     res.render('requests/studentRequests/studentRequestDetail', {studentRequest});
 }
+
+exports.cancel = async (req, res, next) => {
+    var id = req.body.id;
+    var userType = req.body.userType;
+    await requestService.updateCancel(id, userType);
+    if (userType=='student') {
+        res.redirect('/requests/student-requests');
+    } else {
+        res.redirect('/requests/tutor-requests');   
+    }
+}
