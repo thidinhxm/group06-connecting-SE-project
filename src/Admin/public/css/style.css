@@ -12,8 +12,8 @@ a {
 }
 
 .clear {
-    clear:both;
-    line-height:0;
+  clear: both;
+  line-height: 0;
 }
 a:focus,
 a:hover {
@@ -22,11 +22,16 @@ a:hover {
 button:focus {
   outline: 0;
 }
+.container > i {
+  margin-right: 65px;
+}
 
 .navbar {
   background-color: #758ecd;
 }
-
+.navbar-nav {
+  flex: 1;
+}
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -55,7 +60,9 @@ button:focus {
   color: #fff;
   font-size: 2rem;
 }
-
+.nav-item:last-of-type {
+  margin-left: auto;
+}
 .tm-logout-icon {
   font-size: 1.5em;
 }
@@ -363,6 +370,7 @@ thead {
   padding: 13px 28px;
   transition: all 0.2s ease;
   max-width: 100%;
+  margin-right: 20px;
 }
 .btn-small {
   padding: 10px 24px;
@@ -922,10 +930,31 @@ h1.tm-site-title.mb-0 {
 }
 /* --------- end css Profile ----------- */
 
-
 /* ---------  css Request Detail ----------- */
 .tm-col-request-settings {
   margin: auto;
   margin-bottom: 30px;
 }
 /* ---------  end css Request Detail ----------- */
+
+/* fix css request detail */
+div.about-request {
+  font-size: 22px;
+  color: #fff;
+}
+.row {
+  margin-bottom: 15px;
+}
+div.about-tutor {
+  width: 600px;
+}
+div.col-md-7 p {
+  margin-left: 50px;
+}
+.accept-btn-primary {
+  font-size: 20px;
+}
+.denied-btn-danger {
+  font-size: 20px;
+}
+/* end fix css request detail */

@@ -94,11 +94,11 @@
 		</div>
 	</div>
 	<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-		<button class="btn btn-primary me-md-2 option" type="button">Tạo lớp mới</button>
+		<button class="btn accept-btn-primary btn-primary me-md-2 option" type="button">Tạo lớp mới</button>
 		<form action="/requests/student-requests/cancel" method="post">
 			<input id="userType" name="userType" value="student" type="text" hidden>
 			<input id="id" name="id" type="number" value={{student_request_id}} hidden>
-			<button class="btn btn-danger option" type="submit">Hủy yêu cầu</button>
+			<button class="btn denied-btn-danger btn-danger option" type="submit">Hủy yêu cầu</button>
 		</form>
 	</div>
 	{{/with}}
