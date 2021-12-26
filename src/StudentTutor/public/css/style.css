@@ -1,6 +1,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f8fafb;
+  overflow-x: hidden;
 }
 
 p {
@@ -416,7 +417,7 @@ h2 {
     max-height: 520px;
   }
 }
-@media (max-width: 1199.98px) {
+/* @media (max-width: 1199.98px) {
   .navbar-expand-xl > .container,
   .navbar-expand-xl > .container-fluid {
     padding-left: 15px;
@@ -425,7 +426,7 @@ h2 {
   .navbar-collapse {
     right: 15px;
   }
-}
+} */
 
 @media (max-width: 574px) {
   .navbar-collapse {
@@ -446,6 +447,10 @@ h2 {
 /* CheckBox */
 .form-request input[type="checkbox"] {
   transform: scale(1.6);
+}
+
+.form-check-label {
+  margin-left: 6px !important;
 }
 
 /*------------ login form ---------*/

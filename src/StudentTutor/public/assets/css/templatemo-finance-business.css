@@ -1,0 +1,285 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+p {
+	margin-bottom: 0px;
+	font-size: 14px;
+	color: #666666;
+	line-height: 30px;
+}
+
+.section-heading {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.section-heading h2 {
+	font-size: 36px;
+	font-weight: 600;
+	color: #1e1e1e;
+}
+
+.section-heading em {
+	font-style: normal;
+	color: #a4c639;
+}
+
+.section-heading span {
+	display: block;
+	margin-top: 15px;
+	text-transform: uppercase;
+	font-size: 15px;
+	color: #666;
+	letter-spacing: 1px;
+}
+
+/* Banner Style */
+
+.img-fill{
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-align: center
+}
+
+.img-fill img {
+  min-height: 100%;
+  min-width: 100%;
+  position: relative;
+  display: inline-block;
+  max-width: none;
+}
+
+.Modern-Slider .item .img-fill {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height:80vh;
+}
+
+@media screen and (min-width: 577px) and (max-width:992px) {
+	.Modern-Slider .item .img-fill {
+		height: 50vh !important;
+	}
+}
+
+@media screen and (max-width:576px) {
+	.Modern-Slider .item .img-fill {
+		height: 36vh !important;
+	}
+	.Modern-Slider .item h4 {
+		font-size: 24px !important;
+	}
+	.Modern-Slider .item h6 {
+		font-size: 20px !important;
+	}
+}
+
+.Modern-Slider .item-1 .img-fill {
+	background-image: url(https://www.blacasa.vn/sites/all/themes/blacasa/images/home/bmentor-features//bmentor4.jpg);
+}
+
+
+.Modern-Slider .text-content {
+	text-align: left;
+	width: 98%;
+  	position: absolute;
+  	bottom: 2%;
+  	left: 50%;
+  	transform: translate(-50%, 0);
+	background-color: rgba(0,0,0,0.5);
+	padding: 16px 24px 12px;
+	border-radius: 20px;
+}
+
+.Modern-Slider .item h6 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color:#a4c639;
+  animation:fadeOutRight 1s both;
+}
+
+.Modern-Slider .item h4 {
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color:#FFF;
+  overflow:hidden;
+  animation:fadeOutLeft 1s both;
+}
+
+.Modern-Slider .item p {
+	max-width: 570px;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 30px;
+}
+
+.Modern-Slider {background:#000;}
+
+/* Services */
+
+.services {
+	margin-top: 60px;
+}
+
+.service-item img {
+	width: 100%;
+	overflow: hidden;
+}
+
+.service-item .down-content {
+	background-color: #f7f7f7;
+	padding: 30px;
+}
+
+.service-item .down-content h4 {
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 0.25px;
+	margin-bottom: 15px;
+}
+
+.service-item .down-content p {
+	margin-bottom: 20px;
+}
+
+/* Fun Facts */
+
+.fun-facts {
+	margin-top: 40px;
+	background-image: url(../images/fun-facts-bg.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 80px 0px;
+	color: #fff;
+}
+
+.fun-facts span {
+	text-transform: uppercase;
+	font-size: 15px;
+	color: #fff;
+	letter-spacing: 1px;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.fun-facts h2 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 35px;
+}
+
+.fun-facts em {
+	font-style: normal;
+	color: #a4c639;
+}
+
+.fun-facts p {
+	color: #fff;
+	margin-bottom: 40px;
+}
+
+.fun-facts .left-content {
+	margin-right: 45px;
+}
+
+.count-area-content {
+	text-align: center;
+	background-color: rgba(250,250,250,0.1);
+	padding: 25px 30px 35px 30px;
+	margin: 15px 0px;
+}
+
+.count-digit {
+    margin: 5px 0px;
+    color: #a4c639;
+    font-weight: 700;
+    font-size: 36px;
+}
+.count-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+
+
+/* More Info */
+
+.more-info {
+	margin-top: 40px;
+}
+
+.more-info .left-image img {
+	width: 100%;
+	overflow: hidden;
+}
+
+.more-info .more-info-content {
+	background-color: #f7f7f7;
+}
+
+.about-info .more-info-content {
+	background-color: transparent;
+}
+
+.about-info .right-content {
+	padding: 0px!important;
+	margin-right: 30px;
+}
+
+.more-info .right-content {
+	padding: 45px 45px 45px 30px;
+}
+
+.more-info .right-content span {
+	text-transform: uppercase;
+	font-size: 15px;
+	color: #666;
+	letter-spacing: 1px;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.more-info .right-content h2 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 35px;
+}
+
+.more-info .right-content em {
+	font-style: normal;
+	color: #a4c639;
+}
+
+.more-info .right-content p {
+	margin-bottom: 30px;
+}
+
+.locat_icon p{
+	font-size: 26px;
+	margin: 4px 20px;
+	color: #000;
+}
+
+.locat_icon p a{
+	color: #333;
+}
+
+.locat_icon p a:hover{
+	opacity: 0.8;
+}
