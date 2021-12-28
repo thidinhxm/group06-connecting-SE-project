@@ -13,6 +13,10 @@ router.get('/signup', accountController.signup);
 router.get('/signup/student', accountController.signupStudent);
 router.get('/signup/tutor', accountController.signupTutor);
 
+router.get('/logout', accountController.logout);
+
+router.get('/forgot-password', accountController.forgotPassword);
+
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
