@@ -445,8 +445,9 @@ h2 {
 }
 
 /* CheckBox */
+#form-tutor-signup input[type="checkbox"],
 .form-request input[type="checkbox"] {
-  transform: scale(1.6);
+  transform: scale(1.6) !important;
 }
 
 .form-check-label {
@@ -557,3 +558,8 @@ h2 {
 }
 
 /*------------ end signup choice ---------*/
+
+/* ----Table form signup tutor */
+.table-form-time .day {
+  cursor: default;
+}
