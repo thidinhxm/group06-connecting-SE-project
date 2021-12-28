@@ -43,3 +43,12 @@ exports.signupStudentPost = async (req, res, next) => {
         next(err);
     }
 }
+
+exports.forgotPassword = async(req, res, next) => {
+    res.render('account/forgotPassword');
+}
+
+exports.logout = async(req, res, net) => {
+    res.logout();
+    res.redirect('/');
+}

@@ -39,3 +39,8 @@ exports.createStudent = async (student) => {
     const newStudent = await models.student.create(student);
     return newStudent;
 }
+
+exports.createTutor = async (tutor) => {
+    const newTutor = await models.tutor.create(tutor);
+    return newTutor;
+}

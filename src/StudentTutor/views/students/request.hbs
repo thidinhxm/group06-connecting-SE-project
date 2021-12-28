@@ -1,26 +1,25 @@
-    {{> header}}
+{{> header}}
 <div class="row justify-content-center">
     <div class="form-request col-lg-8 col-md-10 col-sm-12">
         <div class="form-request_body col-lg-10">
             <h3 class="form-heading text-center p-4">FORM YÊU CẦU TÌM KIẾM GIA SƯ</h3>
 
-            <form class="" action="" method="POST">
+            <form class="" action="/students/store-request/" method="POST" id='student-request-form'>
                 <div class="form-group mb-4">
-                    <label for="fphone" class="form-label">Số điện thoại (<span style="color: red">*</span>)</label>
-                    <input type="tel" class="form-control" id="fphone" placeholder="Ví dụ: 0323231141" name="phone"
+                    <label for="phone" class="form-label">Số điện thoại (<span style="color: red">*</span>)</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Ví dụ: 0323231141" name="phone"
                         required>
                 </div>
                 <div class="row form-group mb-4">
                     <div class="col-6">
-                        <label for="fclass" class="form-label">Tỉnh/thành phố (<span
-                                style="color: red">*</span>)</label>
-                        <select class="form-select w-100" id="fclass" name="class" required>
+                        <label for="city" class="form-label">Tỉnh/thành phố (<span style="color: red">*</span>)</label>
+                        <select class="form-select w-100" id="city" name="city" required>
                             <option value="TPHCM" selected>Thành Phố Hồ Chí Minh</option>
                         </select>
                     </div>
                     <div class="col-6">
-                        <label for="fsubjects" class="form-label">Quận/huyện (<span style="color: red">*</span>)</label>
-                        <select class="form-select w-100" id="fsubjects" name="subjects" required>
+                        <label for="ward" class="form-label">Quận/huyện (<span style="color: red">*</span>)</label>
+                        <select class="form-select w-100" id="ward" name="ward" required>
                             <option value="">Chọn quận huyện</option>
                             <option value="1">Quận 1</option>
                             <option value="3">Quận 3</option>
@@ -48,74 +47,69 @@
                     </div>
                 </div>
                 <div class="row form-group mb-4">
-                    <div class="col-lg-2 col-md-2 col-mb-12 mt-2">
-                        <label for="fclass" class="form-label">Số nhà</label>
-                        <input type="text" class="form-control" id="fphone" placeholder="Số 321" name="phone">
+                    <div class="col-2">
+                        <label for="homeNumber" class="form-label">Số nhà</label>
+                        <input type="text" class="form-control" id="homeNumber" placeholder="Số 321"
+                            name="homeNumber">
                     </div>
-                    <div class="col-lg-10 col-md-10 col-mb-12 mt-2">
-                        <label for="fclass" class="form-label">Địa chỉ chi tiết (<span
+                    <div class="col-10">
+                        <label for="road" class="form-label">Địa chỉ chi tiết (<span
                                 style="color: red">*</span>)</label>
-                        <input type="text" class="form-control" id="fphone"
-                            placeholder="Đường/Phường/Quận(Huyện)/Thành Phố" name="phone" required>
+                        <input type="text" class="form-control" id="road"
+                            placeholder="Đường/Phường/Quận(Huyện)/Thành Phố" name="road" required>
                     </div>
                 </div>
                 <div class="row form-group mb-4">
                     <div class="col-lg-6 col-md-6 col-mb-12">
-                        <label for="fclass" class="form-label">Lớp (<span style="color: red">*</span>)</label>
+                        <label for="classroom" class="form-label">Lớp (<span style="color: red">*</span>)</label>
                         <div class="col-12">
                             <div class="form-group row ml-2">
                                 <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fclass-check-1">
+                                    <input class="form-check-input" type="checkbox" name="classroom" value="6">
                                     <label class="form-check-label" for="fclass-check-1">
                                         Lớp 6
                                     </label>
                                 </div>
                                 <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fclass-check-2">
+                                    <input class="form-check-input" type="checkbox" name="classroom" value="7">
                                     <label class="form-check-label" for="fclass-check-2">
                                         Lớp 7
                                     </label>
                                 </div>
                                 <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fclass-check-3">
+                                    <input class="form-check-input" type="checkbox" name="classroom" value="8">
                                     <label class="form-check-label" for="fclass-check-3">
                                         Lớp 8
                                     </label>
                                 </div>
                                 <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fclass-check-4">
+                                    <input class="form-check-input" type="checkbox" name="classroom" value="9">
                                     <label class="form-check-label" for="fclass-check-4">
                                         Lớp 9
                                     </label>
                                 </div>
                                 <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fclass-check-5">
+                                    <input class="form-check-input" type="checkbox" name="classroom" value="10">
                                     <label class="form-check-label" for="fclass-check-5">
                                         Lớp 10
                                     </label>
                                 </div>
                                 <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fclass-check-6">
+                                    <input class="form-check-input" type="checkbox" name="classroom" value="11">
                                     <label class="form-check-label" for="fclass-check-6">
                                         Lớp 11
                                     </label>
                                 </div>
                                 <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fclass-check-7">
+                                    <input class="form-check-input" type="checkbox" name="classroom" value="12">
                                     <label class="form-check-label" for="fclass-check-7">
                                         Lớp 12
                                     </label>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <input type="text" class="form-control" name="dclass" placeholder="Lớp học khác">
+                                <input type="text" class="form-control" name="other-class" placeholder="Lớp học khác"
+                                    id='other-class'>
                             </div>
                         </div>
                     </div>
@@ -124,78 +118,69 @@
                         <div class="col-12">
                             <div class="form-group row ml-2">
                                 <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fsubject-check-1">
+                                    <input class="form-check-input" type="checkbox" name="subject" value="Toán">
                                     <label class="form-check-label" for="fsubject-check-1">
                                         Toán
                                     </label>
                                 </div>
                                 <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fsubject-check-2">
+                                    <input class="form-check-input" type="checkbox" name="subject" value="Lý">
                                     <label class="form-check-label" for="fsubject-check-2">
                                         Lý
                                     </label>
                                 </div>
                                 <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fsubject-check-3">
+                                    <input class="form-check-input" type="checkbox" name="subject" value="Hoá">
                                     <label class="form-check-label" for="fsubject-check-3">
                                         Hóa
                                     </label>
                                 </div>
                                 <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fsubject-check-4">
+                                    <input class="form-check-input" type="checkbox" name="subject" value="Anh">
                                     <label class="form-check-label" for="fsubject-check-4">
                                         Anh
                                     </label>
                                 </div>
                                 <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fsubject-check-5">
+                                    <input class="form-check-input" type="checkbox" name="subject" value="Văn">
                                     <label class="form-check-label" for="fsubject-check-5">
-                                        văn
+                                        Văn
                                     </label>
                                 </div>
                                 <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fsubject-check-6">
+                                    <input class="form-check-input" type="checkbox" name="subject" value="Sử">
                                     <label class="form-check-label" for="fsubject-check-6">
                                         Sử
                                     </label>
                                 </div>
                                 <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fsubject-check-7">
+                                    <input class="form-check-input" type="checkbox" name="subject" value="Địa">
                                     <label class="form-check-label" for="fsubject-check-7">
                                         Địa
                                     </label>
                                 </div>
                                 <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fsubject-check-8">
+                                    <input class="form-check-input" type="checkbox" name="subject"
+                                        value="Công dân">
                                     <label class="form-check-label" for="fsubject-check-8">
                                         Công dân
                                     </label>
                                 </div>
                                 <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fsubject-check-9">
+                                    <input class="form-check-input" type="checkbox" name="subject" value="Tin học">
                                     <label class="form-check-label" for="fsubject-check-9">
                                         Tin học
                                     </label>
                                 </div>
                                 <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="" value=""
-                                        id="fsubject-check-10">
+                                    <input class="form-check-input" type="checkbox" name="subject" value="Sinh học">
                                     <label class="form-check-label" for="fsubject-check-10">
                                         Sinh học
                                     </label>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <input type="text" class="form-control" name="dsubject" placeholder="Môn học khác">
+                                <input type="text" class="form-control" name="other-subject" placeholder="Môn học khác">
                             </div>
                         </div>
                     </div>
@@ -206,7 +191,8 @@
                 </div>
                 <div class="form-group mb-4">
                     <label for="ftime" class="form-label">Thời gian học</label>
-                    <input type="text" class="form-control" id="ftime" placeholder="Ví dụ: T2 - T4 - T6, 19h30 - 21h" name="time">
+                    <input type="text" class="form-control" id="ftime" placeholder="Ví dụ: T2 - T4 - T6, 19h30 - 21h"
+                        name="time">
                 </div>
                 <div class="form-group mb-4">
                     <label for="fdifferent" class="form-label">Yêu cầu khác (nếu có)</label>
@@ -222,4 +208,4 @@
         </div>
     </div>
 </div>
-	{{> footer}}
+{{> footer}}
