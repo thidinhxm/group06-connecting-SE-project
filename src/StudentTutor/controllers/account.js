@@ -25,8 +25,8 @@ exports.signupTutor = (req, res, next) => {
 exports.signupStudentPost = async (req, res, next) => {
     try {
         const {email, password, fullname, displayName, phone, address, birthday, gender} = req.body;
-        console.log(req.body)
-        const account = await accountService.createAccount({email, password});
+        const hashPassword = bcrypt.hashSync(password, 10);
+        const account = await accountService.createAccount({email, hashPassword});
         const student = await accountService.createStudent({
             student_id: account.account_id,
             display_name: displayName,
