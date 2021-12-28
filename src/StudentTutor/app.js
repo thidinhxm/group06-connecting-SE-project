@@ -42,6 +42,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+app.use(function(req, res, next) {
+	res.locals.user = req.user;
+	next();
+});
+
 app.use('/', indexRouter);
 app.use('/', accountRouter);
 app.use('/tutors', tutorRouter);

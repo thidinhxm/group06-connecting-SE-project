@@ -62,7 +62,8 @@
               ></i>&nbsp;Thông tin gia sư</a>
           </div>
         </li>
-        {{! <li class="nav-item dropdown">
+        {{#if user}}
+        <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -72,18 +73,20 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <span><i class="far fa-user-circle"></i>&nbsp;Tài khoản</span>
+            <span><i class="far fa-user-circle"></i>&nbsp;Người dùng</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/profile">Thông tin cá nhân</a>
             <a class="dropdown-item" href="#">Đăng xuất</a>
           </div>
-        </li> }}
+        </li> 
+        {{else}}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="/login">
             <span>ĐĂNG NHẬP</span>
           </a>
         </li>
+        {{/if}}
       </ul>
 
     </div>
