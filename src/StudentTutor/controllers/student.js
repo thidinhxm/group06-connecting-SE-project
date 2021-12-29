@@ -1,7 +1,8 @@
 const { models } = require("../models");
+const active = { student: true }
 
 exports.sendRequest = function (req, res, next) {
-  res.render("students/request");
+  res.render("students/request",{active});
 };
 
 exports.storeRequest = async (req, res, next) => {

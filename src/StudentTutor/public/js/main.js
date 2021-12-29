@@ -62,6 +62,8 @@ $('.form-change-password input').click(()=>{
 $('.postList .btn-request-form').click((e)=>{
     const idNode = e.target.offsetParent.firstElementChild.firstElementChild.children[1]
     const idValue = $(idNode).val();
+    const idNode1 = e.target.offsetParent.firstElementChild.ElementChild[2].children[3]
+    console.log(idNode1)
     $('.postList #fidpost').val(idValue);
 
 })
