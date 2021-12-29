@@ -17,4 +17,7 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/logout', auth.isLogin, accountController.logout);
 
+router.post('/profile/change-password', accountController.changePassword);
+
 module.exports = router;
+
