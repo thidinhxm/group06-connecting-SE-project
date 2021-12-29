@@ -3,7 +3,6 @@ const router = express.Router();
 
 const accountController = require('../controllers/account');
 const passport = require('../middlewares/passport');
-const auth = require('../middlewares/auth');
 const accountAPI = require('../api/account');
 
 router.get('/profile/:account_id', accountController.profile);
@@ -30,5 +29,7 @@ router.post('/api/check-account', accountAPI.checkAccount);
 router.post('/api/check-exists-account', accountAPI.checkExistAccount);
 
 router.post('/profile/change-password', accountController.changePassword);
+
+router.post('/signup-tutor', accountController.signupTutorPost);
 
 module.exports = router;
