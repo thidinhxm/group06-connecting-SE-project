@@ -76,7 +76,9 @@
             <span><i class="far fa-user-circle"></i>&nbsp;Người dùng</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/profile">Thông tin cá nhân</a>
+            {{#with user}}
+            <a class="dropdown-item" href="/profile/{{account_id}}">Thông tin cá nhân</a>
+            {{/with}}
             <a class="dropdown-item" href="/logout">Đăng xuất</a>
           </div>
         </li> 
