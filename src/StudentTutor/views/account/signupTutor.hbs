@@ -1,304 +1,489 @@
-<div class="container">
+<div class="signup-form">
+    <div class="card bg-light">
+        <div class="card-body mx-auto">
+            <div class="row justify-content-around">
+                <div class="col-lg-7 col-12 row justify-content-center mb-2">
+                    <div class="col-12 col-md-10">
+                        <a href="/signup" class="turn-back-link"><i class="fas fa-long-arrow-alt-left"></i>&nbsp;Thay
+                            đổi vai trò</a>
+                    </div>
+                </div>
+            </div>
 
-    <div class="col-lg-7 col-12 row justify-content-center" style="margin:20px;font-size:larger;">
-        <div class="col-12 col-md-10">
-                 <a href="/signup" class="turn-back-link"><i class="fas fa-long-arrow-alt-left"></i>&nbsp;Thay đổi vai trò</a>
-             </div>
-    </div>
-
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <div class="register-form">
-                <form action="" method="post">
-                    <h1>Đăng ký tài khoản gia sư</h1>
-                    <h4>Thông tin đăng nhập</h4>
-                    <div class="input-box">
-                        <i class="fa fa-envelope"></i>
-                        <input type="text" placeholder="Email" name="email" required>
-                    </div>
-                    <div class="input-box">
-                        <i class="fa fa-lock"></i>
-                        <input type="password" placeholder="Mật khẩu" name="password" required>
-                    </div>
-                    <div class="input-box">
-                        <i class="fa fa-lock"></i>
-                        <input type="password" name = "password" placeholder="Xác nhận mật khẩu" name="password" required>
-                    </div>
-                  
-                  <h4>Thông tin tài khoản</h4>
-                    <div class="input-box">
-                        <i class="fa fa-user"></i>
-                        <input type="text" placeholder="Họ và tên" name="fullname" required>
-                    </div>
-                    <div class="input-box">
-                        <i class="fa fa-user"></i>
-                        <input type="text" placeholder="Tên hiển thị" name="dis_playname" required>
-                    </div>
-
-                    <div class="input-box">
-                        <i class="fa fa-phone"></i>
-                        <input type="tel" placeholder="Số điện thoại" name="phone" required>
-                    </div>
-                    <div class="input-box">
-                        <i class="fas fa-location-arrow"></i>
-                        <input type="text" placeholder="Địa chỉ" name="address" required>
-
-                    </div>
-                    <div class="input-box" style="display: flex;flex-wrap: wrap;border: none;margin: 0px;padding: 0px; margin-bottom: 10px;">
-                        <div class="ngaysinh-gioitinh" style="display: flex;flex-wrap: wrap;width:48%;border: 1px solid black;">
-                            <span style="margin-top: 10px;"><i class="fas fa-birthday-cake"></i></span>                   
-                            <input style="width: 80%;" name="birthday" class="form-control" placeholder="Ngày sinh" type="text" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" id="student-birthday">
+            <form action="/signup-tutor" method="POST" id="form-tutor-signup">
+                <h4 class="card-title mt-3 text-center">Tạo tài khoản Gia sư</h4>
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 col-12 row justify-content-center mb-2">
+                        <div class="col-12 col-md-10">
+                            <p>Thông tin đăng nhập</p>
                         </div>
-                        <div class="ngaysinh-gioitinh" style="width:40%;margin-left:4%;border: 1px solid black;">
-                            <i class="fas fa-transgender-alt"></i>                      
-                            <select id="gioitinh" required style="border: none;background-color: none;width: 80%;">
-                                <option>Giới tính</option>
-                                <option value="nam">Nam</option>
-                                <option value="nu">Nữ</option>
+                        <div class="form-group input-group col-12 col-md-10">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="tutor-email"> <i class="fa fa-envelope"></i>
+                                </label>
+                            </div>
+                            <input name="email" class="form-control" placeholder="Email" type="email" id="tutor-email">
+                        </div> <!-- form-group// -->
+
+                        <div class="form-group input-group col-12 col-md-10">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="tutor-password"> <i class="fa fa-lock"></i>
+                                </label>
+                            </div>
+                            <input name="password" class="form-control" placeholder="Mật khẩu" type="password"
+                                id="tutor-password">
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group col-12 col-md-10">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="tutor-retype-password"> <i
+                                        class="fa fa-lock"></i></label>
+                            </div>
+                            <input name="retypePassword" class="form-control" placeholder="Nhập lại mật khẩu"
+                                type="password" id="tutor-retype-password">
+                        </div> <!-- form-group// -->
+                    </div>
+                    <div class="col-lg-7 col-12 row justify-content-center mb-2">
+                        <div class="col-12 col-md-10">
+                            <p>Thông tin cá nhân</p>
+                        </div>
+                        <div class="form-group input-group col-12 col-md-10">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="tutor-fullname"> <i class="fa fa-user"></i>
+                                </label>
+                            </div>
+                            <input name="fullname" class="form-control" placeholder="Họ và tên" type="text"
+                                id="tutor-fullname">
+                        </div> <!-- form-group// -->
+
+                        <div class="form-group input-group col-12 col-md-10">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="tutor-display-name"> <i class="fa fa-user"></i>
+                                </label>
+                            </div>
+                            <input name="displayName" class="form-control" placeholder="Tên hiển thị" type="text"
+                                id="tutor-display-name">
+                        </div> <!-- form-group// -->
+
+                        <div class="form-group input-group col-12 col-md-10">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="tutor-phone"> <i class="fa fa-phone"></i> </label>
+                            </div>
+                            <input name="phone" class="form-control" placeholder="Số điện thoại" type="text"
+                                id="tutor-phone">
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group col-12 col-md-10">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="tutor-address"> <i
+                                        class="fas fa-location-arrow"></i> </label>
+                            </div>
+                            <input name="address" class="form-control" placeholder="Địa chỉ" type="text"
+                                id="tutor-address">
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group col-12 col-md-5">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="tutor-birthday"> <i
+                                        class="fas fa-birthday-cake"></i> </label>
+                            </div>
+                            <input name="birthday" class="form-control" placeholder="Ngày sinh" type="text"
+                                onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}"
+                                id="tutor-birthday">
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group col-12 col-md-5">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text"> <i class="fas fa-transgender-alt"></i> </label>
+                            </div>
+                            <select name="gender" class="form-control" id="tutor-gender">
+                                <option value="" disabled selected hidden>Giới tính</option>
+                                <option value="0">Nam</option>
+                                <option value="1">Nữ</option>
                             </select>
-                        </div>
-                    </div>
-                    
-                    <!--copy ngaysinh gioitinh-->
-                    <div class="input-box" style="display: flex;flex-wrap: wrap;border: none;margin: 0px;padding: 0px; margin-bottom: 10px;">
-                        <div class="ngaysinh-gioitinh" style="display: flex;flex-wrap: wrap;width:48%;border: 1px solid black;">
-                            <span style="margin-top: 10px;"><i class="fas fa-user-md"></i></span>
-                            <select id="job" name="job" style="border: none;background-color: none;width: 80%;">
-                                <option>Nghề nghiệp</option>
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group col-12 col-md-5">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text"><i class="fas fa-user-md"></i></label>
+                            </div>
+                            <select name="job" class="form-control" id="tutor-job">
+                                <option value="" disabled selected hidden>Nghề nghiệp hiện tại</option>
                                 <option value="1">Giáo viên</option>
-                                <option value="2">Sinh viên</option>
+                                <option value="2">Sinh Viên</option>
                                 <option value="3">Đã tốt nghiệp</option>
                             </select>
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group col-12 col-md-5">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="tutor-birthday"> <i
+                                        class="fas fa-birthday-cake"></i> </label>
+                            </div>
+                            <input name="salary" class="form-control" placeholder="Mức lương thấp nhất" type="number"
+                                onblur="if(this.value==''){this.type='text'}" id="tutor-salary">
+                        </div> <!-- form-group// -->
+                    </div>
+
+                    <div class="col-lg-7 col-12 row justify-content-center mb-2">
+                        <div class="col-12 col-md-10">
+                            <p>Thông tin giảng dạy</p>
                         </div>
-                        <div class="ngaysinh-gioitinh" style="width:40%;margin-left:4%;border: 1px solid black;">
-                            <i class="fas fa-hand-holding-usd"></i>
-                            <input type="number" name="min_salary" placeholder="Lương thấp nhất" style="background-color: none;width: 80%;margin-top: 6px;padding: 10px;">
+                        <div class="col-12 col-md-10 col-mb-12 mb-2">
+                            <label for="fclass" class="form-label">Lớp (<span style="color: red">*</span>)</label>
+                            <div class="col-12">
+                                <div class="form-group row ml-2">
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 6"
+                                            id="fclass-check-1">
+                                        <label class="form-check-label" for="fclass-check-1">
+                                            Lớp 1
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 6"
+                                            id="fclass-check-1">
+                                        <label class="form-check-label" for="fclass-check-1">
+                                            Lớp 2
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 6"
+                                            id="fclass-check-1">
+                                        <label class="form-check-label" for="fclass-check-1">
+                                            Lớp 3
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 6"
+                                            id="fclass-check-1">
+                                        <label class="form-check-label" for="fclass-check-1">
+                                            Lớp 4
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 6"
+                                            id="fclass-check-1">
+                                        <label class="form-check-label" for="fclass-check-1">
+                                            Lớp 5
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 6"
+                                            id="fclass-check-1">
+                                        <label class="form-check-label" for="fclass-check-1">
+                                            Lớp 6
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 7"
+                                            id="fclass-check-2">
+                                        <label class="form-check-label" for="fclass-check-2">
+                                            Lớp 7
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 8"
+                                            id="fclass-check-3">
+                                        <label class="form-check-label" for="fclass-check-3">
+                                            Lớp 8
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 9"
+                                            id="fclass-check-4">
+                                        <label class="form-check-label" for="fclass-check-4">
+                                            Lớp 9
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 10"
+                                            id="fclass-check-5">
+                                        <label class="form-check-label" for="fclass-check-5">
+                                            Lớp 10
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 11"
+                                            id="fclass-check-6">
+                                        <label class="form-check-label" for="fclass-check-6">
+                                            Lớp 11
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 12"
+                                            id="fclass-check-7">
+                                        <label class="form-check-label" for="fclass-check-7">
+                                            Lớp 12
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <input type="text" class="form-control" name="dclass" placeholder="Lớp học khác">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-10 col-mb-12 mb-2">
+                            <label for="fsubjects" class="form-label">Môn học (<span
+                                    style="color: red">*</span>)</label>
+                            <div class="col-12">
+                                <div class="form-group row ml-2">
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Toán"
+                                            id="fsubject-check-1">
+                                        <label class="form-check-label" for="fsubject-check-1">
+                                            Toán
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Lý"
+                                            id="fsubject-check-2">
+                                        <label class="form-check-label" for="fsubject-check-2">
+                                            Lý
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Hóa"
+                                            id="fsubject-check-3">
+                                        <label class="form-check-label" for="fsubject-check-3">
+                                            Hóa
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Anh"
+                                            id="fsubject-check-4">
+                                        <label class="form-check-label" for="fsubject-check-4">
+                                            Anh
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Văn"
+                                            id="fsubject-check-5">
+                                        <label class="form-check-label" for="fsubject-check-5">
+                                            Văn
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Sử"
+                                            id="fsubject-check-6">
+                                        <label class="form-check-label" for="fsubject-check-6">
+                                            Sinh
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Địa"
+                                            id="fsubject-check-7">
+                                        <label class="form-check-label" for="fsubject-check-7">
+                                            Sử
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Công dân"
+                                            id="fsubject-check-8">
+                                        <label class="form-check-label" for="fsubject-check-8">
+                                            Địa
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Tin học"
+                                            id="fsubject-check-9">
+                                        <label class="form-check-label" for="fsubject-check-9">
+                                            Tin học
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <input type="text" class="form-control" name="dsubject" placeholder="Môn học khác">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-10 col-mb-12 mb-2">
+                            <label for="fsubjects" class="form-label">Thời gian dạy (<span
+                                    style="color: red">*</span>)</label>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="row justify-content-between">
+                                        <table class="table table-form-time">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Thứ</th>
+                                                    <th scope="col" class="text-center">Sáng</th>
+                                                    <th scope="col" class="text-center">Chiều</th>
+                                                    <th scope="col" class="text-center">Tối</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="day">Thứ 2</td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Sáng thứ 2">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Chiều thứ 2">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Tối thứ 2">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="day">Thứ 3</td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Sáng thứ 3">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Chiều thứ 3">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Tối thứ 3">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="day">Thứ 4</td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Sáng thứ 4">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Chiều thứ 4">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Tối thứ 4">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="day">Thứ 5</td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Sáng thứ 5">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Chiều thứ 5">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Tối thứ 5">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="day">Thứ 6</td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Sáng thứ 6">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Chiều thứ 6">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Tối thứ 6">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="day">Thứ 7</td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Sáng thứ 7">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Chiều thứ 7">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Tối thứ 7">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="day">Chủ nhật</td>
+
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Sáng chủ nhật">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Chiều chủ nhật">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-check text-center">
+                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                                value="Tối chủ nhật">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <div class="form-group w-100">
+                                            <input type="text" class="form-control" name="dtime"
+                                                placeholder="Thông tin về thời gian dạy khác">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    
-                    <h4>Thông tin môn học</h4>
-                    <div class="input-box" style="margin: 10px;margin-left: 0px;">
-                        <br>
-                        <label>Môn dạy:</label>
-                        <br>
-                        <br>
-                        <div class="col-30 row-10" style="margin-bottom: 10px;">
-                            <table class="tablebox" id="subject" style="margin-bottom: 5px;">
-                                <tr>
-                                <td><label><input type="checkbox" name="subject[]" value="M1M"  />Toán</label></td>
-                                <td><label><input type="checkbox" name="subject[]" value="M2M" />Lý</label></td>
-                                <td><label><input type="checkbox" name="subject[]" value="M3M" />Hóa</label></td>
-                                </tr>
-                                <tr>
-                                <td><label><input type="checkbox" name="subject[]" value="M4M" />Văn</label></td>
-                                <td><label><input type="checkbox" name="subject[]" value="M5M" />Tiếng Anh</label></td>
-                                <td><label><input type="checkbox" name="subject[]" value="M6M" />Sinh</label></td>
-                                </tr>
-                                <tr>
-                                <td><label><input type="checkbox" name="subject[]" value="M4M" />Sử</label></td>
-                                <td><label><input type="checkbox" name="subject[]" value="M5M" />Địa</label></td>
-                                </tr>
-                                
-                            </table> 
-                        </div>
+                    <div class="error-block col-lg-7 col-12">
+                        <p class="text-danger text-center" id="tutor-signup-err-notification"></p>
                     </div>
-
-                    <div class="input-box" style="margin: 10px;margin-left: 0px;">
-                        <br>
-                        <label>Lớp dạy:</label>
-                        <br>
-                        <br>
-                        <div class="col-30 row-10" style="margin-bottom: 10px;">
-                            <table class="tablebox" id="grade">
-                                <tr>
-                                <td><label><input type="checkbox" name="grade[]" value="L6L" value="M1M"  />Lớp 6</label></td>
-                                <td><label><input type="checkbox" name="grade[]" value="L7L" />Lớp 7</label></td>
-                                <td><label><input type="checkbox" name="grade[]" value="L8L" />Lớp 8</label></td>
-                                </tr>
-                                <tr>
-                                <td><label><input type="checkbox" name="grade[]" value="L9L" />Lớp 9</label></td>
-                                <td><label><input type="checkbox" name="grade[]" value="L10L" />Lớp 10</label></td>
-                                <td><label><input type="checkbox" name="grade[]" value="L11L" />Lớp 11</label></td>
-                                </tr>
-                                <tr>
-                                <td><label><input type="checkbox" name="grade[]" value="L12L" />Lớp 12</label></td>
-                                </tr>
-                                
-                            </table> 
-                        </div>
+                    <div class="col-lg-7 col-12 row justify-content-center mb-2">
+                        <div class="form-group col-12 col-md-10">
+                            <button type="submit" class="btn btn-primary btn-block btn-signup-submit"
+                                id="btn-tutor-signup-submit"> Tạo tài khoản </button>
+                        </div> <!-- form-group// -->
                     </div>
-
-                    <div class="input-box" style="margin: 10px;margin-left: 0px;">
-                        <br>
-                        <label>Thời gian dạy:</label>
-                        <br>
-                        <br>
-                        <div class="col-30 row-10" style="margin-bottom: 10px;">
-                            <table class="tablebox" id="time">
-                                <tr>
-                                <td><label><input type="checkbox" name="time[]" value="2S" />Thứ 2 - Sáng</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="2C" />Thứ 2 - Chiều</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="2T" />Thứ 2 - Tối</label></td>
-                                </tr>
-                                <tr>
-                                <td><label><input type="checkbox" name="time[]" value="3S" />Thứ 3 - Sáng</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="3C" />Thứ 3 - Chiều</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="3T" />Thứ 3 - Tối</label></td>
-                                </tr>
-                                <tr>
-                                <td><label><input type="checkbox" name="time[]" value="4S" />Thứ 4 - Sáng</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="4C" />Thứ 4 - Chiều</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="4T" />Thứ 4 - Tối</label></td>
-                                </tr>
-                                <tr>
-                                <td><label><input type="checkbox" name="time[]" value="5S" />Thứ 5 - Sáng</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="5C" />Thứ 5 - Chiều</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="5T" />Thứ 5 - Tối</label></td>
-                                </tr>
-                                <tr>
-                                <td><label><input type="checkbox" name="time[]" value="6S" />Thứ 6 - Sáng</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="6C" />Thứ 6 - Chiều</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="6T" />Thứ 6 - Tối</label></td>
-                                </tr>
-                                <tr>
-                                <td><label><input type="checkbox" name="time[]" value="7S" />Thứ 7 - Sáng</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="7C" />Thứ 7 - Chiều</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="7T" />Thứ 7 - Tối</label></td>
-                                </tr>
-                                <tr>
-                                <td><label><input type="checkbox" name="time[]" value="CNS" />CN - Sáng</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="CNC" />CN - Chiều</label></td>
-                                <td><label><input type="checkbox" name="time[]" value="CNT" />CN - Tối</label></td>
-                                </tr>
-                         </table>
-                        </div>
+                    <div class="col-12">
+                        <p class="text-center signup-text">Đã có tài khoản? <a href="/login" class="signup-choice">Đăng
+                                nhập</a> </p>
                     </div>
-
-                    <div class="btn-box">
-                        <button type="submit">Đăng ký</button>
-                    </div>
-                    <div style="text-align: center;">
-                        <a style="padding:0px; margin:0px;text-align: center;">Đã có tài khoản: </a><a href="/login">Đăng nhập</a>
-                    </div>
-                </form>
-            </div>
-<style>
-    *{
-        padding: 0px;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin: 0px;
-        border: 2px;
-    }
-    .nghenghiep-trinhdo{
-        text-align: center;
-        width: 100%;
-        outline: none;
-        font-size: 16px;
-        display: inline-block;
-        height: 40px;
-        color: #666666;
-        background-color: white;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0px;
-        padding: 0px;
-    }
-    h1{
-        text-align: center;
-        font-size: 30px;
-        margin-bottom: 30px;
-        margin-top: 20px;
-    }
-    h4{
-        color:black;
-        font-size: 20px;
-        margin-top: 30px;
-        margin-bottom: 20px;
-    }
-
-    .register-form{
-        width: 100%;
-        max-width: 600px;
-        margin: 20px auto;
-        background-color: none;
-        padding: 25px;
-        border: none;
-        border-radius: 10px;
-    }
-
-    .input-box{
-        margin-bottom: 10px;
-        border: 1px solid rgb(51, 45, 45);
-    }
-    .input-box-avatar{
-        width: 96%;
-        border: 1px solid black;
-        outline: none;
-        font-size: 16px;
-        display: inline-block;
-        height: 40px;
-        color: #666666;
-        padding-top: 10px;
-        margin-bottom: 10px;
-        background-color: white;
-    }
-    .input-box input[type='text'],
-    .input-box input[type='password'],
-    .input-box input[type='date'],
-    .input-box input[type='tel']{
-        padding: 7.5px 15px;
-        width: 90%;
-        outline: none;
-        font-size: 16px;
-        display: inline-block;
-        height: 40px;
-        color: #666666;
-        border: none;
-    }
-    .input-box input[type="file"]{
-        padding: 7.5px 15px;
-        width: 90%;
-        border: 1px solid #cccccc;
-        outline: none;
-        font-size: 16px;
-        display: inline-block;
-        height: 40px;
-        color: #666666;
-        padding-top: 10px;
-        background-color: white;
-    }
-    .input-box select{
-        padding: 7.5px 15px;
-        width: 100%;
-        border: 1px solid #cccccc;
-        outline: none;
-        font-size: 16px;
-        display: inline-block;
-        height: 40px;
-        color: #666666;
-    }
-    .input-box option{
-        font-size: 16px;
-    }
-    .input-box input[type='checkbox']{
-        height: 1.5em;
-        width: 1.5em;
-        vertical-align: middle;
-        line-height: 2em;
-    }
-    .btn-box{
-        text-align: right;
-        margin-top: 30px;
-    }
-    .btn-box button{
-        padding: 12px 40px;
-        width: 100%;
-        background-color: DodgerBlue;
-        color: #ffffff;
-        border-radius: 5px;
-        margin: 0px;
-        margin-bottom: 30px;
-    }
-    </style>
+                </div>
+            </form>
+        </div>
+    </div> <!-- card.// -->
 </div>
+<!--container end.//-->

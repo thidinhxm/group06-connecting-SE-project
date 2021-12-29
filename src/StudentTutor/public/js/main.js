@@ -1,7 +1,7 @@
 $(function() {
 	'use strict';
 
-	
+
   $('.form-control').on('input', function() {
 	  var $field = $(this).closest('.form-group');
 	  if (this.value) {
@@ -63,5 +63,20 @@ $('.postList .btn-request-form').click((e)=>{
     const idNode = e.target.offsetParent.firstElementChild.firstElementChild.children[1]
     const idValue = $(idNode).val();
     $('.postList #fidpost').val(idValue);
+
 })
 // ----------- End JS PostList ---------------
+
+// --------table- form - time signup tutor
+$('.table-form-time .day').on('click', (e) => {
+    const sang = e.target.nextElementSibling;
+    const chieu = sang.nextElementSibling;
+    const toi = chieu.nextElementSibling;
+    checkSang = $(sang.firstElementChild.firstElementChild);
+    checkChieu = $(chieu.firstElementChild.firstElementChild);
+    checkToi = $(toi.firstElementChild.firstElementChild);
+
+    checkSang.prop('checked', !checkSang.is(':checked'))
+    checkChieu.prop('checked', !checkChieu.is(':checked'))
+    checkToi.prop('checked', !checkToi.is(':checked'))
+})

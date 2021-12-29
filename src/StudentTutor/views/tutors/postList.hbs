@@ -5,7 +5,7 @@
         {{#each posts}}
         <div class="col-lg-6 col-md-12 col-mb-12 mb-4">
             <div class="post p-3">
-                <div class="form-group mb-3">
+                <div class="form-group mb-3" >
                     <label for="id" class="form-label">Mã bài đăng</label>
                     <input type="text" class="form-control idPost" name="id" value="{{post_id}}" style="color:#4200FF ;" required
                         readonly>
@@ -63,7 +63,7 @@
                         <h4 class="modal-title text-left">Form yêu cầu nhận lớp</h4>
                     </div>
                     <div class="modal-body">
-                        <form class="form-request" action="" method="POST">
+                        <form class="form-request" action="/tutors/store-request" method="POST">
                             <div class="form-group mb-3">
                                 <label for="fidpost" class="form-label">Mã bài đăng</label>
                                 <input type="text" class="form-control" id="fidpost" value="BD001" name="idpost"
@@ -78,15 +78,15 @@
                             <div class="form-group mb-3">
                                 <label for="fpay" class="form-label">Hình thức thanh toán (<span
                                         style="color: red">*</span>)</label>
-                                <select class="form-select w-100" id="fpay" name="class" required>
-                                    <option value="TPHCM">Chuyển khoản</option>
+                                <select class="form-select w-100" id="fpay" name="payMethod" required>
+                                    <option value="Chuyển khoản">Chuyển khoản</option>
                                     </option>
-                                    <option value="TPHCM">Thanh toán trưc tiếp tại trung tâm</option>
+                                    <option value="Đến trung tâm">Thanh toán trưc tiếp tại trung tâm</option>
                                 </select>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="fdifferent" class="form-label">Yêu cầu khác (nếu có)</label>
-                                <input type="text" class="form-control" id="fdifferent" placeholder="" name="different">
+                                <input type="text" class="form-control" id="fdifferent" placeholder="" name="different" value="">
                             </div>
 
                             <div class="form-group mb-2">
@@ -98,7 +98,6 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
                     </div>
                 </div>
-
             </div>
         </div>
         <style>
