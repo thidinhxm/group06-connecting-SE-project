@@ -1,5 +1,6 @@
 const postService = require('../services/post');
 const {models} = require('../models');
+const active = { tutor: true }
 
 exports.sendRequest = function(req, res, next) {
     res.render('tutors/request');
@@ -11,7 +12,7 @@ exports.listPost = async function(req, res, next) {
         return e.status.includes('Chưa giao');
     });
 
-    res.render('tutors/postList', {posts});
+    res.render('tutors/postList', {posts,active});
 }
 
 

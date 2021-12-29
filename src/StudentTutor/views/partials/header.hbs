@@ -15,13 +15,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav h-100">
         <li class="nav-item">
-          <a class="active dashboard nav-link" href="/">
+          <a class="{{#if active.dashboard}} active{{/if}}  dashboard nav-link" href="/">
             TRANG CHỦ
           </a>
         </li>
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            class="{{#if active.tutor}} active{{/if}} nav-link dropdown-toggle"
             href="#"
             id="navbarDropdown"
             role="button"
@@ -31,8 +31,8 @@
           >
             <span>&nbsp;GIA SƯ&nbsp;</span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/tutors/posts"><i
+          <div class=" dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class=" dropdown-item" href="/tutors/posts"><i
                 class="fas fa-search"
               ></i>&nbsp;Bài đăng tìm gia sư</a>
             <a class="dropdown-item" href="/tutors/send-request"><i
@@ -43,7 +43,7 @@
 
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            class="{{#if active.student}} active{{/if}} nav-link dropdown-toggle"
             href="#"
             id="navbarDropdown"
             role="button"
