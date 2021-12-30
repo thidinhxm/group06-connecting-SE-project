@@ -10,81 +10,80 @@
 	</div>
 	<!-- row -->
 	<div class="row tm-content-row">
-
 		<div class="tm-block-col tm-col-request-settings">
 			<div class="tm-bg-primary-dark tm-block tm-block-settings">
 				<h2 class="tm-block-title">YÊU CẦU TÌM GIA SƯ</h2>
 				<div class="about-request">
 					
 					<div class="row">
-						<div class="col-md-5">
+						<div class="col-md-4">
 							<label>ID</label>
 						</div>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<p>{{student_request_id}}</p>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-5">
+						<div class="col-md-4">
 							<label>Điện thoại</label>
 						</div>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<p>{{phone}}</p>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-5">
+						<div class="col-md-4">
 							<label>Địa chỉ</label>
 						</div>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<p>{{address}}</p>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-5">
+						<div class="col-md-4">
 							<label>Lớp</label>
 						</div>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<p>{{grade}}</p>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-5">
+						<div class="col-md-4">
 							<label>Môn học</label>
 						</div>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<p>{{subject}}</p>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-5">
+						<div class="col-md-4">
 							<label>Lương </label>
 						</div>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<p>{{salary}} vnđ</p>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-5">
+						<div class="col-md-4">
 							<label>Thời gian </label>
 						</div>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<p>{{time}}</p>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-5">
+						<div class="col-md-4">
 							<label>Yêu cầu khác</label>
 						</div>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<p>{{other_request}}</p>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-5">
+						<div class="col-md-4">
 							<label>Trạng thái</label>
 						</div>
-						<div class="col-md-7">
+						<div class="col-md-8">
 							<p>{{status}}</p>
 						</div>
 					</div>
@@ -94,12 +93,18 @@
 		</div>
 	</div>
 	<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-		<button class="btn accept-btn-primary btn-primary me-md-2 option" type="button">Tạo lớp mới</button>
+		{{#if (compareStatus status "Chưa duyệt")}}
+		<form action="/posts/create" method="get">
+			<input id="request-id" name="requestId" type="number" value={{student_request_id}} hidden>
+			<button class="btn accept-btn-primary btn-primary me-md-2 option" type="submit">Tạo lớp mới</button>
+		</form>
+		
 		<form action="/requests/student-requests/cancel" method="post">
 			<input id="userType" name="userType" value="student" type="text" hidden>
 			<input id="id" name="id" type="number" value={{student_request_id}} hidden>
 			<button class="btn denied-btn-danger btn-danger option" type="submit">Hủy yêu cầu</button>
 		</form>
+		{{/if}}
 	</div>
 	{{/with}}
 </div>
