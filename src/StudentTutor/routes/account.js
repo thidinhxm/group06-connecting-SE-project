@@ -31,4 +31,6 @@ router.post('/api/check-exists-account', accountAPI.checkExistAccount);
 
 router.post('/profile/change-password', accountController.changePassword);
 
+router.post('/profile/change-info', accountController.changeInfor);
+
 module.exports = router;
