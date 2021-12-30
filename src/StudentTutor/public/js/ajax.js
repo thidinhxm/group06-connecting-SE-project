@@ -1,5 +1,5 @@
 /*------- CHECK LOGIN -------*/
-$('.btn-login-submit').click(function(e) {
+$('#btn-login-submit').click(function(e) {
     e.preventDefault();
     const email = $('#email-login').val();
     const password = $('#password-login').val();
@@ -42,10 +42,16 @@ $('#btn-student-signup-submit').click(function(e) {
     const birthday = $('#student-birthday').val();
     const gender = $('#student-gender').val();
 
+    const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 
     if (!email || !password || !retypePassword || !fullname || !displayName || !phone || !address || !birthday || !gender) {
         $('#student-signup-err-notification').text('Vui lòng nhập đầy đủ thông tin');
+        return false;
+    }
+
+    if (!regexEmail.test(email)) {
+        $('#student-signup-err-notification').text('Email không hợp lệ');
         return false;
     }
 
@@ -92,6 +98,8 @@ $('#btn-tutor-signup-submit').click(function(e) {
     const gender = $('#tutor-gender').val();
     const job = $('#tutor-job').val();
     const salary = $('#tutor-salary').val();
+
+    const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
     
     const grades = (function() {
@@ -144,6 +152,10 @@ $('#btn-tutor-signup-submit').click(function(e) {
         return false;
     }
 
+    if (!regexEmail.test(email)) {
+        $('#tutor-signup-err-notification').text('Email không hợp lệ');
+        
+    }
 
     if (!regexPassword.test(password)) {
         $('#tutor-signup-err-notification').text('Mật khẩu phải có ít nhất 8 ký tự (không dấu), bao gồm chữ thường, chữ hoa và số.');
@@ -203,3 +215,37 @@ $('#btn-tutor-signup-submit').click(function(e) {
     });
 });
 
+/*------- CHECK FORGOT PASSWORD ACCOUNT -------*/
+$('#btn-forgot-password-submit').click(function(e) {
+    e.preventDefault();
+    const email = $('#email-forgot-password').val();
+    const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!email) {
+        $('#forgot-password-err-notification').text('Vui lòng nhập email');
+        return false;
+    }
+
+    if (!regexEmail.test(email)) {
+        $('#forgot-password-err-notification').text('Email không hợp lệ');
+        return false;
+    }
+
+    $.ajax({
+        url: '/api/check-exists-account',
+        type: 'POST',
+        data: {
+            email: email
+        },
+        success: function(data) {
+            if (!data) {
+                $('#forgot-password-err-notification').text('Email không tồn tại');
+                return false;
+            }
+            else {
+                $('#form-forgot-password').submit();
+                return true;
+            }
+        }
+    });
+});

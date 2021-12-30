@@ -450,14 +450,28 @@ h2 {
   margin: 100px auto;
   color: #000;
 }
+
 .login-form .svg-image {
   max-width: 100%;
   height: 400px;
 }
 
+.login-form.forgot-form{
+  margin: 50px auto;
+  color: #000;
+}
 .forgot-form .svg-image {
   max-width: 100%;
   height: 300px;
+}
+.message {
+  color: #543363;
+  font-weight: 500;
+  
+}
+
+.message-block {
+  height: 80px;
 }
 
 .login-form .form-group .btn-login-submit,
@@ -564,3 +578,4 @@ h2 {
 .table-form-time .day {
   cursor: default;
 }
+

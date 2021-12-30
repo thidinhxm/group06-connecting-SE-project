@@ -74,14 +74,14 @@ exports.getAccForProfile = async(id_user) =>{
     );
 }
 
-exports.updatePassword = async(email_, new_pw) =>{
-    await models.account.update({
-        password: new_pw,
-    }, {
-        where: {
-            email: email_,
+exports.updatePassword = (email, pasword) =>{
+    return models.account.update({
+        password: pasword,
+    },{
+        where:{
+            email: email,
         },
-});
+    });
 }
 
 exports.getPassword = async(email)=>{
@@ -90,5 +90,13 @@ exports.getPassword = async(email)=>{
             email:email,
         },
         raw:true,
+    });
+}
+
+exports.updateAccount = (account) => {
+    return models.account.update(account, {
+        where: {
+            account_id: account.account_id,
+        },
     });
 }

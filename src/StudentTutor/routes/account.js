@@ -15,6 +15,8 @@ router.get('/signup/tutor', accountController.signupTutor);
 router.get('/logout', accountController.logout);
 
 router.get('/forgot-password', accountController.forgotPassword);
+router.get('/reset-password', accountController.resetPassword);
+
 
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/',
@@ -31,5 +33,11 @@ router.post('/api/check-exists-account', accountAPI.checkExistAccount);
 router.post('/profile/change-password', accountController.changePassword);
 
 router.post('/signup-tutor', accountController.signupTutorPost);
+
+router.post('/forgot-password', accountController.forgotPasswordPost);
+
+router.post('/reset-password', accountController.resetPasswordPost);
+
+router.get('/forgot-password-authentication', accountController.forgotPasswordAuthentication);
 
 module.exports = router;
