@@ -1,7 +1,7 @@
 const { models } = require("../models");
 const active = { student: true }
-
 exports.sendRequest = function (req, res, next) {
+
   res.render("students/request",{active});
 };
 
@@ -18,10 +18,10 @@ exports.storeRequest = async (req, res, next) => {
   const time = req.body.time
   const other_request = req.body.different
 
-  const studentID = 1012;// maybe change when login complete
+  const studentID = req.user.account_id;// maybe change when login complete
+
 
   const newStudentRequest = {
-    // student_request_id: 4,
     student_id: studentID,
     address: address,
     phone: phone,

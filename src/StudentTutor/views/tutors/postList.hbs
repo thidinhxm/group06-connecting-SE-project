@@ -5,10 +5,10 @@
         {{#each posts}}
         <div class="col-lg-6 col-md-12 col-mb-12 mb-4">
             <div class="post p-3">
-                <div class="form-group mb-3" >
+                <div class="form-group mb-3">
                     <label for="id" class="form-label">Mã bài đăng</label>
-                    <input type="text" class="form-control idPost" name="id" value="{{post_id}}" style="color:#4200FF ;" required
-                        readonly>
+                    <input type="text" class="form-control idPost" name="id" value="{{post_id}}" style="color:#4200FF ;"
+                        required readonly>
                 </div>
                 <div class="form-group mb-3" style="display: flex;flex-wrap: wrap;">
                     <div class="form-group mb-3 inline" style="width:66%;">
@@ -45,7 +45,8 @@
 
                 <div class="btn-box">
                     <form action="/tutors/send-request">
-                        <button type="button" class="btn btn-info btn-lg btn-request-form p-2" data-toggle="modal" data-target="#myModal">Yêu
+                        <button type="button" class="btn btn-info btn-lg btn-request-form p-2" data-toggle="modal"
+                            data-target="#myModal">Yêu
                             cầu nhận lớp</button>
                     </form>
                 </div>
@@ -53,6 +54,7 @@
         </div>
         {{/each}}
 
+        {{#if roleTutor}}
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
@@ -86,7 +88,8 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label for="fdifferent" class="form-label">Yêu cầu khác (nếu có)</label>
-                                <input type="text" class="form-control" id="fdifferent" placeholder="" name="different" value="">
+                                <input type="text" class="form-control" id="fdifferent" placeholder="" name="different"
+                                    value="">
                             </div>
 
                             <div class="form-group mb-2">
@@ -100,6 +103,36 @@
                 </div>
             </div>
         </div>
+
+
+        {{!-- Model pop up when user is not a tutor --}}
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        {{else}}
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        "Yêu cầu nhận lớp" chỉ được phép truy cập bởi gia sư
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{/if }}
+
         <style>
             .container h1 {
                 text-align: center;
