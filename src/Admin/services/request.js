@@ -30,23 +30,21 @@ exports.showStudentRequest = async (id) => {
     });
 }
 
-exports.updateCancel = (id, userType) =>{
-    if(userType=="student"){
-        return models.studentrequest.update({
-            status: "Đã hủy",
-        }, {
-            where: {
-                student_request_id: id,
-            },
-    });}
-    else if (userType=="tutor") {
-        return models.tutorrequest.update({
-            status: "Đã hủy",
-        }, {
-            where: {
-                tutor_request_id: id,
-            },
+exports.updateCancelStudent = (id) =>{
+    return models.studentrequest.update({
+        status: "Đã hủy",
+    }, {
+        where: {
+            student_request_id: id,
+        },
     });
-    } else {
-    }
+}
+exports.updateCancelTutor = (id) =>{
+    return models.tutorrequest.update({
+        status: "Đã hủy",
+    }, {
+        where: {
+            tutor_request_id: id,
+        },
+    });
 }

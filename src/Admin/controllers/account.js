@@ -42,6 +42,13 @@ exports.changeInfo = async(req, res, next) => {
     var fullname = req.body.ffullname;
     var display_name = req.body.fdisplayname;
 
+    console.log("Xuất ra");
+    console.log(id);
+    console.log(fullname);
+    console.log(display_name);
+
     const update = await accountService.updateInfo(id, fullname, display_name);
+    console.log(update);
+
     res.redirect('/profile');
 }
