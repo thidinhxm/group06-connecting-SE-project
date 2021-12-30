@@ -190,7 +190,7 @@ h2 {
   font-size: 2rem;
 }
 .container > i {
-  margin-right: 300px;
+  margin-right: 240px;
 }
 .tm-logout-icon {
   font-size: 1.5em;
@@ -579,3 +579,7 @@ h2 {
   cursor: default;
 }
 
+/* postList */
+.postList .form-group {
+  margin-bottom: 6px;
+}
