@@ -93,7 +93,7 @@ exports.profile = async(req, res, next) => {
     const profile = await accountService.getInforProfileByIDStudent(id_user);
     const profile_tutor = await accountService.getInforProfileByIDTutor(id_user);
     const profile_acc = await accountService.getAccForProfile(id_user);
-    console.log("Đây là thông tin người dùng");
+    console.log('Đây là thông tin người dùng');
     console.log(profile);
     console.log(profile_tutor);
     console.log(profile_acc);
@@ -113,11 +113,11 @@ exports.changePassword = async(req, res, next) => {
     {
         await accountService.updatePassword(email, hashPassword);
         res.redirect('/profile/'+ account_id);
-        console.log("Mật khẩu đã được cập nhật.");
+        console.log('Mật khẩu đã được cập nhật.');
     }
     else{
         res.redirect('/profile/'+ account_id);
-        console.log("Sai mật khẩu vui lòng nhập lại.");
+        console.log('Sai mật khẩu vui lòng nhập lại.');
     }
 }
 
@@ -153,7 +153,7 @@ exports.forgotPasswordPost = async(req, res, next) => {
             <p>Tên đăng nhập: ${email}</p>
             <p>Nếu đây là một thao tác nhầm lẫn, bạn chỉ cần bỏ qua email này. Sẽ không có vấn đề gì xảy ra với tài khoản của bạn.</p>
             <p>Nếu đây là thao tác đúng lẽ, bạn cần bấm vào đường link bên dưới để đổi mật khẩu mới:</p>
-            <a href="${url}">Đổi mật khẩu</a>
+            <a href='${url}'>Đổi mật khẩu</a>
             <p>Nếu bạn không biết về thao tác này, có lẽ ai đó đã cố gắng truy cập vào tài khoản của bạn. Vui lòng không gửi đường link này cho bất cứ ai</p>`
         };
 

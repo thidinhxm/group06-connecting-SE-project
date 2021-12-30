@@ -94,18 +94,69 @@
 	</div>
 	<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 		{{#if (compareStatus status "Chưa duyệt")}}
-		<form action="/posts/create" method="get">
+		<form action="/posts/create" method="GET">
 			<input id="request-id" name="requestId" type="number" value={{student_request_id}} hidden>
-			<button class="btn accept-btn-primary btn-primary me-md-2 option" type="submit">Tạo lớp mới</button>
+			<button class="btn accept-btn-primary btn-primary me-md-2 option" type="submit">Tạo bài đăng</button>
 		</form>
 		
-		<form action="/requests/student-requests/cancel" method="post">
+		{{!-- <form action="/requests/student-requests/cancel" method="post">
 			<input id="userType" name="userType" value="student" type="text" hidden>
 			<input id="id" name="id" type="number" value={{student_request_id}} hidden>
-			<button class="btn denied-btn-danger btn-danger option" type="submit">Hủy yêu cầu</button>
-		</form>
+			<button class="btn denied-btn-danger btn-danger option" type="submit" >Hủy yêu cầu</button>
+		</form> --}}
+		<a class="btn denied-btn-danger btn-danger option" href="" data-toggle="modal"
+			data-target="#cancel-student-request-modal" data-id="{{student_request_id}}">
+			Hủy yêu cầu
+		</a>
 		{{/if}}
 	</div>
 	{{/with}}
 </div>
 {{> footer}}
+
+<form method="post" name="cancel-student-form" action="">
+	<input type="hidden" name="userType" value="student">
+	<input id="id" name="id" type="number" hidden>
+</form>
+
+<div id="cancel-student-request-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h5 class="modal-title">Hủy yêu cầu</h5>
+		<button type="button" class="close" data-dismiss="modal" data-id="" aria-label="Close">
+		  <span aria-hidden="true">&times;</span>
+		</button>
+	  </div>
+	  <div class="modal-body">
+		<p>Bạn chắc chắn hủy yêu cầu này?</p>
+	  </div>
+	  <div class="modal-footer">
+		<button id="btn-cancel-student" type="button" class=" btn btn-danger" method="post">Hủy yêu cầu</button>
+		<button type="button" class="btn btn-secondary" data-dismiss="modal">Quay lại</button>
+	  </div>
+	</div>
+  </div>
+</div>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		let studentRequestID;
+		const cancelForm = document.forms['cancel-student-form'];
+
+		$('#cancel-student-request-modal').on('show.bs.modal', function (event) {
+			const button = $(event.relatedTarget); // Button that triggered the modal
+			studentId = button.data('id')
+
+		});
+		const btnCancelRequest = document.getElementById('btn-cancel-student');
+		console.log(btnCancelRequest)
+		btnCancelRequest.onclick = function () {
+			cancelForm.id.value = studentId;
+			console.log('value', cancelForm.id.value)
+			cancelForm.action = `/requests/student-requests/cancel`;
+			cancelForm.submit();
+		}
+
+	});
+
+</script>
