@@ -84,7 +84,7 @@ exports.signupTutorPost = async (req, res, next) => {
 }
 
 exports.logout = async(req, res, net) => {
-    res.logout();
+    req.logout();
     res.redirect('/');
 }
 
