@@ -19,6 +19,19 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: 0
+    },
+    is_verified: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: 0
+    },
+    token: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    expired_at: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     sequelize,

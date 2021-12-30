@@ -40,6 +40,46 @@ exports.signupStudentPost = async (req, res, next) => {
     }
 }
 
+exports.signupTutorPost = async (req, res, next) => {
+    try {
+        const {
+            email, password, fullname, displayName, phone, 
+            address, birthday, gender, job, salary, grade, 
+            subject, time, fgrade, fsubject, ftime, area, farea
+        } = req.body;
+        console.log(req.body)
+        const gradeString = (Array.isArray(grade)? grade.join(', ') : grade) + (fgrade ? (', ' + fgrade) : '');
+        const subjectString = (Array.isArray(subject)? subject.join(', ') : subject) + (fsubject ? (', ' + fsubject) : '');
+        const timeString = (Array.isArray(time)? time.join(', ') : time) + (ftime ? (', ' + ftime) : '');
+        const areaString = (Array.isArray(area)? area.join(', ') : area) + (farea ? (', ' + farea) : '');
+        
+        const hashPassword = bcrypt.hashSync(password, 10);
+        
+        const account = await accountService.createAccount({email, password: hashPassword});
+        const tutor = await accountService.createTutor({
+            tutor_id: account.account_id,
+            display_name: displayName,
+            fullname,
+            phone,
+            address,
+            birthday,
+            gender: parseInt(gender),
+            job,
+            min_salary: salary,
+            grade: gradeString,
+            subject: subjectString,
+            time: timeString,
+            area: areaString
+        });
+        console.log(req.body);
+        console.log(tutor)
+        res.redirect('/');
+    }
+    catch(err) {
+        next(err);
+    }
+}
+
 exports.forgotPassword = async(req, res, next) => {
     res.render('account/forgotPassword');
 }

@@ -35,8 +35,9 @@
                         </div> <!-- form-group// -->
                         <div class="form-group input-group col-12 col-md-10">
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="tutor-retype-password"> <i
-                                        class="fa fa-lock"></i></label>
+                                <label class="input-group-text" for="tutor-retype-password"> 
+                                    <i class="fa fa-lock"></i>
+                                </label>
                             </div>
                             <input name="retypePassword" class="form-control" placeholder="Nhập lại mật khẩu"
                                 type="password" id="tutor-retype-password">
@@ -103,16 +104,17 @@
                                 <label class="input-group-text"><i class="fas fa-user-md"></i></label>
                             </div>
                             <select name="job" class="form-control" id="tutor-job">
-                                <option value="" disabled selected hidden>Nghề nghiệp hiện tại</option>
-                                <option value="1">Giáo viên</option>
-                                <option value="2">Sinh Viên</option>
-                                <option value="3">Đã tốt nghiệp</option>
+                                <option disabled selected hidden>Nghề nghiệp hiện tại</option>
+                                <option value="Giáo viên">Giáo viên</option>
+                                <option value="Sinh viên">Sinh Viên</option>
+                                <option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
                             </select>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group col-12 col-md-5">
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="tutor-birthday"> <i
-                                        class="fas fa-birthday-cake"></i> </label>
+                                <label class="input-group-text" for="tutor-birthday"> 
+                                    <i class="fas fa-birthday-cake"></i> 
+                                </label>
                             </div>
                             <input name="salary" class="form-control" placeholder="Mức lương thấp nhất" type="number"
                                 onblur="if(this.value==''){this.type='text'}" id="tutor-salary">
@@ -128,92 +130,92 @@
                             <div class="col-12">
                                 <div class="form-group row ml-2">
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 6"
+                                        <input class="form-check-input" type="checkbox" name="grade" value="Lớp 1"
                                             id="fclass-check-1">
                                         <label class="form-check-label" for="fclass-check-1">
                                             Lớp 1
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 6"
-                                            id="fclass-check-1">
-                                        <label class="form-check-label" for="fclass-check-1">
+                                        <input class="form-check-input" type="checkbox" name="grade" value="Lớp 2"
+                                            id="fclass-check-2">
+                                        <label class="form-check-label" for="fclass-check-2">
                                             Lớp 2
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 6"
-                                            id="fclass-check-1">
-                                        <label class="form-check-label" for="fclass-check-1">
+                                        <input class="form-check-input" type="checkbox" name="grade" value="Lớp 3"
+                                            id="fclass-check-3">
+                                        <label class="form-check-label" for="fclass-check-3">
                                             Lớp 3
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 6"
-                                            id="fclass-check-1">
-                                        <label class="form-check-label" for="fclass-check-1">
+                                        <input class="form-check-input" type="checkbox" name="grade" value="Lớp 4"
+                                            id="fclass-check-4">
+                                        <label class="form-check-label" for="fclass-check-4">
                                             Lớp 4
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 6"
-                                            id="fclass-check-1">
-                                        <label class="form-check-label" for="fclass-check-1">
+                                        <input class="form-check-input" type="checkbox" name="grade" value="Lớp 5"
+                                            id="fclass-check-5">
+                                        <label class="form-check-label" for="fclass-check-5">
                                             Lớp 5
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 6"
-                                            id="fclass-check-1">
-                                        <label class="form-check-label" for="fclass-check-1">
+                                        <input class="form-check-input" type="checkbox" name="grade" value="Lớp 6"
+                                            id="fclass-check-6">
+                                        <label class="form-check-label" for="fclass-check-6">
                                             Lớp 6
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 7"
-                                            id="fclass-check-2">
-                                        <label class="form-check-label" for="fclass-check-2">
+                                        <input class="form-check-input" type="checkbox" name="grade" value="Lớp 7"
+                                            id="fclass-check-7">
+                                        <label class="form-check-label" for="fclass-check-7">
                                             Lớp 7
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 8"
-                                            id="fclass-check-3">
-                                        <label class="form-check-label" for="fclass-check-3">
+                                        <input class="form-check-input" type="checkbox" name="grade" value="Lớp 8"
+                                            id="fclass-check-8">
+                                        <label class="form-check-label" for="fclass-check-8">
                                             Lớp 8
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 9"
-                                            id="fclass-check-4">
-                                        <label class="form-check-label" for="fclass-check-4">
+                                        <input class="form-check-input" type="checkbox" name="grade" value="Lớp 9"
+                                            id="fclass-check-9">
+                                        <label class="form-check-label" for="fclass-check-9">
                                             Lớp 9
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 10"
-                                            id="fclass-check-5">
-                                        <label class="form-check-label" for="fclass-check-5">
+                                        <input class="form-check-input" type="checkbox" name="grade" value="Lớp 10"
+                                            id="fclass-check-10">
+                                        <label class="form-check-label" for="fclass-check-10">
                                             Lớp 10
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 11"
-                                            id="fclass-check-6">
-                                        <label class="form-check-label" for="fclass-check-6">
+                                        <input class="form-check-input" type="checkbox" name="grade" value="Lớp 11"
+                                            id="fclass-check-11">
+                                        <label class="form-check-label" for="fclass-check-11">
                                             Lớp 11
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="class[]" value="Lớp 12"
-                                            id="fclass-check-7">
-                                        <label class="form-check-label" for="fclass-check-7">
+                                        <input class="form-check-input" type="checkbox" name="grade" value="Lớp 12"
+                                            id="fclass-check-12">
+                                        <label class="form-check-label" for="fclass-check-12">
                                             Lớp 12
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <input type="text" class="form-control" name="dclass" placeholder="Lớp học khác">
+                                    <input type="text" class="form-control" name="fgrade" placeholder="Lớp học khác">
                                 </div>
                             </div>
                         </div>
@@ -223,71 +225,71 @@
                             <div class="col-12">
                                 <div class="form-group row ml-2">
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Toán"
+                                        <input class="form-check-input" type="checkbox" name="subject" value="Toán"
                                             id="fsubject-check-1">
                                         <label class="form-check-label" for="fsubject-check-1">
                                             Toán
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Lý"
+                                        <input class="form-check-input" type="checkbox" name="subject" value="Lý"
                                             id="fsubject-check-2">
                                         <label class="form-check-label" for="fsubject-check-2">
                                             Lý
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Hóa"
+                                        <input class="form-check-input" type="checkbox" name="subject" value="Hóa"
                                             id="fsubject-check-3">
                                         <label class="form-check-label" for="fsubject-check-3">
                                             Hóa
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Anh"
+                                        <input class="form-check-input" type="checkbox" name="subject" value="Anh"
                                             id="fsubject-check-4">
                                         <label class="form-check-label" for="fsubject-check-4">
                                             Anh
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Văn"
+                                        <input class="form-check-input" type="checkbox" name="subject" value="Văn"
                                             id="fsubject-check-5">
                                         <label class="form-check-label" for="fsubject-check-5">
                                             Văn
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Sử"
+                                        <input class="form-check-input" type="checkbox" name="subject" value="Sinh"
                                             id="fsubject-check-6">
                                         <label class="form-check-label" for="fsubject-check-6">
                                             Sinh
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Địa"
+                                        <input class="form-check-input" type="checkbox" name="subject" value="Sử"
                                             id="fsubject-check-7">
                                         <label class="form-check-label" for="fsubject-check-7">
                                             Sử
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Công dân"
+                                        <input class="form-check-input" type="checkbox" name="subject" value="Địa"
                                             id="fsubject-check-8">
                                         <label class="form-check-label" for="fsubject-check-8">
                                             Địa
                                         </label>
                                     </div>
                                     <div class="form-check col-4 mb-3">
-                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Tin học"
+                                        <input class="form-check-input" type="checkbox" name="subject" value="Tin"
                                             id="fsubject-check-9">
                                         <label class="form-check-label" for="fsubject-check-9">
-                                            Tin học
+                                            Tin
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <input type="text" class="form-control" name="dsubject" placeholder="Môn học khác">
+                                    <input type="text" class="form-control" name="fsubject" placeholder="Môn học khác">
                                 </div>
                             </div>
                         </div>
@@ -311,19 +313,19 @@
                                                     <td class="day">Thứ 2</td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Sáng thứ 2">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Chiều thứ 2">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Tối thứ 2">
                                                         </div>
                                                     </td>
@@ -332,19 +334,19 @@
                                                     <td class="day">Thứ 3</td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Sáng thứ 3">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Chiều thứ 3">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Tối thứ 3">
                                                         </div>
                                                     </td>
@@ -353,19 +355,19 @@
                                                     <td class="day">Thứ 4</td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Sáng thứ 4">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Chiều thứ 4">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Tối thứ 4">
                                                         </div>
                                                     </td>
@@ -374,19 +376,19 @@
                                                     <td class="day">Thứ 5</td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Sáng thứ 5">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Chiều thứ 5">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Tối thứ 5">
                                                         </div>
                                                     </td>
@@ -395,19 +397,19 @@
                                                     <td class="day">Thứ 6</td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Sáng thứ 6">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Chiều thứ 6">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Tối thứ 6">
                                                         </div>
                                                     </td>
@@ -416,19 +418,19 @@
                                                     <td class="day">Thứ 7</td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Sáng thứ 7">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Chiều thứ 7">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Tối thứ 7">
                                                         </div>
                                                     </td>
@@ -438,19 +440,19 @@
 
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Sáng chủ nhật">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Chiều chủ nhật">
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check text-center">
-                                                            <input class="form-check-input" type="checkbox" name="time[]"
+                                                            <input class="form-check-input" type="checkbox" name="time"
                                                                 value="Tối chủ nhật">
                                                         </div>
                                                     </td>
@@ -459,10 +461,176 @@
                                             </tbody>
                                         </table>
                                         <div class="form-group w-100">
-                                            <input type="text" class="form-control" name="dtime"
+                                            <input type="text" class="form-control" name="ftime"
                                                 placeholder="Thông tin về thời gian dạy khác">
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-10 col-mb-12 mb-2">
+                            <label for="fareas" class="form-label">Khu vực dạy (<span
+                                    style="color: red">*</span>)</label>
+                            <div class="col-12">
+                                <div class="form-group row ml-2">
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận 1"
+                                            id="farea-check-1">
+                                        <label class="form-check-label" for="farea-check-1">
+                                            Quận 1
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận 3"
+                                            id="farea-check-2">
+                                        <label class="form-check-label" for="farea-check-2">
+                                            Quận 3
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận 4"
+                                            id="farea-check-3">
+                                        <label class="form-check-label" for="farea-check-3">
+                                            Quận 4
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận 5"
+                                            id="farea-check-4">
+                                        <label class="form-check-label" for="farea-check-4">
+                                            Quận 5
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận 6"
+                                            id="farea-check-5">
+                                        <label class="form-check-label" for="farea-check-5">
+                                            Quận 6
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận 7"
+                                            id="farea-check-6">
+                                        <label class="form-check-label" for="farea-check-6">
+                                            Quận 7
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận 8"
+                                            id="farea-check-7">
+                                        <label class="form-check-label" for="farea-check-7">
+                                            Quận 8
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận 10"
+                                            id="farea-check-8">
+                                        <label class="form-check-label" for="farea-check-8">
+                                            Quận 10
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận 11"
+                                            id="farea-check-9">
+                                        <label class="form-check-label" for="farea-check-9">
+                                            Quận 11
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận 12"
+                                            id="farea-check-10">
+                                        <label class="form-check-label" for="farea-check-10">
+                                            Quận 12
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận Bình Thạnh"
+                                            id="farea-check-11">
+                                        <label class="form-check-label" for="farea-check-11">
+                                            Quận Bình Thạnh
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận Gò Vấp"
+                                            id="farea-check-12">
+                                        <label class="form-check-label" for="farea-check-12">
+                                            Quận Gò Vấp
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận Phú Nhuận"
+                                            id="farea-check-13">
+                                        <label class="form-check-label" for="farea-check-13">
+                                            Quận Phú Nhuận
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận Tân Bình"
+                                            id="farea-check-14">
+                                        <label class="form-check-label" for="farea-check-14">
+                                            Quận Tân Bình
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận Tân Phú"
+                                            id="farea-check-15">
+                                        <label class="form-check-label" for="farea-check-15">
+                                            Quận Tân Phú
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Quận Bình Tân"
+                                            id="farea-check-16">
+                                        <label class="form-check-label" for="farea-check-16">
+                                            Quận Bình Tân
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Huyện Bình Chánh"
+                                            id="farea-check-17">
+                                        <label class="form-check-label" for="farea-check-17">
+                                            Huyện Bình Chánh
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Huyện Cần Giờ"
+                                            id="farea-check-18">
+                                        <label class="form-check-label" for="farea-check-18">
+                                            Huyện Cần Giờ
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Huyện Củ Chi"
+                                            id="farea-check-19">
+                                        <label class="form-check-label" for="farea-check-19">
+                                            Huyện Củ Chi
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Huyện Hóc Môn"
+                                            id="farea-check-20">
+                                        <label class="form-check-label" for="farea-check-20">
+                                            Huyện Hóc Môn
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Huyện Nhà Bè"
+                                            id="farea-check-21">
+                                        <label class="form-check-label" for="farea-check-21">
+                                            Huyện Nhà Bè
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 col-md-4 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="area" value="Thành phố Thủ Đức"
+                                            id="farea-check-22">
+                                        <label class="form-check-label" for="farea-check-22">
+                                            Thành phố Thủ Đức
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <input type="text" class="form-control" name="farea" placeholder="Khu vực khác">
                                 </div>
                             </div>
                         </div>
