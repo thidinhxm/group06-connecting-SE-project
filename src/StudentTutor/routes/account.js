@@ -32,6 +32,8 @@ router.post('/api/check-exists-account', accountAPI.checkExistAccount);
 
 router.post('/profile/change-password', accountController.changePassword);
 
+router.post('/profile/change-info', accountController.changeInfor);
+
 router.post('/signup-tutor', accountController.signupTutorPost);
 
 router.post('/forgot-password', accountController.forgotPasswordPost);

@@ -18,6 +18,9 @@
                             {{#with profile}}
                             <h4 class="user-name">{{display_name}}</h4>
                             {{/with}}
+                            {{#with profile_tutor}}
+                            <h4 class="user-name">{{display_name}}</h4>
+                            {{/with}}
                             {{#with profile_acc}}
                             <h6 class="user-email">{{email}}</h6>
                             {{/with}}
@@ -45,16 +48,27 @@
             <div class="card h-100">
                 <div class="card-body">
                     <h4 class="text-info">Thông tin tài khoản</h4>
+
                     {{#with profile}}
-                    <form class="form-change-infor" action="" method="POST">
+                    <form class="form-change-infor" action="/profile/change-info" method="POST">
                         <div class="form-group mb-3">
-                            <label for="fname" class="form-label">Họ tên</label>
-                            <input type="text" class="form-control" id="fname" value="{{fullname}}" name="name"
+                            <label for="ffullname" class="form-label">Họ tên</label>
+                            <input type="text" class="form-control" id="ffullname" value="{{fullname}}" name="ffullname"
+                                required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="fdisplayname" class="form-label">Tên hiển thị</label>
+                            <input type="text" class="form-control" id="fdisplayname" value="{{display_name}}" name="fdisplayname"
                                 required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="fphone" class="form-label">Số điện thoại</label>
-                            <input type="tel" class="form-control" id="fphone" name="phone" value={{phone}}>
+                            <input type="tel" class="form-control" id="fphone" name="fphone" value={{phone}}>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="fphone" class="form-label">Ngày sinh</label>
+                            <input type="date" class="form-control" id="fbirthday" name="fbirthday" value={{birthday}}>
                         </div>
                         {{!-- <div class="form-group mb-3">
                             <label for="fmail" class="form-label">Email</label>
@@ -62,13 +76,82 @@
                         </div> --}}
                         <div class="form-group mb-3">
                             <label for="faddress" class="form-label">Địa chỉ</label>
-                            <input type="text" class="form-control" id="faddress" value="{{address}}" name="address">
+                            <input type="text" class="form-control" id="faddress" value="{{address}}" name="faddress">
                         </div>
+                        {{/with}}
+
+                        {{#with profile_tutor}}
+                    <form class="form-change-infor" action="/profile/change-info" method="POST">
+                        <div class="form-group mb-3">
+                            <label for="ffullname" class="form-label">Họ tên</label>
+                            <input type="text" class="form-control" id="ffullname" value="{{fullname}}" name="ffullname"
+                                required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="fdisplayname" class="form-label">Tên hiển thị</label>
+                            <input type="text" class="form-control" id="fdisplayname" value="{{display_name}}" name="fdisplayname"
+                                required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="fphone" class="form-label">Số điện thoại</label>
+                            <input type="tel" class="form-control" id="fphone" name="fphone" value={{phone}}>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="fphone" class="form-label">Ngày sinh</label>
+                            <input type="date" class="form-control" id="fbirthday" name="fbirthday" value={{birthday}}>
+                        </div>
+                        {{!-- <div class="form-group mb-3">
+                            <label for="fmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="fmail" name="mail" value="abc@gmail.com">
+                        </div> --}}
+                        <div class="form-group mb-3">
+                            <label for="faddress" class="form-label">Địa chỉ</label>
+                            <input type="text" class="form-control" id="faddress" value="{{address}}" name="faddress">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="fgrade" class="form-label">Lớp dạy</label>
+                            <input type="text" class="form-control" id="fgrade" value="{{grade}}" name="fgrade">
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label for="fsubject" class="form-label">Môn dạy</label>
+                            <input type="text" class="form-control" id="fsubject" value="{{subject}}" name="fsubject">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="ftime" class="form-label">Thời gian dạy</label>
+                            <input type="text" class="form-control" id="ftime" value="{{time}}" name="ftime">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="farea" class="form-label">Quận dạy</label>
+                            <input type="text" class="form-control" id="farea" value="{{area}}" name="farea">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="fmin_salary" class="form-label">Lương yêu cầu ít nhất</label>
+                            <input type="number" class="form-control" id="fmin_salary" value="{{min_salary}}" name="fmin_salary">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="fjob" class="form-label">Công việc hiện tại</label>
+                            <input type="text" class="form-control" id="fjob" value="{{job}}" name="fjob">
+                        </div>
+
+
+                        {{/with}}
+
+                        {{#with profile_acc}}
+                        <input type="number" name="faccount_id" id="faccount_id" value={{account_id}} hidden>
                         {{/with}}
                         <div class="form-group mb-3 text-right submit-change-info d-none">
                             <a href="../" type="button" class="btn btn-secondary mb-3">Hủy</a>
                             <button type="submit" class="btn btn-success mb-3">Lưu</button>
                         </div>
+
+                        
                     </form>
 
                     <h5 class="text-info change-password">
@@ -118,6 +201,14 @@
                             <button type="button" class="btn btn-success mb-3 btn-change-password">Lưu</button>
                         </div>
                     </form>
+                    {{!-- {{#with checkChangePW}}
+                    <script>
+                        if(checkChangePW!=null){
+                            alert("Không có null");
+                        }
+                        alert("xin chào");
+                    </script>
+                    {{/with}} --}}
                 </div>
             </div>
         </div>
