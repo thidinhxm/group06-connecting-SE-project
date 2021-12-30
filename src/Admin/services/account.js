@@ -50,7 +50,7 @@ exports.getPassword = async(email)=>{
 }
 
 exports.updateInfo = async(account_id, fullname, display_name) =>{
-    const student = await models.admin.update({
+    return await models.admin.update({
         fullname: fullname,
         display_name: display_name,
     }, {

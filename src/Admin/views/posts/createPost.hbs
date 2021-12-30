@@ -8,7 +8,6 @@
 			</div>
             <div class="container add-post-container">
 				{{#with request}}
-
 				<form action="/posts/create?student_request_id={{student_request_id}}" method="POST" class ="form-add-post" >
 					<div class="form-group has-error row">
 						<div class="col-3"><label for="slug">Lớp</label></div>
@@ -27,16 +26,16 @@
 					</div>
 				
 					<div class="form-group">
-						<label for="title">Luong</label>
+						<label for="title">Lương</label>
 						<input type="text" class="form-control" name="salary" value="{{salary}}"  />
 					</div>
 
 					<div class="form-group">
-						<label for="title">Thoi gian</label>
+						<label for="title">Thời gian</label>
 						<input type="text" class="form-control" name="time" value="{{time}}"  />
 					</div>
 					<div class="form-group">
-						<label for="description">Yeu cau khac </label>
+						<label for="description">Yêu cầu khác </label>
 						<textarea rows="5" class="form-control" name="other_request">{{other_request}}</textarea>
 					</div>
 					

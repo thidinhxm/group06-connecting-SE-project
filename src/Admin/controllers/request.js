@@ -17,17 +17,17 @@ exports.listStudentRequests = async (req, res, next) => {
 
 exports.showStudentRequest = async (req, res, next) => {
     const studentRequest = await requestService.showStudentRequest(req.params.id);
-    console.log(studentRequest);
     res.render('requests/studentRequests/studentRequestDetail', {studentRequest});
 }
 
 exports.cancel = async (req, res, next) => {
     var id = req.body.id;
     var userType = req.body.userType;
-    await requestService.updateCancel(id, userType);
     if (userType=='student') {
+        await requestService.updateCancelStudent(id);
         res.redirect('/requests/student-requests');
     } else {
+        await requestService.updateCancelTutor(id);
         res.redirect('/requests/tutor-requests');   
     }
 }
