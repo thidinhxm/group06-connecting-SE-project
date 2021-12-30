@@ -306,9 +306,9 @@ h2 {
 .nav-item {
   text-align: center;
 }
-.nav-item:last-of-type {
+/* .nav-item:last-of-type {
   margin-left: auto;
-}
+} */
 .nav-item:last-child {
   margin-right: 0;
 }
