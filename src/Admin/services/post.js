@@ -1,26 +1,32 @@
-const {models} = require('../models');
+const { models } = require("../models");
 
-exports.listPosts = async () => {
-    return await models.post.findAll({
-        include : [{
-            model: models.studentrequest,
-            as: 'student_request',
-            attributes: ['status'],
-        }],
-        raw: true,
-    });
-},
-
-exports.showPost = async (id) => {
+(exports.listPosts = async () => {
+  return await models.post.findAll({
+    include: [
+      {
+        model: models.studentrequest,
+        as: "student_request",
+        attributes: ["status"],
+      },
+    ],
+    raw: true,
+  });
+}),
+  (exports.showPost = async (id) => {
     return await models.post.findOne({
-        include : [{
-            model: models.studentrequest,
-            as: 'student_request',
-            attributes: ['status'],
-        }],
-        where: {
-            post_id: id
+      include: [
+        {
+          model: models.studentrequest,
+          as: "student_request",
+          attributes: ["status"],
         },
-        raw: true,
+      ],
+      where: {
+        post_id: id,
+      },
+      raw: true,
     });
-}
+  });
+exports.createPost = (post) => {
+  return models.post.create(post);
+};
