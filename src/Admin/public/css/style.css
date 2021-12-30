@@ -958,3 +958,25 @@ div.col-md-7 p {
   font-size: 20px;
 }
 /* end fix css request detail */
+
+/* Begin Search */
+.search{
+  height: 48px;
+}
+
+.search .search-input{
+  border: 1px solid #ccc !important;
+  border-radius: 10px;
+}
+
+.search .search-input:focus{
+  border-color: #5f97cc !important;
+}
+
+.search .search-button{
+    height: 100%;
+    border-radius: 10px;
+    margin: 0 0 0 12px;
+}
+
+/* End Search */
