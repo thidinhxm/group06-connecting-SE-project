@@ -17,7 +17,6 @@ exports.listStudentRequests = async (req, res, next) => {
 
 exports.showStudentRequest = async (req, res, next) => {
     const studentRequest = await requestService.showStudentRequest(req.params.id);
-    console.log(studentRequest);
     res.render('requests/studentRequests/studentRequestDetail', {studentRequest});
 }
 
