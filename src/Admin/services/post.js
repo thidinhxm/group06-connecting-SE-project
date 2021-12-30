@@ -1,12 +1,12 @@
-const { models } = require("../models");
+const { models } = require('../models');
 
 (exports.listPosts = async () => {
   return await models.post.findAll({
     include: [
       {
         model: models.studentrequest,
-        as: "student_request",
-        attributes: ["status"],
+        as: 'student_request',
+        attributes: ['status'],
       },
     ],
     raw: true,
@@ -17,8 +17,8 @@ const { models } = require("../models");
       include: [
         {
           model: models.studentrequest,
-          as: "student_request",
-          attributes: ["status"],
+          as: 'student_request',
+          attributes: ['status'],
         },
       ],
       where: {
