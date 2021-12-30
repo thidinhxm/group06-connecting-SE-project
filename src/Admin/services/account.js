@@ -48,3 +48,13 @@ exports.getPassword = async(email)=>{
         raw:true,
     });
 }
+
+exports.updateInfo = async(account_id, fullname, display_name) =>{
+    const student = await models.admin.update({
+        fullname: fullname,
+        display_name: display_name,
+    }, {
+        where: {
+            admin_id: account_id,
+        },
+});}

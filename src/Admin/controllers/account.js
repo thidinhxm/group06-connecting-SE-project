@@ -36,3 +36,12 @@ exports.changePassword = async(req, res, next) => {
         console.log("Sai mật khẩu vui lòng nhập lại.");
     }
 }
+
+exports.changeInfo = async(req, res, next) => { 
+    var id = req.body.account_id;
+    var fullname = req.body.ffullname;
+    var display_name = req.body.fdisplayname;
+
+    const update = await accountService.updateInfo(id, fullname, display_name);
+    res.redirect('/profile');
+}

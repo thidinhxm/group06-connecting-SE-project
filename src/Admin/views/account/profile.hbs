@@ -48,12 +48,19 @@
                 <div class="card-body">
                     <h4 class="text-primary">Thông tin tài khoản</h4>
                     {{!-- {{#with profile}} --}}
-                    <form class="form-change-infor" action="" method="POST">
+                    <form class="form-change-infor" action="/profile/change-info" method="POST">
                         <div class="form-group mb-3">
-                            <label for="fname" class="form-label">Họ tên</label>
-                            <input type="text" class="form-control" id="fname" value="{{fullname}}" name="name"
+                            <label for="ffullname" class="form-label">Họ tên</label>
+                            <input type="text" class="form-control" id="ffullname" value="{{fullname}}" name="fullname"
                                 required>
                         </div>
+
+                        <div class="form-group mb-3">
+                            <label for="fdisplay_name" class="form-label">Họ tên</label>
+                            <input type="text" class="form-control" id="fdisplay_name" value="{{display_name}}" name="display_name"
+                                required>
+                        </div>
+
                         <div class="form-group mb-3">
                             <label for="fphone" class="form-label">Số điện thoại</label>
                             <input type="tel" class="form-control" id="fphone" name="phone" value="0123456789">
