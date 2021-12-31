@@ -186,19 +186,23 @@ exports.changePassword = async(req, res, next) => {
     const hashPassword = bcrypt.hashSync(new_pw, len);
     var present_pw = req.body.present_password;
     var email = req.body.email_for_cp;
-    const pw = await accountService.getPassword(email);
-    var account_id=pw.account_id;
+    try{
+        const pw = await accountService.getPassword(email);
+        var account_id=pw.account_id;
 
-    if(bcrypt.compareSync(present_pw, pw.password))
-    {
-        await accountService.updatePassword(email, hashPassword);
-        res.redirect('/profile/'+ account_id);
-        console.log('Mật khẩu đã được cập nhật.');
-    }
-    else{
-        res.redirect('/profile/'+ account_id);
-        console.log('Sai mật khẩu vui lòng nhập lại.');
-    }
+        if(bcrypt.compareSync(present_pw, pw.password))
+        {
+            await accountService.updatePassword(email, hashPassword);
+            res.redirect('/profile/'+ account_id);
+            console.log('Mật khẩu đã được cập nhật.');
+        }
+        else{
+            res.redirect('/profile/'+ account_id);
+            console.log('Sai mật khẩu vui lòng nhập lại.');
+    }}
+    catch (err) {
+		next(err);
+	}
 }
 
 
@@ -343,7 +347,11 @@ exports.changeInfor = async(req, res, next) => {
     var area = req.body.farea;
     var job = req.body.fjob;
     var min_salary = req.body.fmin_salary;
-    
-    const update = await accountService.updateInfo(account_id, fullname, display_name, phone, birthday, address, grade, subject, time, area, min_salary, job);
+    try{
+        const update = await accountService.updateInfo(account_id, fullname, display_name, phone, birthday, address, grade, subject, time, area, min_salary, job);
+    }
+    catch (err) {
+		next(err);
+	}
     res.redirect('/profile/'+ account_id);
 }

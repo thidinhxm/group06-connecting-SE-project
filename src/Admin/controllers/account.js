@@ -6,11 +6,16 @@ exports.login = (req, res, next) => {
 }
 
 exports.profile = async(req, res, next) => { 
-    const profile = await accountService.getInforProfileByEmail();
-    const profile_acc = await accountService.getAccForProfile(profile.admin_id);
-    console.log(profile);
-    console.log(profile_acc);
-    res.render('account/profile', {profile, profile_acc});
+    try{
+        const profile = await accountService.getInforProfileByEmail();
+        const profile_acc = await accountService.getAccForProfile(profile.admin_id);
+        console.log(profile);
+        console.log(profile_acc);
+        res.render('account/profile', {profile, profile_acc});
+    }
+    catch (err) {
+		next(err);
+	}
 }
 exports.logout = (req, res, next) => {
     req.logout();
@@ -23,18 +28,23 @@ exports.changePassword = async(req, res, next) => {
     const hashPassword = bcrypt.hashSync(new_pw, len);
     var present_pw = req.body.present_password;
     var email = req.body.email_for_cp;
-    const pw = await accountService.getPassword(email);
-    if(bcrypt.compareSync(present_pw, pw.password))
-    {
-        console.log('Mật khẩu đã được cập nhật.');
-        await accountService.updatePassword(email, hashPassword);
-        res.redirect('/profile');
-        console.log('Mật khẩu đã được cập nhật.');
+    try{
+        const pw = await accountService.getPassword(email);
+        if(bcrypt.compareSync(present_pw, pw.password))
+        {
+            console.log('Mật khẩu đã được cập nhật.');
+            await accountService.updatePassword(email, hashPassword);
+            res.redirect('/profile');
+            console.log('Mật khẩu đã được cập nhật.');
+        }
+        else{
+            res.redirect('/profile');
+            console.log('Sai mật khẩu vui lòng nhập lại.');
+        }
     }
-    else{
-        res.redirect('/profile');
-        console.log('Sai mật khẩu vui lòng nhập lại.');
-    }
+    catch (err) {
+		next(err);
+	}
 }
 
 exports.changeInfo = async(req, res, next) => { 
@@ -46,9 +56,12 @@ exports.changeInfo = async(req, res, next) => {
     console.log(id);
     console.log(fullname);
     console.log(display_name);
-
-    const update = await accountService.updateInfo(id, fullname, display_name);
-    console.log(update);
-
+    try{
+        const update = await accountService.updateInfo(id, fullname, display_name);
+        console.log(update);
+    }
+    catch (err) {
+		next(err);
+	}
     res.redirect('/profile');
 }
