@@ -2,22 +2,42 @@ const {models} = require('../models');
 
 exports.getUserByEmail = async (email) => {
     const user = await models.account.findOne({
-        include: [{
-            model: models.student,
-            as: 'student_account',
-            attributes: [],
-        }, {
-            model: models.tutor,
-            as: 'tutor_account',
-            attributes: [],
-        }],
         where: {
-            is_locked: false,
-            email: email,
+            email: email
+        },
+        raw: true
+    });
+
+    if (!user) {
+        return null;
+    }
+
+    const student = await models.student.findOne({
+        attributes: ['fullname', 'display_name', 'phone', 'birthday', 'address', 'avatar'],
+        where: {
+            student_id: user.account_id
+        },
+        raw: true
+    });
+
+    if (student) {
+        return {...user, ...student};
+    }
+
+    const tutor = await models.tutor.findOne({
+        attributes: ['fullname', 'display_name', 'phone', 'birthday', 'address', 
+            'avatar', 'grade', 'subject', 'time', 'area', 'min_salary', 'job'],
+        where: {
+            tutor_id: user.account_id
         },
         raw: true,
     });
-    return user;
+
+    if (tutor) {
+        return {...user, ...tutor};
+    }
+
+    return 'admin';
 }
 
 exports.getAccountByEmail = async (email) => {
@@ -29,6 +49,17 @@ exports.getAccountByEmail = async (email) => {
     });
     return account;
 }
+
+exports.getAccountByToken = async(token) =>{
+    const account = await models.account.findOne({
+        where: {
+            token: token,
+        },
+        raw: true,
+    });
+    return account;
+}
+
 
 exports.createAccount = async (account) => {
     const newAccount = await models.account.create(account);

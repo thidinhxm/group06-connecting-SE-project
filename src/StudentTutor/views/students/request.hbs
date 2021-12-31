@@ -1,209 +1,225 @@
 {{> header}}
-<div class="row justify-content-center">
-    <div class="form-request col-lg-8 col-md-10 col-sm-12">
-        <div class="form-request_body col-lg-10">
-            <h3 class="form-heading text-center p-4">FORM YÊU CẦU TÌM KIẾM GIA SƯ</h3>
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="form-request col-lg-10 col-md-12 col-sm-12">
+            <div class="form-request_body col-lg-10 col-md-10 col-sm-12">
+                <h3 class="form-heading text-center p-4">FORM YÊU CẦU TÌM KIẾM GIA SƯ</h3>
 
-            <form class="" action="/students/store-request/" method="POST" id='student-request-form'>
-                <div class="form-group mb-4">
-                    <label for="phone" class="form-label">Số điện thoại (<span style="color: red">*</span>)</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="Ví dụ: 0323231141" name="phone"
-                        required>
-                </div>
-                <div class="row form-group mb-4">
-                    <div class="col-6">
-                        <label for="city" class="form-label">Tỉnh/thành phố (<span style="color: red">*</span>)</label>
-                        <select class="form-select w-100" id="city" name="city" required>
-                            <option value="TPHCM" selected>Thành Phố Hồ Chí Minh</option>
-                        </select>
+                <form class="" action="/students/store-request/" method="POST" id='student-request-form'>
+                    <div class="form-group mb-4">
+                        <label for="phone" class="form-label">Số điện thoại (<span style="color: red">*</span>)</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Ví dụ: 0323231141" name="phone"
+                            required>
                     </div>
-                    <div class="col-6">
-                        <label for="ward" class="form-label">Quận/huyện (<span style="color: red">*</span>)</label>
-                        <select class="form-select w-100" id="ward" name="ward" required>
-                            <option value="">Chọn quận huyện</option>
-                            <option value="1">Quận 1</option>
-                            <option value="3">Quận 3</option>
-                            <option value="4">Quận 4</option>
-                            <option value="5">Quận 5</option>
-                            <option value="6">Quận 6</option>
-                            <option value="7">Quận 7</option>
-                            <option value="8">Quận 8</option>
-                            <option value="10">Quận 10</option>
-                            <option value="11">Quận 11</option>
-                            <option value="12">Quận 12</option>
-                            <option value="ThuDuc">TP Thủ Đức</option>
-                            <option value="Binhtan">Quận Bình Tân</option>
-                            <option value="Binhthanh">Quận Bình Thạnh</option>
-                            <option value="GoVap">Quận Gò Vấp</option>
-                            <option value="PhuNhuan">Quận Phú Nhuận</option>
-                            <option value="TanBinh">Quận Tân Bình</option>
-                            <option value="TanPhu">Quận Tân Phú</option>
-                            <option value="BinhChanh">Huyện Bình Chánh</option>
-                            <option value="CanGio">Huyện Cần Giờ</option>
-                            <option value="CuChi">Huyện Củ Chi</option>
-                            <option value="HocMon">Huyện Hóc môn</option>
-                            <option value="NhaBe">Huyện Nhà Bè</option>
-                        </select>
+                    <div class="row form-group mb-4">
+                        <div class="col-6">
+                            <label for="city" class="form-label">Tỉnh/thành phố (<span
+                                    style="color: red">*</span>)</label>
+                            <select class="form-select w-100" id="city" name="city" required>
+                                <option value="TPHCM" selected>Thành Phố Hồ Chí Minh</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="ward" class="form-label">Quận/huyện (<span style="color: red">*</span>)</label>
+                            <select class="form-select w-100" id="ward" name="ward" required>
+                                <option value="">Chọn quận huyện</option>
+                                <option value="Quận 1">Quận 1</option>
+                                <option value="Quận 3">Quận 3</option>
+                                <option value="Quận 4">Quận 4</option>
+                                <option value="Quận 5">Quận 5</option>
+                                <option value="Quận 6">Quận 6</option>
+                                <option value="Quận 7">Quận 7</option>
+                                <option value="Quận 8">Quận 8</option>
+                                <option value="Quận 10">Quận 10</option>
+                                <option value="Quận 11">Quận 11</option>
+                                <option value="Quận 12">Quận 12</option>
+                                <option value="TP Thủ Đức">TP Thủ Đức</option>
+                                <option value="Quận Bình Tân">Quận Bình Tân</option>
+                                <option value="Quận Bình Thạnh">Quận Bình Thạnh</option>
+                                <option value="Quận Gò Vấp">Quận Gò Vấp</option>
+                                <option value="Quận Phú Nhuận">Quận Phú Nhuận</option>
+                                <option value="Quận Tân Bình">Quận Tân Bình</option>
+                                <option value="Quận Tân Phú">Quận Tân Phú</option>
+                                <option value="Huyện Bình Chánh">Huyện Bình Chánh</option>
+                                <option value="Huyện Cần Giờ">Huyện Cần Giờ</option>
+                                <option value="Huyện Củ Chi">Huyện Củ Chi</option>
+                                <option value="Huyện Hóc Môn">Huyện Hóc môn</option>
+                                <option value="Huyện Nhà Bè">Huyện Nhà Bè</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="row form-group mb-4">
-                    <div class="col-2">
-                        <label for="homeNumber" class="form-label">Số nhà</label>
-                        <input type="text" class="form-control" id="homeNumber" placeholder="Số 321"
-                            name="homeNumber">
+                    <div class="row form-group mb-4">
+                        <div class="col-lg-2 col-md-3 col-sm-12 mt-2">
+                            <label for="homeNumber" class="form-label">Số nhà</label>
+                            <input type="text" class="form-control" id="homeNumber" placeholder="Số 321"
+                                name="homeNumber">
+                        </div>
+                        <div class="col-lg-10 col-md-9 col-sm-12 mt-2">
+                            <label for="road" class="form-label">Địa chỉ chi tiết (<span
+                                    style="color: red">*</span>)</label>
+                            <input type="text" class="form-control" id="road"
+                                placeholder="Đường/Phường/Quận(Huyện)/Thành Phố" name="road" required>
+                        </div>
                     </div>
-                    <div class="col-10">
-                        <label for="road" class="form-label">Địa chỉ chi tiết (<span
-                                style="color: red">*</span>)</label>
-                        <input type="text" class="form-control" id="road"
-                            placeholder="Đường/Phường/Quận(Huyện)/Thành Phố" name="road" required>
-                    </div>
-                </div>
-                <div class="row form-group mb-4">
-                    <div class="col-lg-6 col-md-6 col-mb-12">
-                        <label for="classroom" class="form-label">Lớp (<span style="color: red">*</span>)</label>
-                        <div class="col-12">
-                            <div class="form-group row ml-2">
-                                <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="classroom" value="6">
-                                    <label class="form-check-label" for="fclass-check-1">
-                                        Lớp 6
-                                    </label>
+                    <div class="row form-group mb-4">
+                        <div class="col-lg-6 col-md-6 col-mb-12">
+                            <label for="classroom" class="form-label">Lớp (<span style="color: red">*</span>)</label>
+
+                            <div class="col-12">
+                                <div class="form-group row ml-2">
+                                    <div class="form-check col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="classroom[]"
+                                            value="Lớp 6">
+                                        <label class="form-check-label" for="fclass-check-1">
+                                            Lớp 6
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="classroom[]"
+                                            value="Lớp 7">
+                                        <label class="form-check-label" for="fclass-check-2">
+                                            Lớp 7
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="classroom[]"
+                                            value="Lớp 8">
+                                        <label class="form-check-label" for="fclass-check-3">
+                                            Lớp 8
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="classroom[]"
+                                            value="Lớp 9">
+                                        <label class="form-check-label" for="fclass-check-4">
+                                            Lớp 9
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="classroom[]"
+                                            value="Lớp 10">
+                                        <label class="form-check-label" for="fclass-check-5">
+                                            Lớp 10
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="classroom[]"
+                                            value="Lớp 11">
+                                        <label class="form-check-label" for="fclass-check-6">
+                                            Lớp 11
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="classroom[]"
+                                            value="Lớp 12">
+                                        <label class="form-check-label" for="fclass-check-7">
+                                            Lớp 12
+                                        </label>
+                                    </div>
                                 </div>
-                                <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="classroom" value="7">
-                                    <label class="form-check-label" for="fclass-check-2">
-                                        Lớp 7
-                                    </label>
-                                </div>
-                                <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="classroom" value="8">
-                                    <label class="form-check-label" for="fclass-check-3">
-                                        Lớp 8
-                                    </label>
-                                </div>
-                                <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="classroom" value="9">
-                                    <label class="form-check-label" for="fclass-check-4">
-                                        Lớp 9
-                                    </label>
-                                </div>
-                                <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="classroom" value="10">
-                                    <label class="form-check-label" for="fclass-check-5">
-                                        Lớp 10
-                                    </label>
-                                </div>
-                                <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="classroom" value="11">
-                                    <label class="form-check-label" for="fclass-check-6">
-                                        Lớp 11
-                                    </label>
-                                </div>
-                                <div class="form-check col-6 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="classroom" value="12">
-                                    <label class="form-check-label" for="fclass-check-7">
-                                        Lớp 12
-                                    </label>
+                                <div class="form-group row">
+                                    <input type="text" class="form-control" name="other-class"
+                                        placeholder="Lớp học khác" id='other-class'>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <input type="text" class="form-control" name="other-class" placeholder="Lớp học khác"
-                                    id='other-class'>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-mb-12">
+                            <label for="fsubjects" class="form-label">Môn học (<span
+                                    style="color: red">*</span>)</label>
+                            <div class="col-12">
+                                <div class="form-group row ml-2">
+                                    <div class="form-check col-lg-4 col-md-6 col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Toán">
+                                        <label class="form-check-label" for="fsubject-check-1">
+                                            Toán
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-lg-4 col-md-6 col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Lý">
+                                        <label class="form-check-label" for="fsubject-check-2">
+                                            Lý
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-lg-4 col-md-6 col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Hoá">
+                                        <label class="form-check-label" for="fsubject-check-3">
+                                            Hóa
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-lg-4 col-md-6 col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Anh">
+                                        <label class="form-check-label" for="fsubject-check-4">
+                                            Anh
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-lg-4 col-md-6 col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Văn">
+                                        <label class="form-check-label" for="fsubject-check-5">
+                                            Văn
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-lg-4 col-md-6 col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Sử">
+                                        <label class="form-check-label" for="fsubject-check-6">
+                                            Sử
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-lg-4 col-md-6 col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]" value="Địa">
+                                        <label class="form-check-label" for="fsubject-check-7">
+                                            Địa
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-lg-4 col-md-6 col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]"
+                                            value="Công dân">
+                                        <label class="form-check-label" for="fsubject-check-8">
+                                            Công dân
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-lg-4 col-md-6 col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]"
+                                            value="Tin học">
+                                        <label class="form-check-label" for="fsubject-check-9">
+                                            Tin học
+                                        </label>
+                                    </div>
+                                    <div class="form-check col-lg-4 col-md-6 col-6 mb-3">
+                                        <input class="form-check-input" type="checkbox" name="subject[]"
+                                            value="Sinh học">
+                                        <label class="form-check-label" for="fsubject-check-10">
+                                            Sinh học
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <input type="text" class="form-control" name="other-subject"
+                                        placeholder="Môn học khác">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-mb-12">
-                        <label for="fsubjects" class="form-label">Môn học (<span style="color: red">*</span>)</label>
-                        <div class="col-12">
-                            <div class="form-group row ml-2">
-                                <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="subject" value="Toán">
-                                    <label class="form-check-label" for="fsubject-check-1">
-                                        Toán
-                                    </label>
-                                </div>
-                                <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="subject" value="Lý">
-                                    <label class="form-check-label" for="fsubject-check-2">
-                                        Lý
-                                    </label>
-                                </div>
-                                <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="subject" value="Hoá">
-                                    <label class="form-check-label" for="fsubject-check-3">
-                                        Hóa
-                                    </label>
-                                </div>
-                                <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="subject" value="Anh">
-                                    <label class="form-check-label" for="fsubject-check-4">
-                                        Anh
-                                    </label>
-                                </div>
-                                <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="subject" value="Văn">
-                                    <label class="form-check-label" for="fsubject-check-5">
-                                        Văn
-                                    </label>
-                                </div>
-                                <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="subject" value="Sử">
-                                    <label class="form-check-label" for="fsubject-check-6">
-                                        Sử
-                                    </label>
-                                </div>
-                                <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="subject" value="Địa">
-                                    <label class="form-check-label" for="fsubject-check-7">
-                                        Địa
-                                    </label>
-                                </div>
-                                <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="subject"
-                                        value="Công dân">
-                                    <label class="form-check-label" for="fsubject-check-8">
-                                        Công dân
-                                    </label>
-                                </div>
-                                <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="subject" value="Tin học">
-                                    <label class="form-check-label" for="fsubject-check-9">
-                                        Tin học
-                                    </label>
-                                </div>
-                                <div class="form-check col-4 mb-3">
-                                    <input class="form-check-input" type="checkbox" name="subject" value="Sinh học">
-                                    <label class="form-check-label" for="fsubject-check-10">
-                                        Sinh học
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <input type="text" class="form-control" name="other-subject" placeholder="Môn học khác">
-                            </div>
-                        </div>
+                    <div class="form-group mb-4">
+                        <label for="ffee" class="form-label">Học phí mong muốn (VNĐ/tháng)</label>
+                        <input type="number" class="form-control" id="ffee" placeholder="Ví dụ: 3.000.000" name="fee">
                     </div>
-                </div>
-                <div class="form-group mb-4">
-                    <label for="ffee" class="form-label">Học phí mong muốn (VNĐ/tháng)</label>
-                    <input type="number" class="form-control" id="ffee" placeholder="Ví dụ: 3.000.000" name="fee">
-                </div>
-                <div class="form-group mb-4">
-                    <label for="ftime" class="form-label">Thời gian học</label>
-                    <input type="text" class="form-control" id="ftime" placeholder="Ví dụ: T2 - T4 - T6, 19h30 - 21h"
-                        name="time">
-                </div>
-                <div class="form-group mb-4">
-                    <label for="fdifferent" class="form-label">Yêu cầu khác (nếu có)</label>
-                    <input type="text" class="form-control" id="fdifferent" placeholder="Ví dụ: Có 1 năm kinh nghiệm"
-                        name="different">
-                </div>
+                    <div class="form-group mb-4">
+                        <label for="ftime" class="form-label">Thời gian học</label>
+                        <input type="text" class="form-control" id="ftime"
+                            placeholder="Ví dụ: T2 - T4 - T6, 19h30 - 21h" name="time">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="fdifferent" class="form-label">Yêu cầu khác (nếu có)</label>
+                        <input type="text" class="form-control" id="fdifferent"
+                            placeholder="Ví dụ: Có 1 năm kinh nghiệm" name="different">
+                    </div>
 
-                <div class="form-group mb-4 mt-4">
-                    <button type="submit" class="btn btn-success mb-3 w-100 form-request-btn">SUBMIT</button>
-                </div>
-            </form>
+                    <div class="form-group mb-4 mt-4">
+                        <button type="submit" class="btn btn-success mb-3 w-100 form-request-btn">SUBMIT</button>
+                    </div>
+                </form>
+
+            </div>
 
         </div>
     </div>
