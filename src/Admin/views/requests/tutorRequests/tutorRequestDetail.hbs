@@ -67,14 +67,128 @@
 							{{/if}}
 						</div>
 					</div>
-					{{/with}}
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-		<button class="btn accept-btn-primary btn-primary me-md-2 option" type="button">Duyệt yêu cầu</button>
-		<button class="btn denied-btn-danger btn-danger option" type="button">Hủy yêu cầu</button>
+		{{#if (compareStatus status "Chưa duyệt")}}
+		{{!-- <form action="/posts/create" method="GET"> --}}
+			{{!-- <input id="request-id" name="requestId" type="number" value={{student_request_id}} hidden> --}}
+			{{!-- <button class="btn accept-btn-primary btn-primary me-md-2 option" type="submit">Tạo bài đăng</button>
+		</form> --}}
+		
+		<button class="btn accept-btn-primary btn-primary me-md-2 option" href="" data-toggle="modal"
+			data-target="#accept-tutor-request-modal" data-id="{{tutor_request_id}}">
+			Nhận yêu cầu
+		</button>
+
+		{{!-- <form action="/requests/student-requests/cancel" method="post">
+			<input id="userType" name="userType" value="student" type="text" hidden>
+			<input id="id" name="id" type="number" value={{student_request_id}} hidden>
+			<button class="btn denied-btn-danger btn-danger option" type="submit" >Hủy yêu cầu</button>
+		</form> --}}
+		<button class="btn denied-btn-danger btn-danger option" href="" data-toggle="modal"
+			data-target="#cancel-tutor-request-modal" data-id="{{tutor_request_id}}">
+			Hủy yêu cầu
+		</button>
+		{{/if}}
 	</div>
+	{{/with}}
 </div>
 {{> footer}}
+
+<form method="post" name="cancel-tutor-form" action="">
+	<input type="hidden" name="userType" value="tutor">
+	<input id="id" name="id" type="number" hidden>
+</form>
+
+<div id="cancel-tutor-request-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h5 class="modal-title">Hủy yêu cầu</h5>
+		<button type="button" class="close" data-dismiss="modal" data-id="" aria-label="Close">
+		  <span aria-hidden="true">&times;</span>
+		</button>
+	  </div>
+	  <div class="modal-body">
+		<p>Bạn chắc chắn hủy yêu cầu này?</p>
+	  </div>
+	  <div class="modal-footer">
+		<button id="btn-cancel-tutor" type="button" class=" btn btn-danger" method="post">Hủy yêu cầu</button>
+		<button type="button" class="btn btn-secondary" data-dismiss="modal">Quay lại</button>
+	  </div>
+	</div>
+  </div>
+</div>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		let tutorRequestID;
+		const cancelForm = document.forms['cancel-tutor-form'];
+
+		$('#cancel-tutor-request-modal').on('show.bs.modal', function (event) {
+			const button = $(event.relatedTarget); // Button that triggered the modal
+			tutorId = button.data('id')
+
+		});
+		const btnCancelRequest = document.getElementById('btn-cancel-tutor');
+		console.log(btnCancelRequest)
+		btnCancelRequest.onclick = function () {
+			cancelForm.id.value = tutorId;
+			console.log('value', cancelForm.id.value)
+			cancelForm.action = `/requests/tutor-requests/cancel`;
+			cancelForm.submit();
+		}
+
+	});
+
+</script>
+
+
+<form method="post" name="accept-tutor-form" action="">
+	<input type="hidden" name="userType" value="tutor">
+	<input id="id" name="id" type="number" hidden>
+</form>
+
+<div id="accept-tutor-request-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h5 class="modal-title">Nhận yêu cầu</h5>
+		<button type="button" class="close" data-dismiss="modal" data-id="" aria-label="Close">
+		  <span aria-hidden="true">&times;</span>
+		</button>
+	  </div>
+	  <div class="modal-body">
+		<p>Bạn chắc chắn nhận yêu cầu này?</p>
+	  </div>
+	  <div class="modal-footer">
+		<button id="btn-accept-tutor" type="button" class=" btn btn-danger" method="post" style="background-color: rgb(47, 165, 233);">Chấp nhận</button>
+		<button type="button" class="btn btn-secondary" data-dismiss="modal">Quay lại</button>
+	  </div>
+	</div>
+  </div>
+</div>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		let tutorRequestID;
+		const acceptForm = document.forms['accept-tutor-form'];
+
+		$('#accept-tutor-request-modal').on('show.bs.modal', function (event) {
+			const button = $(event.relatedTarget); // Button that triggered the modal
+			tutorId = button.data('id')
+
+		});
+		const btnacceptRequest = document.getElementById('btn-accept-tutor');
+		console.log(btnacceptRequest)
+		btnacceptRequest.onclick = function () {
+			acceptForm.id.value = tutorId;
+			console.log('value', acceptForm.id.value)
+			acceptForm.action = `/requests/tutor-requests/accept`;
+			acceptForm.submit();
+		}
+
+	});
+
+</script>

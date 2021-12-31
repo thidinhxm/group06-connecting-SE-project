@@ -31,3 +31,11 @@ exports.cancel = async (req, res, next) => {
         res.redirect('/requests/tutor-requests');   
     }
 }
+
+exports.accept = async (req, res, next) =>{
+    var id= req.body.id;
+    console.log("Đây là id");
+    console.log(id);
+    await requestService.updateStatusAcceptRT(id, 'Đã duyệt');
+    res.redirect('/requests/tutor-requests');
+}

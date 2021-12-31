@@ -59,5 +59,16 @@ exports.updateStatus = (id, status) => {
 			},
 		}
 	);
-};
-
+}
+exports.updateStatusAcceptRT = (id, status) => {
+	return models.tutorrequest.update(
+		{
+			status: status,
+		},
+		{
+			where: {
+				tutor_request_id: id,
+			},
+		}
+	);
+}
