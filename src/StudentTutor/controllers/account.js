@@ -169,40 +169,47 @@ exports.logout = async(req, res, net) => {
 }
 
 exports.profile = async(req, res, next) => { 
-    var id_user = req.params.account_id;
-    const profile = await accountService.getInforProfileByIDStudent(id_user);
-    const profile_tutor = await accountService.getInforProfileByIDTutor(id_user);
-    const profile_acc = await accountService.getAccForProfile(id_user);
-    console.log('Đây là thông tin người dùng');
-    console.log(profile);
-    console.log(profile_tutor);
-    console.log(profile_acc);
-    res.render('account/profile', {profile, profile_tutor, profile_acc});
+    try{
+        var id_user = req.params.account_id;
+        const profile = await accountService.getInforProfileByIDStudent(id_user);
+        const profile_tutor = await accountService.getInforProfileByIDTutor(id_user);
+        const profile_acc = await accountService.getAccForProfile(id_user);
+        console.log('Đây là thông tin người dùng');
+        console.log(profile);
+        console.log(profile_tutor);
+        console.log(profile_acc);
+        res.render('account/profile', {profile, profile_tutor, profile_acc,  error: req.flash('error'),
+        success: req.flash('success')});
+    }
+    catch(err) {
+        next(err);
+    }
 }
 
 exports.changePassword = async(req, res, next) => { 
-    var new_pw = req.body.new_password;
-    const len = new_pw.length;
-    const hashPassword = bcrypt.hashSync(new_pw, len);
-    var present_pw = req.body.present_password;
-    var email = req.body.email_for_cp;
     try{
+        var new_pw = req.body.new_password;
+        const len = new_pw.length;
+        const hashPassword = bcrypt.hashSync(new_pw, len);
+        var present_pw = req.body.present_password;
+        var email = req.body.email_for_cp;
         const pw = await accountService.getPassword(email);
         var account_id=pw.account_id;
 
         if(bcrypt.compareSync(present_pw, pw.password))
         {
             await accountService.updatePassword(email, hashPassword);
+            req.flash('success', 'Mật khẩu đã được cật nhật');
             res.redirect('/profile/'+ account_id);
-            console.log('Mật khẩu đã được cập nhật.');
         }
         else{
+            req.flash('error', 'Sai mật khẩu vui lòng thử lại.');
             res.redirect('/profile/'+ account_id);
-            console.log('Sai mật khẩu vui lòng nhập lại.');
-    }}
-    catch (err) {
-		next(err);
-	}
+        }
+    }
+    catch(err) {
+        next(err);
+    }
 }
 
 
@@ -334,24 +341,26 @@ exports.resetPasswordPost = async(req, res, next) => {
     }
 }
 exports.changeInfor = async(req, res, next) => { 
-    var account_id = req.body.faccount_id;
-    var fullname = req.body.ffullname;
-    var display_name = req.body.fdisplayname;
-    var phone = req.body.fphone;
-    var birthday = req.body.fbirthday;
-    var address = req.body.faddress;
-
-    var grade = req.body.fgrade;
-    var subject = req.body.fsubject;
-    var time = req.body.ftime;
-    var area = req.body.farea;
-    var job = req.body.fjob;
-    var min_salary = req.body.fmin_salary;
     try{
+        var account_id = req.body.faccount_id;
+        var fullname = req.body.ffullname;
+        var display_name = req.body.fdisplayname;
+        var phone = req.body.fphone;
+        var birthday = req.body.fbirthday;
+        var address = req.body.faddress;
+
+        var grade = req.body.fgrade;
+        var subject = req.body.fsubject;
+        var time = req.body.ftime;
+        var area = req.body.farea;
+        var job = req.body.fjob;
+        var min_salary = req.body.fmin_salary;
+        
         const update = await accountService.updateInfo(account_id, fullname, display_name, phone, birthday, address, grade, subject, time, area, min_salary, job);
+        req.flash('success', 'Cật nhật tài khoản thành công');
+        res.redirect('/profile/'+ account_id);
     }
-    catch (err) {
-		next(err);
-	}
-    res.redirect('/profile/'+ account_id);
+    catch(err) {
+        next(err);
+    }
 }

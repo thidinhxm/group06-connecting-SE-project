@@ -11,7 +11,8 @@ exports.profile = async(req, res, next) => {
         const profile_acc = await accountService.getAccForProfile(profile.admin_id);
         console.log(profile);
         console.log(profile_acc);
-        res.render('account/profile', {profile, profile_acc});
+        res.render('account/profile', {profile, profile_acc, error: req.flash('error'),
+        success: req.flash('success')});
     }
     catch (err) {
 		next(err);
@@ -32,14 +33,13 @@ exports.changePassword = async(req, res, next) => {
         const pw = await accountService.getPassword(email);
         if(bcrypt.compareSync(present_pw, pw.password))
         {
-            console.log('Mật khẩu đã được cập nhật.');
+            req.flash('success', 'Mật khẩu đã được cật nhật');
             await accountService.updatePassword(email, hashPassword);
             res.redirect('/profile');
-            console.log('Mật khẩu đã được cập nhật.');
         }
         else{
+            req.flash('error', 'Sai mật khẩu vui lòng thử lại.');
             res.redirect('/profile');
-            console.log('Sai mật khẩu vui lòng nhập lại.');
         }
     }
     catch (err) {
@@ -63,5 +63,6 @@ exports.changeInfo = async(req, res, next) => {
     catch (err) {
 		next(err);
 	}
+    req.flash('success', 'Cật nhật tài khoản thành công');
     res.redirect('/profile');
 }
