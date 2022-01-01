@@ -1,17 +1,20 @@
 const accountService = require('../services/account');
 const bcrypt = require('bcrypt');
-
+const active= {
+    account: true
+}
 exports.login = (req, res, next) => {
     res.render('account/login');
 }
 
-exports.profile = async(req, res, next) => { 
+exports.profile = async(req, res, next) => {
     try{
         const profile = await accountService.getInforProfileByEmail();
         const profile_acc = await accountService.getAccForProfile(profile.admin_id);
+
         console.log(profile);
         console.log(profile_acc);
-        res.render('account/profile', {profile, profile_acc, error: req.flash('error'),
+        res.render('account/profile', {profile, active,profile_acc, error: req.flash('error'),
         success: req.flash('success')});
     }
     catch (err) {
@@ -23,7 +26,7 @@ exports.logout = (req, res, next) => {
     res.redirect('/login');
 }
 
-exports.changePassword = async(req, res, next) => { 
+exports.changePassword = async(req, res, next) => {
     var new_pw = req.body.new_password;
     const len = new_pw.length;
     const hashPassword = bcrypt.hashSync(new_pw, len);
@@ -47,7 +50,7 @@ exports.changePassword = async(req, res, next) => {
 	}
 }
 
-exports.changeInfo = async(req, res, next) => { 
+exports.changeInfo = async(req, res, next) => {
     var id = req.body.account_id;
     var fullname = req.body.ffullname;
     var display_name = req.body.fdisplayname;

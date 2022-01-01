@@ -1,3 +1,6 @@
 exports.index = (req, res, next) => {
-    res.render('index');
+    const active= {
+        dashboard: true
+    }
+    res.render('index',{active});
 }

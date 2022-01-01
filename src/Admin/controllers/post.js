@@ -1,10 +1,12 @@
 const postService = require('../services/post');
 const requestService = require('../services/request');
-
+const active= {
+	post: true
+}
 exports.list = async (req, res, next) => {
 	const posts = await postService.listPosts();
 
-	res.render('posts/postList', { posts });
+	res.render('posts/postList', { posts, active });
 };
 
 exports.show = async (req, res, next) => {
@@ -12,7 +14,7 @@ exports.show = async (req, res, next) => {
 		const post = await postService.showPost(req.params.postID);
 		const postStatus = post['student_request.status'];
 
-		res.render('posts/postDetail', { post, postStatus });
+		res.render('posts/postDetail', { post, postStatus,active });
 	}
 	catch (err) {
 		next(err);
@@ -23,7 +25,7 @@ exports.create = async (req, res, next) => {
 	try {
 		console.log('query', req.query);
 		const request = await requestService.showStudentRequest(req.query.requestId);
-		res.render('posts/createPost', { request });
+		res.render('posts/createPost', { request, active });
 	}
 	catch (err) {
 		next(err);

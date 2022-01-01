@@ -1,7 +1,7 @@
-	{{> header}}
+{{> header}}
 <div class="container">
     <div class="col-12 mt-4">
-    	{{> search}}
+        {{> search}}
     </div>
     <div class="container-table100" style="margin-top:-32px">
         <div class="wrap-table100">
@@ -31,31 +31,8 @@
 
                                 <td class="cell100 column2">{{'student_request.status'}}</td>
                                 <td class="cell100 column2">
-                                    <div class="dropdown show">
-                                        <a class="" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item item-more dropdown-item-edit"
-                                                href="/posts/edit/{{post_id}}">
-                                                <i class="far fa-edit"></i>&nbsp;&nbsp;&nbsp;Chỉnh sửa bài viết</a>
-                                            <a class="dropdown-item item-more dropdown-item-edit" href="#">
-                                                <i class="far fa-eye-slash"></i>&nbsp;&nbsp;&nbsp;Ẩn bài viết</a>
-                                            <a class="dropdown-item item-more dropdown-item-edit" href="#">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    fill="currentColor" class="bi bi-exclamation-octagon more-icon"
-                                                    viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z" />
-                                                    <path
-                                                        d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
-                                                </svg>Thêm vào danh sách spam </a>
-                                            <a class="dropdown-item item-more dropdown-item-edit" href="#">
-                                                <i class="far fa-bell"></i>&nbsp;&nbsp;&nbsp;&nbsp;Đánh dấu là quan trọng
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <a class="" href="/posts/edit/{{post_id}}">
+                                        <i class="far fa-edit"></i></a>
                                 </td>
                             </tr>
                             {{/each}}
@@ -68,10 +45,4 @@
 </div>
 {{> footer}}
 
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-    crossorigin="anonymous"></script>
+{{!-- --}}
