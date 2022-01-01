@@ -1,0 +1,97 @@
+	{{> header}}
+<div class="container mt-5">
+	{{#with studentRequest}}
+	<div class="row tm-content-row">
+		<div class="col-12 tm-block-col">
+			<div class="page-title">
+				<span>Chi tiết yêu cầu</span>
+			</div>
+		</div>
+	</div>
+	<!-- row -->
+	<div class="row tm-content-row">
+		<div class="tm-block-col tm-col-request-settings">
+			<div class="tm-bg-primary-dark tm-block tm-block-settings">
+				<h2 class="tm-block-title">YÊU CẦU TÌM GIA SƯ</h2>
+				<div class="about-request">
+					
+					<div class="row">
+						<div class="col-md-4">
+							<label>ID</label>
+						</div>
+						<div class="col-md-8">
+							<p>{{student_request_id}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>Điện thoại</label>
+						</div>
+						<div class="col-md-8">
+							<p>{{phone}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>Địa chỉ</label>
+						</div>
+						<div class="col-md-8">
+							<p>{{address}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>Lớp</label>
+						</div>
+						<div class="col-md-8">
+							<p>{{grade}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>Môn học</label>
+						</div>
+						<div class="col-md-8">
+							<p>{{subject}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>Lương </label>
+						</div>
+						<div class="col-md-8">
+							<p>{{salary}} vnđ</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>Thời gian </label>
+						</div>
+						<div class="col-md-8">
+							<p>{{time}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>Yêu cầu khác</label>
+						</div>
+						<div class="col-md-8">
+							<p>{{other_request}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<label>Trạng thái</label>
+						</div>
+						<div class="col-md-8">
+							<p>{{status}}</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/with}}
+</div>
+{{> footer}}
