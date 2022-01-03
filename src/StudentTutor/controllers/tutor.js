@@ -20,7 +20,7 @@ exports.listPost = async function(req, res, next) {
 
 
 exports.storeRequest = async (req, res, next) => {
-    const tutorID = req.user.account_id; // maybe change when login complete
+    const tutorID = req.user.account_id;
     const other_request = req.body.different
     const payment_option = req.body.payMethod
     const currentTutor = await models.tutor.findOne({where: {tutor_id: tutorID }, raw: true})

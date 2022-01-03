@@ -26,14 +26,14 @@ exports.changePassword = async(req, res, next) => {
     const pw = await accountService.getPassword(email);
     if(bcrypt.compareSync(present_pw, pw.password))
     {
-        console.log("Mật khẩu đã được cập nhật.");
+        console.log('Mật khẩu đã được cập nhật.');
         await accountService.updatePassword(email, hashPassword);
         res.redirect('/profile');
-        console.log("Mật khẩu đã được cập nhật.");
+        console.log('Mật khẩu đã được cập nhật.');
     }
     else{
         res.redirect('/profile');
-        console.log("Sai mật khẩu vui lòng nhập lại.");
+        console.log('Sai mật khẩu vui lòng nhập lại.');
     }
 }
 

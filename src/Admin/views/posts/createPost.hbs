@@ -7,39 +7,36 @@
                 <div class="custom-underline"></div>
 			</div>
             <div class="container add-post-container">
-				<form action="" method="POST" class ="form-add-post" >
+				{{#with request}}
+				<form action="/posts/create?student_request_id={{student_request_id}}" method="POST" class ="form-add-post" >
 					<div class="form-group has-error row">
 						<div class="col-3"><label for="slug">Lớp</label></div>
-						
-						<select class="form-select col-5 " aria-label="Default select example">
-							<option selected>Chọn lớp </option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
+						<input type="text" class="col-7" value="{{grade}}" name="grade" >
 						
 					</div>
 
 					<div class="form-group has-error row">
 						<div class="col-3"><label for="slug">Môn học</label></div>
-						
-						<select class="form-select col-5 " aria-label="Default select example">
-							<option selected>Chọn môn học</option>
-							<option value="1">Toán</option>
-							<option value="2">Lí</option>
-							<option value="3">Hoá</option>
-						</select>
-						
+						<input type="text" class="col-7" value="{{subject}}" name="subject">
 					</div>
 					
 					<div class="form-group">
 						<label for="title">Địa chỉ</label>
-						<input type="text" class="form-control" name="title" />
+						<input type="text" class="form-control" name="address" value="{{address}}"/>
 					</div>
-					
+				
 					<div class="form-group">
-						<label for="description">Mô tả chi tiết</label>
-						<textarea rows="5" class="form-control" name="description" ></textarea>
+						<label for="title">Lương</label>
+						<input type="text" class="form-control" name="salary" value="{{salary}}"  />
+					</div>
+
+					<div class="form-group">
+						<label for="title">Thời gian</label>
+						<input type="text" class="form-control" name="time" value="{{time}}"  />
+					</div>
+					<div class="form-group">
+						<label for="description">Yêu cầu khác </label>
+						<textarea rows="5" class="form-control" name="other_request">{{other_request}}</textarea>
 					</div>
 					
 					<div class="form-group row justify-content-around btn-form">
@@ -50,8 +47,9 @@
 							Huỷ
 						</button>
 					</div>
-					
 				</form>
+				{{/with}}
+
 			</div>
 		</div>
 	</div>
