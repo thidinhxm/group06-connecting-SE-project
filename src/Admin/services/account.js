@@ -1,21 +1,5 @@
 const {models} = require('../models');
 
-exports.getAdminAccountByEmail = async (email) => {
-    const admin = await models.account.findOne({
-        include: [{
-            model: models.admin,
-            as: 'admin_account',
-            attributes: [],
-        }],
-        where: {
-            is_locked: false,
-            email: email,
-        },
-        raw: true,
-    });
-    return admin;
-}
-
 exports.getAdminByEmail = async(email) =>{
     const account = await models.account.findOne({
         where: {
@@ -41,6 +25,7 @@ exports.getAdminByEmail = async(email) =>{
 
     return {...account, ...info};
 }
+
 exports.getInforProfileByEmail = async() => {
     return await models.admin.findOne({ 
             raw: true,

@@ -7,12 +7,13 @@ exports.login = (req, res, next) => {
 
 exports.profile = async(req, res, next) => { 
     try{
-        const profile = await accountService.getInforProfileByEmail();
-        const profile_acc = await accountService.getAccForProfile(profile.admin_id);
-        console.log(profile);
-        console.log(profile_acc);
-        res.render('account/profile', {profile, profile_acc, error: req.flash('error'),
-        success: req.flash('success')});
+        const user = req.user;
+        
+        res.render('account/profile', {
+            user, 
+            error: req.flash('error'),
+            success: req.flash('success')
+        });
     }
     catch (err) {
 		next(err);
