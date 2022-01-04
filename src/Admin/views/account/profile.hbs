@@ -67,17 +67,15 @@
                     <form class="form-change-infor" action="/profile/change-info" method="POST">
                         <div class="form-group mb-3">
                             <label for="ffullname" class="form-label">Họ tên</label>
-                            <input type="text" class="form-control" id="ffullname" value="{{user.fullname}}" name="ffullname"
+                            <input type="text" class="form-control" id="ffullname" value="{{user.fullname}}" name="fullname"
                                 required>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="fdisplay_name" class="form-label">Tên hiển thị</label>
-                            <input type="text" class="form-control" id="fdisplayname" value="{{user.display_name}}" name="fdisplayname"
+                            <input type="text" class="form-control" id="fdisplayname" value="{{user.display_name}}" name="display_name"
                                 required>
                         </div>
-                        
-                        <input type="number" id="account_id" name="account_id" hidden value = {{user.account_id}}>
                         
                         <div class="form-group mb-3 text-right submit-change-info d-none">
                             <a href="../" type="button" class="btn btn-secondary mb-3">Hủy</a>
@@ -98,10 +96,6 @@
                                         placeholder="Nhập mật khẩu hiện tại" 
                                         id="present_password" name = "present_password"
                                         required>
-                                    
-                                    <input id="email_for_cp" type="email" name="email_for_cp" value={{user.email}} hidden
-                                        class="form-control cur-password"
-                                    >
                                 </div>
                             </div>
                         </div>

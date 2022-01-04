@@ -6,19 +6,20 @@ exports.login = (req, res, next) => {
 }
 
 exports.profile = async(req, res, next) => { 
-    try{
-        const user = req.user;
-        
+    try {
+        // const user = req.user;
+        console.log(req.user);
         res.render('account/profile', {
-            user, 
             error: req.flash('error'),
-            success: req.flash('success')
+            success: req.flash('success'),
+            // user: user,
         });
     }
     catch (err) {
 		next(err);
 	}
 }
+
 exports.logout = (req, res, next) => {
     req.logout();
     res.redirect('/login');
@@ -26,23 +27,27 @@ exports.logout = (req, res, next) => {
 
 exports.changePassword = async(req, res, next) => { 
     try {
-        var new_pw = req.body.new_password;
-        const len = new_pw.length;
-        const hashPassword = bcrypt.hashSync(new_pw, len);
-        var present_pw = req.body.present_password;
-        var email = req.body.email_for_cp;
-        
-        const pw = await accountService.getPassword(email);
-        if(bcrypt.compareSync(present_pw, pw.password))
-        {
-            req.flash('success', 'Mật khẩu đã được cật nhật');
-            await accountService.updatePassword(email, hashPassword);
-            res.redirect('/profile');
+        const {present_password, new_password, confirm_password} = req.body;
+
+        if (new_password !== confirm_password) {
+            req.flash('error', 'Mật khẩu nhập lại không đúng');
+            return res.redirect('/profile');
         }
-        else{
-            req.flash('error', 'Sai mật khẩu vui lòng thử lại.');
-            res.redirect('/profile');
-        }
+
+        if (!bcrypt.compareSync(present_password, req.user.password)) {
+            req.flash('error', 'Mật khẩu hiện tại không đúng');
+            return res.redirect('/profile');
+        }  
+
+        const salt = bcrypt.genSaltSync(10);
+        const hashPassword = bcrypt.hashSync(new_password, salt);
+
+        await accountService.updatePassword(req.user.account_id, hashPassword);
+
+        req.user = await accountService.getAdminByID(req.user.account_id);
+        // res.locals.user = req.user;
+        req.flash('success', 'Cật nhật mật khẩu thành công');
+        res.redirect('/profile');
     }
     catch (err) {
 		next(err);
@@ -50,21 +55,24 @@ exports.changePassword = async(req, res, next) => {
 }
 
 exports.changeInfo = async(req, res, next) => { 
-    var id = req.body.account_id;
-    var fullname = req.body.ffullname;
-    var display_name = req.body.fdisplayname;
+    try {
+        const {fullname, display_name} = req.body;
+        const account_id = req.user.account_id;
 
-    console.log("Xuất ra");
-    console.log(id);
-    console.log(fullname);
-    console.log(display_name);
-    try{
-        const update = await accountService.updateInfo(id, fullname, display_name);
-        console.log(update);
+        await accountService.updateInfo(account_id, fullname, display_name);
+
+        const user = await accountService.getAdminByID(account_id);
+
+        req.login(user, {}, (err) => {
+            if (err) {
+                return next(err);
+            }
+            req.flash('success', 'Cật nhật thông tin thành công');
+            res.redirect('/profile');
+        });
     }
     catch (err) {
 		next(err);
 	}
-    req.flash('success', 'Cật nhật tài khoản thành công');
-    res.redirect('/profile');
+    
 }
