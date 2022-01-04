@@ -1,8 +1,8 @@
 const postService = require('../services/post');
 const {models} = require('../models');
 const active = { tutor: true }
-
 exports.sendRequest = function(req, res, next) {
+
     res.render('tutors/request');
 }
 
@@ -22,7 +22,7 @@ exports.listPost = async function(req, res, next) {
 }
 
 exports.storeRequest = async (req, res, next) => {
-    const tutorID = 1002; // maybe change when login complete
+    const tutorID = req.user.account_id;
     const other_request = req.body.different
     const payment_option = req.body.payMethod
     const currentTutor = await models.tutor.findOne({where: {tutor_id: tutorID }, raw: true})
@@ -39,5 +39,14 @@ exports.storeRequest = async (req, res, next) => {
     res.json(req.body);
 };
 
+const isTutor = async (id) => {
+    const test =  await models.tutor.findOne({
+        where: {
+            tutor_id: id,
+        },
+        raw: true,
+    })
+    return test != null && test.length != 0
+}
 
 

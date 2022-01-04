@@ -46,7 +46,8 @@
 
                 <div class="btn-box">
                     <form action="/tutors/send-request">
-                        <button type="button" class="btn btn-info btn-lg btn-request-form p-2" data-toggle="modal" data-target="#myModal">Yêu
+                        <button type="button" class="btn btn-info btn-lg btn-request-form p-2" data-toggle="modal"
+                            data-target="#myModal">Yêu
                             cầu nhận lớp</button>
                     </form>
                 </div>
@@ -54,6 +55,7 @@
         </div>
         {{/each}}
 
+        {{#if roleTutor}}
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
@@ -87,7 +89,8 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label for="fdifferent" class="form-label">Yêu cầu khác (nếu có)</label>
-                                <input type="text" class="form-control" id="fdifferent" placeholder="" name="different" value="">
+                                <input type="text" class="form-control" id="fdifferent" placeholder="" name="different"
+                                    value="">
                             </div>
 
                             <div class="form-group mb-2">

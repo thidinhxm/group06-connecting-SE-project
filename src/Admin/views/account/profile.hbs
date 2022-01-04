@@ -25,27 +25,25 @@
             <div class="card h-100">
                 <div class="card-body">
                     <div class="account-settings">
-                        {{!-- {{#each profile}} --}}
                         <div class="user-profile">
                             <div class="user-avatar">
                                 <img class="user-avatar-img"
-                                    src="https://bietmaytinh.com/wp-content/uploads/2021/06/cach-cat-anh-hinh-vuong-4.png"
+                                    {{#if user.avatar}}
+                                        src="{{user.avatar}}"
+                                    {{else}}
+                                        src="/img/user_avatar.png"
+                                    {{/if}}
                                     alt="Ảnh đại diện"
                                     onerror="this.src='/img/user_avatar.png'">
                             </div>
-                            {{#with profile}}
-                            <h5 class="user-name">{{display_name}}</h5>
-                            {{/with}}
-                            {{#with profile_acc}}
-                            <h6 class="user-email">{{email}}</h6>
-                            {{/with}}
-                            {{#with profile}}
+
                             <button class="btn-change-avatar btn-sm btn-primary mt-3">
                                 <i class="fa fa-fw fa-camera"></i>
                                 <span>Đổi avatar</span>
                             </button>
+                            
                             <div class="form-change-avatar d-none">
-                                <form action="" method="POST" class="card card-body" enctype="multipart/form-data">
+                                <form action="/profile/change-avatar" method="POST" class="card card-body" enctype="multipart/form-data">
                                     <div class="form-group mb-3">
                                         <input type="file" class="form-control" name="avatar">
                                     </div>
@@ -54,8 +52,10 @@
                                     </div>
                                 </form>
                             </div>
+
+                            <h5 class="user-name">{{user.display_name}}</h5>
+                            <h6 class="user-email">{{user.email}}</h6>
                         </div>
-                        {{!-- {{/each}} --}}
                     </div>
                 </div>
             </div>
@@ -64,43 +64,27 @@
             <div class="card h-100">
                 <div class="card-body">
                     <h4 class="text-primary">Thông tin tài khoản</h4>
-                    {{!-- {{#with profile}} --}}
                     <form class="form-change-infor" action="/profile/change-info" method="POST">
                         <div class="form-group mb-3">
                             <label for="ffullname" class="form-label">Họ tên</label>
-                            <input type="text" class="form-control" id="ffullname" value="{{fullname}}" name="ffullname"
+                            <input type="text" class="form-control" id="ffullname" value="{{user.fullname}}" name="ffullname"
                                 required>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="fdisplay_name" class="form-label">Họ tên</label>
-                            <input type="text" class="form-control" id="fdisplayname" value="{{display_name}}" name="fdisplayname"
+                            <label for="fdisplay_name" class="form-label">Tên hiển thị</label>
+                            <input type="text" class="form-control" id="fdisplayname" value="{{user.display_name}}" name="fdisplayname"
                                 required>
                         </div>
-
-                        {{!-- <div class="form-group mb-3">
-                            <label for="fphone" class="form-label">Số điện thoại</label>
-                            <input type="tel" class="form-control" id="fphone" name="phone" value="0123456789">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="fmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="fmail" name="mail" value="abc@gmail.com">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="faddress" class="form-label">Địa chỉ</label>
-                            <input type="text" class="form-control" id="faddress" value="TP.Hồ Chí Minh" name="address">
-                        </div> --}}
-                        {{/with}}
-                        {{#with profile_acc}}
-                            <input type="number" id="account_id" name="account_id" hidden value = {{account_id}}>
-                        {{/with}}
+                        
+                        <input type="number" id="account_id" name="account_id" hidden value = {{user.account_id}}>
+                        
                         <div class="form-group mb-3 text-right submit-change-info d-none">
                             <a href="../" type="button" class="btn btn-secondary mb-3">Hủy</a>
                             <button type="submit" class="btn btn-success mb-3">Lưu</button>
                         </div>
                     </form>
-                    {{#with profile}}
-                    {{!-- {{/with}} --}}
+    
                     <h6 class="text-primary change-password">
                         <span>Đổi mật khẩu</span>
                         <i class="fa fa-angle-down ml-2"></i>
@@ -114,17 +98,14 @@
                                         placeholder="Nhập mật khẩu hiện tại" 
                                         id="present_password" name = "present_password"
                                         required>
-                                        {{/with}}
-                                    {{#with profile_acc}}
-                                    <input id="email_for_cp" type="email" name="email_for_cp" value={{email}} hidden
-                                    class="form-control cur-password"
-                                    >
                                     
-                                    {{/with}}
+                                    <input id="email_for_cp" type="email" name="email_for_cp" value={{user.email}} hidden
+                                        class="form-control cur-password"
+                                    >
                                 </div>
                             </div>
                         </div>
-                        {{#with profile}}
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
@@ -154,6 +135,5 @@
             </div>
         </div>
     </div>
-    {{/with}}
 </div>
 {{> footer}}
