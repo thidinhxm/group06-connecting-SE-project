@@ -1,43 +1,44 @@
 {{> header}}
-<div class="container postList col-lg-10 col-md-10 col-mb-12 mb-4">
+<div class="container postList col-lg-9 col-md-11 col-mb-12 mb-4">
     <h1>Danh sách bài viết tìm gia sư</h1>
     <div class="row">
+        {{> search}}
+        
         {{#each posts}}
-        <div class="col-lg-6 col-md-12 col-mb-12 mb-4">
+        <div class="col-lg-4 col-md-6 col-mb-12 mb-3 px-2">
             <div class="post p-3">
-                <div class="form-group mb-3">
+                <div class="form-group" >
                     <label for="id" class="form-label">Mã bài đăng</label>
-                    <input type="text" class="form-control idPost" name="id" value="{{post_id}}" style="color:#4200FF ;"
-                        required readonly>
+                    <span class="badge rounded-pill bg-light text-dark" style="font-size: 18px">{{post_id}}</span>
                 </div>
-                <div class="form-group mb-3" style="display: flex;flex-wrap: wrap;">
-                    <div class="form-group mb-3 inline" style="width:66%;">
+                <div class="form-group" style="display: flex;flex-wrap: wrap;">
+                    <div class="form-group inline" style="width:66%;">
                         <label for="subject" class="form-label">Môn học</label>
                         <input readonly type="text" class="form-control" name="subject" value="{{subject}}">
                     </div>
-                    <div class="form-group mb-3 inline" style="width:30%;margin-left:4%;">
+                    <div class="form-group inline" style="width:30%;margin-left:4%;">
                         <label for="grade" class="form-label">Lớp</label>
                         <input readonly type="text" class="form-control" name="grade" value="{{grade}}">
                     </div>
                 </div>
-                <div class="form-group mb-3">
+                <div class="form-group">
                     <label for="address" class="form-label">Địa chỉ</label>
                     <textarea rows="2" readonly type="text" class="form-control" name="address"
                         name="address">{{address}}</textarea>
                 </div>
 
-                <div class="form-group mb-3" style="display: flex;flex-wrap: wrap;">
-                    <div class="form-group mb-3 inline" style="width:66%;">
+                <div class="form-group" style="display: flex;flex-wrap: wrap;">
+                    <div class="form-group inline" style="width:66%;">
                         <label for="salary" class="form-label">Lương/tháng(vnđ/m)</label>
                         <input readonly type="text" class="form-control" name="salary" value="{{salary}}">
                     </div>
-                    <div class="form-group mb-3 inline" style="width:30%;margin-left:4%;">
+                    <div class="form-group inline" style="width:30%;margin-left:4%;">
                         <label for="tuition" class="form-label">Phụ phí(%)</label>
                         <input readonly type="number" class="form-control" name="tuition" value="{{extra_fee}}">
                     </div>
                 </div>
 
-                <div class="form-group mb-3">
+                <div class="form-group mb-4">
                     <label for="otherrequest" class="form-label">Yêu cầu khác</label>
                     <textarea rows="3" readonly type="text" class="form-control"
                         name="otherrequest">{{other_request}}</textarea>
@@ -103,93 +104,6 @@
                 </div>
             </div>
         </div>
-
-
-        {{!-- Model pop up when user is not a tutor --}}
-        <!-- Button trigger modal -->
-
-
-        <!-- Modal -->
-        {{else}}
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        "Yêu cầu nhận lớp" chỉ được phép truy cập bởi gia sư
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Đã hiểu</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{/if }}
-
-        <style>
-            .container h1 {
-                text-align: center;
-                margin-bottom: 40px;
-                margin-top: 40px;
-            }
-
-            .col-10-row-100 {
-                display: flex;
-                flex-wrap: wrap;
-                margin: 5px;
-                margin-left: 50px;
-                margin-right: 40px;
-            }
-
-            .post {
-                background-color: white;
-                border: 6px solid #758ECD;
-                border-radius: 29px;
-            }
-
-            .post h3 {
-                font-size: 16px;
-                margin-left: 20px;
-                word-wrap: break-word;
-                color: black;
-                margin-top: 10px;
-            }
-
-            .post span {
-                color: black;
-            }
-
-            .button {
-                width: 15px;
-                height: 10px;
-                color: rgb(14, 20, 20);
-            }
-
-            .btn-box {
-                font-size: 10px;
-                text-align: right;
-                margin-bottom: 0px;
-                margin-right: 10px;
-            }
-
-            .btn-box button {
-                padding: 3px 4px;
-                background-color: #1ECB44;
-                margin-left: 10px;
-                color: white;
-                border-radius: 50px;
-                font-family: roboto;
-                font-style: medium;
-                font-size: 17px;
-            }
-        </style>
     </div>
 </div>
 {{> footer}}

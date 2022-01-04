@@ -1,0 +1,48 @@
+{{> header}}
+<div class="container postList col-lg-9 col-md-11 col-mb-12 mb-4">
+    <h1>Danh sách gia sư</h1>
+    <div class="row">
+        {{> search}}
+        {{#each posts}}
+        <div class="col-lg-4 col-md-6 col-mb-12 mb-3 px-2">
+            <div class="post p-3">
+                <div class="row header-info mb-3">
+                    <div class="col-4">
+                        <img class="tutor-img"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvT28y9F6rGQNG8l8fBXxRMk-Ujbuu3FcSSA&usqp=CAU"
+                            onerror="src='https://lh3.googleusercontent.com/proxy/WlcsbWSDfvcvbaP83Liuw7WX1XJ8tCMn_iob8cGxE4g9gFYcDG7jUlD5cVxwbQbf0GCCBAn8b3Sn7Tg_vIJXy-kW7ee9nHLr9rYLvcTalw'">
+                    </div>
+                    <div class="col-8 pl-4 my-auto">
+                        <h2 class="name">Nguyễn Văn Quân</h2>
+                        <p>Giới tính: Nam</p>
+                        <p>SĐT: 0123456***</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Môn dạy</label>
+                        <input readonly type="text" class="form-control" name="subject" value="{{subject}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="grade" class="form-label">Lớp</label>
+                        <input readonly type="text" class="form-control" name="grade" value="{{grade}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="form-label">Khu vực dạy</label>
+                    <textarea rows="2" readonly type="text" class="form-control" name="address"
+                        name="address">{{address}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="grade" class="form-label">Công việc hiện tại</label>
+                    <input readonly type="text" class="form-control" name="grade" value="{{grade}}">
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{> footer}}

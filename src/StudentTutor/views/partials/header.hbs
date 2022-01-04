@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-xl">
-  <div class="container h-100">
+  <div class="container h-100 px-2">
     <i class="fas fa-book-open"></i>
     <button
       class="navbar-toggler ml-auto mr-0"
@@ -78,6 +78,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             {{#with user}}
             <a class="dropdown-item" href="/profile/{{account_id}}">Thông tin cá nhân</a>
+            <a class="dropdown-item" href="/request/{{account_id}}">Yêu cầu của tôi</a>
             {{/with}}
             <a class="dropdown-item" href="/logout">Đăng xuất</a>
           </div>

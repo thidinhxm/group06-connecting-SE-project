@@ -8,7 +8,7 @@ $('#btn-login-submit').click(function(e) {
         return false;
     }
     $.ajax({
-        url: '/api/check-account',
+        url: '/api/check-exists-account',
         type: 'POST',
         data: {
             email: email,
@@ -16,7 +16,7 @@ $('#btn-login-submit').click(function(e) {
         },
         success: function(data) {
             if (!data) {
-            $('#login-err-notification').text('Thông tin tài khoản chưa chính xác');
+            $('#login-err-notification').text('Tài khoản không tồn tại');
                 return false;
             }
             else {

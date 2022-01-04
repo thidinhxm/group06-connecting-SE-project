@@ -30,6 +30,24 @@ exports.showStudentRequest = async (id) => {
 	});
 };
 
+exports.updateCancelStudent = (id) =>{
+    return models.studentrequest.update({
+        status: "Đã hủy",
+    }, {
+        where: {
+            student_request_id: id,
+        },
+    });
+}
+exports.updateCancelTutor = (id) =>{
+    return models.tutorrequest.update({
+        status: "Đã hủy",
+    }, {
+        where: {
+            tutor_request_id: id,
+        },
+    });
+}
 exports.updateStatus = (id, status) => {
 	return models.studentrequest.update(
 		{
@@ -69,3 +87,16 @@ exports.updateCancel = (id, userType) => {
 	} else {
 	}
 };
+
+exports.updateStatusAcceptRT = (id, status) => {
+	return models.tutorrequest.update(
+		{
+			status: status,
+		},
+		{
+			where: {
+				tutor_request_id: id,
+			},
+		}
+	);
+}

@@ -23,10 +23,19 @@ exports.showStudentRequest = async (req, res, next) => {
 exports.cancel = async (req, res, next) => {
     var id = req.body.id;
     var userType = req.body.userType;
-    await requestService.updateCancel(id, userType);
     if (userType=='student') {
+        await requestService.updateCancelStudent(id);
         res.redirect('/requests/student-requests');
     } else {
+        await requestService.updateCancelTutor(id);
         res.redirect('/requests/tutor-requests');   
     }
+}
+
+exports.accept = async (req, res, next) =>{
+    var id= req.body.id;
+    console.log("Đây là id");
+    console.log(id);
+    await requestService.updateStatusAcceptRT(id, 'Đã duyệt');
+    res.redirect('/requests/tutor-requests');
 }

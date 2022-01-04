@@ -8,16 +8,18 @@ exports.sendRequest = function(req, res, next) {
 
 exports.listPost = async function(req, res, next) {
     const Listposts = await postService.listPosts();
-    const posts = Listposts.filter(e => {
+    const posts_copy = Listposts.filter(e => {
         return e.status.includes('Chưa giao');
     });
-    const roleTutor = await isTutor(req.user.account_id);
-    console.log(roleTutor)
-
-
-    res.render('tutors/postList', {posts,active,roleTutor});
+    const t = req.query.query;
+    const posts= posts_copy;
+    if(t!=null){
+    const posts = posts_copy.filter(e =>{
+        return e.subject.toUpperCase().includes(t.toUpperCase());
+    })
+    res.render('tutors/postList', {posts,active});}
+    res.render('tutors/postList', {posts,active});
 }
-
 
 exports.storeRequest = async (req, res, next) => {
     const tutorID = req.user.account_id;

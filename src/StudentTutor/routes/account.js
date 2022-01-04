@@ -26,8 +26,6 @@ router.post('/login', passport.authenticate('local', {
 
 router.post('/signup-student', accountController.signupStudentPost);
 
-router.post('/api/check-account', accountAPI.checkAccount);
-
 router.post('/api/check-exists-account', accountAPI.checkExistAccount);
 
 router.post('/profile/change-password', accountController.changePassword);
@@ -35,6 +33,10 @@ router.post('/profile/change-password', accountController.changePassword);
 router.post('/profile/change-info', accountController.changeInfor);
 
 router.post('/signup-tutor', accountController.signupTutorPost);
+
+router.get('/send', accountController.sendMailToVerifyAccount);
+
+router.get('/verify', accountController.verifyAccount);
 
 router.post('/forgot-password', accountController.forgotPasswordPost);
 

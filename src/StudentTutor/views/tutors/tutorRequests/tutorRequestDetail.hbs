@@ -1,0 +1,76 @@
+	{{> header}}
+<div class="container mt-5">
+	<div class="row tm-content-row">
+		<div class="col-12 tm-block-col">
+			<div class="page-title">
+				<span>Chi tiết yêu cầu</span>
+			</div>
+		</div>
+	</div>
+	<!-- row -->
+	<div class="row tm-content-row">
+
+		<div class="tm-block-col tm-col-request-settings">
+			<div class="tm-bg-primary-dark tm-block tm-block-settings">
+				<h2 class="tm-block-title">YÊU CẦU NHẬN LỚP</h2>
+				<div class="about-tutor about-request">
+					{{#with tutorRequest}}
+					<div class="row">
+						<div class="col-md-5">
+							<label>ID</label>
+						</div>
+						<div class="col-md-7">
+							<p>{{tutor_request_id}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label>Mã bài đăng</label>
+						</div>
+						<div class="col-md-7">
+							<p>{{post_id}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label>Mã gia sư</label>
+						</div>
+						<div class="col-md-7">
+							<p>{{tutor_id}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label>Số điện thoại</label>
+						</div>
+						<div class="col-md-7">
+							<p>{{phone}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label>Hình thức thanh toán</label>
+						</div>
+						<div class="col-md-7">
+							<p>{{payment_option}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label>Yêu cầu khác</label>
+						</div>
+						<div class="col-md-7">
+							{{#if other_request}}
+							<p>{{other_request}}</p>
+							{{else}}
+							<p>Không có yêu cầu khác</p>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/with}}
+</div>
+{{> footer}}

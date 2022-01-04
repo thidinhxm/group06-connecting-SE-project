@@ -2,9 +2,15 @@ const postService = require('../services/post');
 const requestService = require('../services/request');
 
 exports.list = async (req, res, next) => {
-	const posts = await postService.listPosts();
-
-	res.render('posts/postList', { posts });
+	const posts_copy = await postService.listPosts();
+	const t = req.query.query;
+    const posts= posts_copy;
+    if(t!=null){
+    const posts = posts_copy.filter(e =>{
+        return e.subject.toUpperCase().includes(t.toUpperCase());
+    })
+    res.render('posts/postList', {posts});}
+    res.render('posts/postList', {posts});
 };
 
 exports.show = async (req, res, next) => {
