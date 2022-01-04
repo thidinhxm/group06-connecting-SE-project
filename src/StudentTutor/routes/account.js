@@ -5,7 +5,7 @@ const accountController = require('../controllers/account');
 const passport = require('../middlewares/passport');
 const accountAPI = require('../api/account');
 
-router.get('/profile/:account_id', accountController.profile);
+router.get('/profile', accountController.profile);
 router.get('/login', accountController.login);
 
 router.get('/signup', accountController.signup);

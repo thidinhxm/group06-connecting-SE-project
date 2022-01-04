@@ -170,7 +170,7 @@ exports.logout = async(req, res, net) => {
 
 exports.profile = async(req, res, next) => { 
     try{
-        var id_user = req.params.account_id;
+        var id_user = req.user.account_id;
         const profile = await accountService.getInforProfileByIDStudent(id_user);
         const profile_tutor = await accountService.getInforProfileByIDTutor(id_user);
         const profile_acc = await accountService.getAccForProfile(id_user);
@@ -200,11 +200,11 @@ exports.changePassword = async(req, res, next) => {
         {
             await accountService.updatePassword(email, hashPassword);
             req.flash('success', 'Mật khẩu đã được cật nhật');
-            res.redirect('/profile/'+ account_id);
+            res.redirect('/profile');
         }
         else{
             req.flash('error', 'Sai mật khẩu vui lòng thử lại.');
-            res.redirect('/profile/'+ account_id);
+            res.redirect('/profile');
         }
     }
     catch(err) {
@@ -358,7 +358,7 @@ exports.changeInfor = async(req, res, next) => {
         
         const update = await accountService.updateInfo(account_id, fullname, display_name, phone, birthday, address, grade, subject, time, area, min_salary, job);
         req.flash('success', 'Cật nhật tài khoản thành công');
-        res.redirect('/profile/'+ account_id);
+        res.redirect('/profile');
     }
     catch(err) {
         next(err);

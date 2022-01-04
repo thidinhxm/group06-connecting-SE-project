@@ -15,19 +15,13 @@ exports.getAdminAccountByEmail = async (email) => {
     });
     return admin;
 }
-exports.getInforProfileByEmail = async() => {
+exports.getInforProfileByID = async(account_id) => {
     return await models.admin.findOne({ 
-            raw: true,
+            where:{
+                admin_id:account_id,
+            },
+            raw:true,
     });
-}
-exports.getAccForProfile = async(id_admin) =>{
-    return await models.account.findOne({
-        where:{
-            account_id: id_admin,
-        },
-        raw:true,
-    }
-    );
 }
 
 exports.updatePassword = async(email_, new_pw) =>{
