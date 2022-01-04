@@ -82,4 +82,15 @@ exports.updateInfo = (account_id, fullname, display_name) =>{
             admin_id: account_id,
         },
     });
-;}
+};
+
+exports.updateAvatar = (account_id, avatar) =>{
+    return models.admin.update({
+        avatar: avatar,
+    }, {
+        where: {
+            admin_id: account_id,
+        },
+    });
+}
+

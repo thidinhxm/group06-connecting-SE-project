@@ -1,5 +1,15 @@
+const cloudinary = require('cloudinary').v2;
+const formidable = require('formidable');
+
 const accountService = require('../services/account');
 const bcrypt = require('bcrypt');
+
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 exports.login = (req, res, next) => {
     res.render('account/login');
@@ -7,12 +17,9 @@ exports.login = (req, res, next) => {
 
 exports.profile = async(req, res, next) => { 
     try {
-        // const user = req.user;
-        console.log(req.user);
         res.render('account/profile', {
             error: req.flash('error'),
             success: req.flash('success'),
-            // user: user,
         });
     }
     catch (err) {
@@ -45,7 +52,7 @@ exports.changePassword = async(req, res, next) => {
         await accountService.updatePassword(req.user.account_id, hashPassword);
 
         req.user = await accountService.getAdminByID(req.user.account_id);
-        // res.locals.user = req.user;
+        
         req.flash('success', 'Cật nhật mật khẩu thành công');
         res.redirect('/profile');
     }
@@ -74,5 +81,44 @@ exports.changeInfo = async(req, res, next) => {
     catch (err) {
 		next(err);
 	}
-    
+}
+
+exports.changeAvatar = async(req, res, next) => {
+    try {
+        const form = formidable({ multiples: true });
+        form.parse(req, async(err, fields, files) => {
+            if (err) {
+                next(err);
+            }
+
+            const { avatar } = files;
+
+            if (!avatar) {
+                req.flash('error', 'Bạn chưa chọn hình ảnh');
+                return res.redirect('/profile');
+            }
+
+            await cloudinary.uploader.upload(avatar['filepath'], {
+                folder: 'avatar',
+            }, async (err, result) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    await accountService.updateAvatar(req.user.account_id, result.url);
+                    const user = await accountService.getAdminByID(req.user.account_id);
+                    req.login(user, {}, (err) => {
+                        if (err) {
+                            return next(err);
+                        }
+                        req.flash('success', 'Cật nhật avatar thành công');
+                        res.redirect('/profile');
+                    });
+                }
+            });
+        });
+    }
+    catch(err) {
+        next(err);
+    }
 }
