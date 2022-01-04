@@ -127,6 +127,23 @@ exports.updateAccount = (account) => {
         },
     });
 }
+
+// exports.updateTutor = (tutor) => {
+//     return models.tutor.update(tutor, {
+//         where: {
+//             tutor_id: tutor.tutor_id,
+//         },
+//     });
+// }
+
+// exports.updateStudent = (student) => {
+//     return models.student.update(student, {
+//         where: {
+//             student_id: student.student_id,
+//         },
+//     });
+// }
+
 exports.updateInfo = async(account_id, fullname, display_name, phone, birthday, address, grade, subject, time, area, min_salary, job) =>{
     const student = await models.student.update({
         fullname: fullname,

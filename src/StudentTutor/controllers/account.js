@@ -290,7 +290,7 @@ exports.forgotPasswordAuthentication = async(req, res, next) => {
     }
 }
 
-exports.resetPassword = async(req, res, next) => {
+exports.resetPassword = (req, res, next) => {
     const email = req.flash('email')[0];
     const token = req.flash('token')[0];
     if (email && token) {
