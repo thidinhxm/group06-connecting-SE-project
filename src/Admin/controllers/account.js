@@ -1,24 +1,32 @@
+const cloudinary = require('cloudinary').v2;
+const formidable = require('formidable');
+
 const accountService = require('../services/account');
 const bcrypt = require('bcrypt');
+
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 exports.login = (req, res, next) => {
     res.render('account/login');
 }
 
 exports.profile = async(req, res, next) => { 
-    try{
-        const user = req.user;
-        
+    try {
         res.render('account/profile', {
-            user, 
             error: req.flash('error'),
-            success: req.flash('success')
+            success: req.flash('success'),
         });
     }
     catch (err) {
 		next(err);
 	}
 }
+
 exports.logout = (req, res, next) => {
     req.logout();
     res.redirect('/login');
@@ -26,23 +34,27 @@ exports.logout = (req, res, next) => {
 
 exports.changePassword = async(req, res, next) => { 
     try {
-        var new_pw = req.body.new_password;
-        const len = new_pw.length;
-        const hashPassword = bcrypt.hashSync(new_pw, len);
-        var present_pw = req.body.present_password;
-        var email = req.body.email_for_cp;
+        const {present_password, new_password, confirm_password} = req.body;
+
+        if (new_password !== confirm_password) {
+            req.flash('error', 'Mật khẩu nhập lại không đúng');
+            return res.redirect('/profile');
+        }
+
+        if (!bcrypt.compareSync(present_password, req.user.password)) {
+            req.flash('error', 'Mật khẩu hiện tại không đúng');
+            return res.redirect('/profile');
+        }  
+
+        const salt = bcrypt.genSaltSync(10);
+        const hashPassword = bcrypt.hashSync(new_password, salt);
+
+        await accountService.updatePassword(req.user.account_id, hashPassword);
+
+        req.user = await accountService.getAdminByID(req.user.account_id);
         
-        const pw = await accountService.getPassword(email);
-        if(bcrypt.compareSync(present_pw, pw.password))
-        {
-            req.flash('success', 'Mật khẩu đã được cật nhật');
-            await accountService.updatePassword(email, hashPassword);
-            res.redirect('/profile');
-        }
-        else{
-            req.flash('error', 'Sai mật khẩu vui lòng thử lại.');
-            res.redirect('/profile');
-        }
+        req.flash('success', 'Cật nhật mật khẩu thành công');
+        res.redirect('/profile');
     }
     catch (err) {
 		next(err);
@@ -50,21 +62,63 @@ exports.changePassword = async(req, res, next) => {
 }
 
 exports.changeInfo = async(req, res, next) => { 
-    var id = req.body.account_id;
-    var fullname = req.body.ffullname;
-    var display_name = req.body.fdisplayname;
+    try {
+        const {fullname, display_name} = req.body;
+        const account_id = req.user.account_id;
 
-    console.log("Xuất ra");
-    console.log(id);
-    console.log(fullname);
-    console.log(display_name);
-    try{
-        const update = await accountService.updateInfo(id, fullname, display_name);
-        console.log(update);
+        await accountService.updateInfo(account_id, fullname, display_name);
+
+        const user = await accountService.getAdminByID(account_id);
+
+        req.login(user, {}, (err) => {
+            if (err) {
+                return next(err);
+            }
+            req.flash('success', 'Cật nhật thông tin thành công');
+            res.redirect('/profile');
+        });
     }
     catch (err) {
 		next(err);
 	}
-    req.flash('success', 'Cật nhật tài khoản thành công');
-    res.redirect('/profile');
+}
+
+exports.changeAvatar = async(req, res, next) => {
+    try {
+        const form = formidable({ multiples: true });
+        form.parse(req, async(err, fields, files) => {
+            if (err) {
+                next(err);
+            }
+
+            const { avatar } = files;
+
+            if (!avatar) {
+                req.flash('error', 'Bạn chưa chọn hình ảnh');
+                return res.redirect('/profile');
+            }
+
+            await cloudinary.uploader.upload(avatar['filepath'], {
+                folder: 'avatar',
+            }, async (err, result) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    await accountService.updateAvatar(req.user.account_id, result.url);
+                    const user = await accountService.getAdminByID(req.user.account_id);
+                    req.login(user, {}, (err) => {
+                        if (err) {
+                            return next(err);
+                        }
+                        req.flash('success', 'Cật nhật avatar thành công');
+                        res.redirect('/profile');
+                    });
+                }
+            });
+        });
+    }
+    catch(err) {
+        next(err);
+    }
 }
