@@ -13,7 +13,6 @@ exports.getUserByEmail = async (email) => {
     }
 
     const student = await models.student.findOne({
-        attributes: ['fullname', 'display_name', 'phone', 'birthday', 'address', 'avatar'],
         where: {
             student_id: user.account_id
         },
@@ -25,8 +24,6 @@ exports.getUserByEmail = async (email) => {
     }
 
     const tutor = await models.tutor.findOne({
-        attributes: ['fullname', 'display_name', 'phone', 'birthday', 'address', 
-            'avatar', 'grade', 'subject', 'time', 'area', 'min_salary', 'job'],
         where: {
             tutor_id: user.account_id
         },

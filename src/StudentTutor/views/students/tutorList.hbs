@@ -3,7 +3,7 @@
     <h1>Danh sách gia sư</h1>
     <div class="row">
         {{> search}}
-        {{#each posts}}
+        {{#each tutorList}}
         <div class="col-lg-4 col-md-6 col-mb-12 mb-3 px-2">
             <div class="post p-3">
                 <div class="row header-info mb-3">
@@ -13,9 +13,9 @@
                             onerror="src='https://lh3.googleusercontent.com/proxy/WlcsbWSDfvcvbaP83Liuw7WX1XJ8tCMn_iob8cGxE4g9gFYcDG7jUlD5cVxwbQbf0GCCBAn8b3Sn7Tg_vIJXy-kW7ee9nHLr9rYLvcTalw'">
                     </div>
                     <div class="col-8 pl-4 my-auto">
-                        <h2 class="name">Nguyễn Văn Quân</h2>
-                        <p>Giới tính: Nam</p>
-                        <p>SĐT: 0123456***</p>
+                        <h2 class="name">{{fullname}}</h2>
+                        <p>Giới tính: {{#if gender}} Nữ {{else}} Nam {{/if}}</p>
+                        {{!-- <p>SĐT: 0123456***</p> --}}
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@
 
                 <div class="form-group">
                     <label for="grade" class="form-label">Công việc hiện tại</label>
-                    <input readonly type="text" class="form-control" name="grade" value="{{grade}}">
+                    <input readonly type="text" class="form-control" name="grade" value="{{job}}">
                 </div>
 
             </div>
