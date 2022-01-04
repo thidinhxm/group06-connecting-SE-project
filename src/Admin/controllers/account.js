@@ -24,12 +24,13 @@ exports.logout = (req, res, next) => {
 }
 
 exports.changePassword = async(req, res, next) => { 
-    var new_pw = req.body.new_password;
-    const len = new_pw.length;
-    const hashPassword = bcrypt.hashSync(new_pw, len);
-    var present_pw = req.body.present_password;
-    var email = req.body.email_for_cp;
-    try{
+    try {
+        var new_pw = req.body.new_password;
+        const len = new_pw.length;
+        const hashPassword = bcrypt.hashSync(new_pw, len);
+        var present_pw = req.body.present_password;
+        var email = req.body.email_for_cp;
+        
         const pw = await accountService.getPassword(email);
         if(bcrypt.compareSync(present_pw, pw.password))
         {

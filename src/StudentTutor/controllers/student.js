@@ -1,8 +1,13 @@
 const { models } = require('../models');
 const active = { student: true }
-
-exports.sendRequest = function (req, res, next) {
-  res.render('students/request',{active});
+exports.sendRequest = async (req, res, next) => {
+  try {
+    const userID = req.user.account_id;
+    const roleStudent = await isStudent(userID);
+    console.log(roleStudent)
+    res.render('students/request', { active, roleStudent });
+  }
+  catch (err) { console.log(err) }
 };
 
 exports.storeRequest = async (req, res, next) => {
@@ -18,10 +23,10 @@ exports.storeRequest = async (req, res, next) => {
   const time = req.body.time
   const other_request = req.body.different
 
-  const studentID = 1012;// maybe change when login complete
+  const studentID = req.user.account_id;// maybe change when login complete
+
 
   const newStudentRequest = {
-    // student_request_id: 4,
     student_id: studentID,
     address: address,
     phone: phone,
@@ -32,7 +37,20 @@ exports.storeRequest = async (req, res, next) => {
     other_request: other_request,
   };
 
+
+
   await models.studentrequest.create(newStudentRequest)
   res.json(newStudentRequest);
   // console.log(subjects.toString());
 };
+
+
+const isStudent = async (id) => {
+  const test = await models.student.findOne({
+    where: {
+      student_id: id,
+    },
+    raw: true,
+  })
+  return (test != null && test.length != 0)
+}
