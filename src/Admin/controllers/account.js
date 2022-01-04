@@ -7,22 +7,12 @@ exports.login = (req, res, next) => {
 
 exports.profile = async(req, res, next) => { 
     try{
-<<<<<<< HEAD
-        const profile = await accountService.getInforProfileByID(req.user.account_id);
+        const profile = await accountService.getInforProfileBy(req.user.account_id);
         const profile_acc = req.user;
         console.log(profile);
         console.log(profile_acc);
         res.render('account/profile', {profile, profile_acc, error: req.flash('error'),
         success: req.flash('success')});
-=======
-        const user = req.user;
-        
-        res.render('account/profile', {
-            user, 
-            error: req.flash('error'),
-            success: req.flash('success')
-        });
->>>>>>> 7a7e6256a37eb416861d9b96a16ec85209391420
     }
     catch (err) {
 		next(err);
@@ -34,13 +24,12 @@ exports.logout = (req, res, next) => {
 }
 
 exports.changePassword = async(req, res, next) => { 
-    try {
-        var new_pw = req.body.new_password;
-        const len = new_pw.length;
-        const hashPassword = bcrypt.hashSync(new_pw, len);
-        var present_pw = req.body.present_password;
-        var email = req.body.email_for_cp;
-        
+    var new_pw = req.body.new_password;
+    const len = new_pw.length;
+    const hashPassword = bcrypt.hashSync(new_pw, len);
+    var present_pw = req.body.present_password;
+    var email = req.body.email_for_cp;
+    try{
         const pw = await accountService.getPassword(email);
         if(bcrypt.compareSync(present_pw, pw.password))
         {
