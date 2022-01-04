@@ -29,7 +29,11 @@
                         <div class="user-profile">
                             <div class="user-avatar">
                                 <img class="user-avatar-img"
-                                    src="https://bietmaytinh.com/wp-content/uploads/2021/06/cach-cat-anh-hinh-vuong-4.png"
+                                    {{#if profile.avatar}}
+                                        src="{{profile.avatar}}"
+                                    {{else}}
+                                        src="/img/user_avatar.png"
+                                    {{/if}}
                                     alt="Ảnh đại diện"
                                     onerror="this.src='/img/user_avatar.png'">
                             </div>
@@ -45,7 +49,7 @@
                                 <span>Đổi avatar</span>
                             </button>
                             <div class="form-change-avatar d-none">
-                                <form action="" method="POST" class="card card-body" enctype="multipart/form-data">
+                                <form action="/profile/change-avatar" method="POST" class="card card-body" enctype="multipart/form-data">
                                     <div class="form-group mb-3">
                                         <input type="file" class="form-control" name="avatar">
                                     </div>

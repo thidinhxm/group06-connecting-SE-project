@@ -15,6 +15,32 @@ exports.getAdminAccountByEmail = async (email) => {
     });
     return admin;
 }
+
+exports.getAdminByEmail = async(email) =>{
+    const account = await models.account.findOne({
+        where: {
+            email: email,
+        },
+        raw: true,
+    });
+
+    if (!account) {
+        return null;
+    }
+
+    const info = await models.admin.findOne({
+        where: {
+            admin_id: account.account_id,
+        },
+        raw: true,
+    });
+
+    if (!info) {
+        return null;
+    }
+
+    return {...account, ...info};
+}
 exports.getInforProfileByEmail = async() => {
     return await models.admin.findOne({ 
             raw: true,

@@ -10,11 +10,13 @@ passport.use(new LocalStrategy({
     passReqToCallback: true
 }, async (req, email, password, done) => {
     try {
-        const adminAccount = await accountService.getAdminAccountByEmail(email);
-        if (!adminAccount || !bcrypt.compareSync(password, adminAccount.password)) {
+
+        const admin = await accountService.getAdminByEmail(email);
+        if (!admin || !bcrypt.compareSync(password, admin.password)) {
             return done(null, false);
         }
-        return done(null, adminAccount);
+
+        return done(null, admin);
     } catch (err) {
         console.log(err);
     }
