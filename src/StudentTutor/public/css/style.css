@@ -236,7 +236,7 @@ h2 {
 .tm-block-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
+  /* color: #fff; */
   margin-bottom: 30px;
   text-align: center;
 }
