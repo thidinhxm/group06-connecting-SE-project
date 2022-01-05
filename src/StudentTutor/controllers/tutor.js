@@ -7,18 +7,23 @@ exports.sendRequest = function(req, res, next) {
 }
 
 exports.listPost = async function(req, res, next) {
-    const Listposts = await postService.listPosts();
-    const posts_copy = Listposts.filter(e => {
+    const Listposts = await postService.listPosts(); 
+    //posts đã đọc chưa giao
+    const posts_ = Listposts.filter(e => {
         return e.status.includes('Chưa giao');
     });
-    const t = req.query.query;
-    const posts= posts_copy;
-    if(t!=null){
-    const posts = posts_copy.filter(e =>{
-        return e.subject.toUpperCase().includes(t.toUpperCase());
-    })
-    res.render('tutors/postList', {posts,active});}
-    res.render('tutors/postList', {posts,active});
+    const subjectSearch = req.query.query; 
+    if(subjectSearch != null) {
+        const posts = posts_.filter(e =>{
+            return e.subject.toUpperCase().includes(subjectSearch.toUpperCase());
+        })
+        res.render('tutors/postList', {posts,active});
+    }
+    else{
+        //post_ là post là lọc status chưa giao
+        const posts = posts_
+        res.render('tutors/postList', {posts,active});
+    }
 }
 
 exports.storeRequest = async (req, res, next) => {

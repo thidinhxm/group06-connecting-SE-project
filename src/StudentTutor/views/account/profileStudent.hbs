@@ -2,6 +2,20 @@
 {{!-- font-awesome --}}
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 {{!-- Body profile --}}
+<script>
+    if(error){
+        alert("Sai mật khẩu. Vui lòng nhập lại.");
+    }
+    else(){
+        if(success){
+            alert("Mật khẩu đã được thay đổi thành công");
+        }
+        else()
+        {
+            alert("Xin chào");
+        }
+    }
+</script>
 <div class="container profile">
     <div class="row justify-content-center message-block">
         {{#if error}}
@@ -28,22 +42,18 @@
                         <div class="user-profile">
                             <div class="user-avatar">
                                 <img class="user-avatar-img"
-                                    {{#if user.avatar}}
-                                        src="{{user.avatar}}"
-                                    {{else}}
-                                        src="/img/user_avatar.png"
-                                    {{/if}}
+                                    src="https://bietmaytinh.com/wp-content/uploads/2021/06/cach-cat-anh-hinh-vuong-4.png"
                                     alt="Ảnh đại diện"
-                                    onerror="this.src='/img/user_avatar.png'">
+                                    onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'">
                             </div>
-
+                            <h4 class="user-name">{{user.display_name}}</h4>
+                            <h6 class="user-email">{{user.email}}</h6>
                             <button class="btn-change-avatar btn-sm btn-primary mt-3">
                                 <i class="fa fa-fw fa-camera"></i>
                                 <span>Đổi avatar</span>
                             </button>
-                            
                             <div class="form-change-avatar d-none">
-                                <form action="/profile/change-avatar" method="POST" class="card card-body" enctype="multipart/form-data">
+                                <form action="" method="POST" class="card card-body" enctype="multipart/form-data">
                                     <div class="form-group mb-3">
                                         <input type="file" class="form-control" name="avatar">
                                     </div>
@@ -52,10 +62,8 @@
                                     </div>
                                 </form>
                             </div>
-
-                            <h5 class="user-name">{{user.display_name}}</h5>
-                            <h6 class="user-email">{{user.email}}</h6>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -63,50 +71,69 @@
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
             <div class="card h-100">
                 <div class="card-body">
-                    <h4 class="text-primary">Thông tin tài khoản</h4>
+                    <h4 class="text-info">Thông tin tài khoản</h4>
+
                     <form class="form-change-infor" action="/profile/change-info" method="POST">
                         <div class="form-group mb-3">
-                            <label for="ffullname" class="form-label">Họ tên</label>
-                            <input type="text" class="form-control" id="ffullname" value="{{user.fullname}}" name="fullname"
+                            <label for="fullname" class="form-label">Họ tên</label>
+                            <input type="text" class="form-control" id="fullname" value="{{user.fullname}}" name="fullname"
                                 required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="displayname" class="form-label">Tên hiển thị</label>
+                            <input type="text" class="form-control" id="display_name" value="{{user.display_name}}" name="display_name"
+                                required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="phone" class="form-label">Số điện thoại</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" value={{user.phone}}>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="fdisplay_name" class="form-label">Tên hiển thị</label>
-                            <input type="text" class="form-control" id="fdisplayname" value="{{user.display_name}}" name="display_name"
-                                required>
+                            <label for="phone" class="form-label">Ngày sinh</label>
+                            <input type="date" class="form-control" id="birthday" name="birthday" value={{user.birthday}}>
                         </div>
-                        
+                        {{!-- <div class="form-group mb-3">
+                            <label for="fmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="fmail" name="mail" value="abc@gmail.com">
+                        </div> --}}
+                        <div class="form-group mb-3">
+                            <label for="address" class="form-label">Địa chỉ</label>
+                            <input type="text" class="form-control" id="address" value="{{user.address}}" name="address">
+                        </div>
+
+                            <input type="number" name="student_id" id="student_id" value={{user.student_id}} hidden>
                         <div class="form-group mb-3 text-right submit-change-info d-none">
                             <a href="../" type="button" class="btn btn-secondary mb-3">Hủy</a>
                             <button type="submit" class="btn btn-success mb-3">Lưu</button>
                         </div>
+
+                        
                     </form>
-    
-                    <h6 class="text-primary change-password">
+
+                    <h5 class="text-info change-password">
                         <span>Đổi mật khẩu</span>
                         <i class="fa fa-angle-down ml-2"></i>
-                    </h6>
+                    </h5>
                     <form action="/profile/change-password" method="POST" class="form-change-password d-none">
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label>Mật khẩu hiện tại</label>
                                     <input class="form-control cur-password" type="password"
-                                        placeholder="Nhập mật khẩu hiện tại" 
+                                        
                                         id="present_password" name = "present_password"
                                         required>
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label>Mật khẩu mới</label>
                                     <input class="form-control new-password" type="password"
                                         id="new_password" name = "new_password"
-                                        placeholder="Nhập mật khẩu mới"  required>
+                                          required>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +143,7 @@
                                     <label>Xác nhận mật khẩu mới</label>
                                     <input class="form-control renew-password" type="password"
                                         id="confirm_password" name = "confirm_password"
-                                        placeholder="Nhập lại mật khẩu mới" required>
+                                         required>
                                 </div>
                             </div>
                         </div>
@@ -129,5 +156,5 @@
             </div>
         </div>
     </div>
-</div>
-{{> footer}}
+    </div>
+    {{> footer}}
