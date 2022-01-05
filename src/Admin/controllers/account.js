@@ -35,12 +35,7 @@ exports.logout = (req, res, next) => {
 exports.changePassword = async(req, res, next) => { 
     try {
         const {present_password, new_password, confirm_password} = req.body;
-
-        if (new_password !== confirm_password) {
-            req.flash('error', 'Mật khẩu nhập lại không đúng');
-            return res.redirect('/profile');
-        }
-
+        
         if (!bcrypt.compareSync(present_password, req.user.password)) {
             req.flash('error', 'Mật khẩu hiện tại không đúng');
             return res.redirect('/profile');

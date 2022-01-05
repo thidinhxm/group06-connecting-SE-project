@@ -128,54 +128,18 @@ exports.updateAccount = (account) => {
     });
 }
 
-// exports.updateTutor = (tutor) => {
-//     return models.tutor.update(tutor, {
-//         where: {
-//             tutor_id: tutor.tutor_id,
-//         },
-//     });
-// }
-
-// exports.updateStudent = (student) => {
-//     return models.student.update(student, {
-//         where: {
-//             student_id: student.student_id,
-//         },
-//     });
-// }
-
-exports.updateInfo = async(account_id, fullname, display_name, phone, birthday, address, grade, subject, time, area, min_salary, job) =>{
-    const student = await models.student.update({
-        fullname: fullname,
-        display_name: display_name,
-        phone: phone,
-        birthday: birthday,
-        address: address,
-        
-    }, {
+exports.updateTutor = async(tutor) => {
+    return await models.tutor.update(tutor, {
         where: {
-            student_id: account_id,
+            tutor_id: tutor.tutor_id,
         },
-});
-    const tutor = await models.tutor.update({
-        fullname: fullname,
-        display_name: display_name,
-        phone: phone,
-        birthday: birthday,
-        address: address,
-        grade: grade,
-        subject: subject,
-        time: time,
-        area: area,
-        job: job,
-        min_salary: min_salary,
-    }, {
+    });
+}
+
+exports.updateStudent = async(student) => {
+    return await models.student.update(student, {
         where: {
-            tutor_id: account_id,
+            student_id: student.student_id,
         },
-});
-    if(student==null){
-        return tutor;
-    }
-    else return student;
+    });
 }
