@@ -41,7 +41,7 @@ exports.storeRequest = async (req, res, next) => {
 
 
 	await models.studentrequest.create(newStudentRequest)
-	res.json(newStudentRequest);
+	res.redirect('/my-request');
 	// console.log(subjects.toString());
 };
 
