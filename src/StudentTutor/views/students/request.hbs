@@ -5,26 +5,12 @@
             <div class="form-request_body col-lg-10 col-md-10 col-sm-12">
                 <h3 class="form-heading text-center p-4">FORM YÊU CẦU TÌM KIẾM GIA SƯ</h3>
 
-<<<<<<< HEAD
-            <form class="" action="{{#if roleStudent }}/students/store-request/{{/if}}" method="POST" id='student-request-form'>
-                <div class="form-group mb-4">
-                    <label for="phone" class="form-label">Số điện thoại (<span style="color: red">*</span>)</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="Ví dụ: 0323231141" name="phone"
-                        required>
-                </div>
-                <div class="row form-group mb-4">
-                    <div class="col-6">
-                        <label for="city" class="form-label">Tỉnh/thành phố (<span style="color: red">*</span>)</label>
-                        <select class="form-select w-100" id="city" name="city" required>
-                            <option value="TPHCM" selected>Thành Phố Hồ Chí Minh</option>
-                        </select>
-=======
-                <form class="" action="/students/store-request/" method="POST" id='student-request-form'>
+                <form class="" action="{{#if roleStudent }}/students/store-request/{{/if}}" method="POST"
+                    id='student-request-form'>
                     <div class="form-group mb-4">
                         <label for="phone" class="form-label">Số điện thoại (<span style="color: red">*</span>)</label>
                         <input type="tel" class="form-control" id="phone" placeholder="Ví dụ: 0323231141" name="phone"
                             required>
->>>>>>> master
                     </div>
                     <div class="row form-group mb-4">
                         <div class="col-6">
@@ -63,13 +49,13 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row form-group mb-4">
-                        <div class="col-lg-2 col-md-3 col-sm-12 mt-2">
+                    <div class="row form-group">
+                        <div class="col-lg-2 col-md-3 col-sm-12 mb-4">
                             <label for="homeNumber" class="form-label">Số nhà</label>
                             <input type="text" class="form-control" id="homeNumber" placeholder="Số 321"
                                 name="homeNumber">
                         </div>
-                        <div class="col-lg-10 col-md-9 col-sm-12 mt-2">
+                        <div class="col-lg-10 col-md-9 col-sm-12 mb-4">
                             <label for="road" class="form-label">Địa chỉ chi tiết (<span
                                     style="color: red">*</span>)</label>
                             <input type="text" class="form-control" id="road"
@@ -229,49 +215,45 @@
                             placeholder="Ví dụ: Có 1 năm kinh nghiệm" name="different">
                     </div>
 
-                    <div class="form-group mb-4 mt-4">
+                    {{!-- <div class="form-group mb-4 mt-4">
                         <button type="submit" class="btn btn-success mb-3 w-100 form-request-btn">SUBMIT</button>
+                    </div> --}}
+
+                    {{#if roleStudent}}
+                    <div class="form-group mb-4 mt-4">
+                        <button class="btn btn-success mb-3 w-100 form-request-btn" type="submit">Gửi yêu
+                            cầu</button>
+                        {{else}}
+                        <div class="form-group mb-4 mt-4">
+                            <button class="btn btn-success mb-3 w-100 form-request-btn" type="" data-toggle="modal"
+                                data-target="#myModal">Gửi yêu cầu</button>
+                            {{/if}}
+                        </div>
                     </div>
                 </form>
 
-<<<<<<< HEAD
-                {{#if roleStudent}}
-                <div class="form-group mb-4 mt-4">
-                    <button class="btn btn-success mb-3 w-100 form-request-btn" type="submit">Gửi yêu cầu</button>
-                {{else}}
-                     <div class="form-group mb-4 mt-4">
-                    <button class="btn btn-success mb-3 w-100 form-request-btn" type=""data-toggle="modal"
-                            data-target="#myModal">Gửi yêu cầu</button>
-                {{/if}}
-                </div>
-            </form>
-=======
             </div>
->>>>>>> master
+        </div>
+    </div>
 
+
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                "Yêu cầu tìm gia sư" chỉ được phép truy cập bởi học sinh/phụ huynh
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Đã hiểu</button>
+            </div>
         </div>
     </div>
 </div>
-
-
- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        "Yêu cầu tìm gia sư" chỉ được phép truy cập bởi học sinh/phụ huynh
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Đã hiểu</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 {{> footer}}
