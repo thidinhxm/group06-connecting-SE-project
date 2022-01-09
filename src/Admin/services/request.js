@@ -1,8 +1,10 @@
 const { models } = require('../models');
-
-exports.listTutorRequests = async () => {
-	return await models.tutorrequest.findAll({
+const { Op } = require('sequelize')
+exports.listTutorRequests = async (page = 0, itemPerPage = 8) => {
+	return await models.tutorrequest.findAndCountAll({
 		raw: true,
+		offset: page * itemPerPage,
+    limit: itemPerPage,
 	});
 };
 
@@ -12,12 +14,15 @@ exports.showTutorRequest = async (id) => {
 			tutor_request_id: id,
 		},
 		raw: true,
+
 	});
 };
 
-exports.listStudentRequests = async () => {
-	return await models.studentrequest.findAll({
+exports.listStudentRequests =  (page = 0, itemPerPage = 8) => {
+	return  models.studentrequest.findAndCountAll({
 		raw: true,
+		offset: page * itemPerPage,
+    limit: itemPerPage,
 	});
 };
 
@@ -71,4 +76,63 @@ exports.updateStatusAcceptRT = (id, status) => {
 			},
 		}
 	);
+}
+
+exports.listStudentRequestBySearch = (search_value,page = 0, itemPerPage = 8) => {
+	return models.studentrequest.findAndCountAll({
+			where: {
+					[Op.or]: [
+							{
+									student_request_id:
+											{ [Op.substring]: '%' + search_value + '%' }
+							},
+							{
+									phone:
+											{ [Op.substring]: '%' + search_value + '%' }
+							},
+							{
+									subject:
+											{ [Op.substring]: '%' + search_value + '%' }
+							},
+							{
+									grade:
+											{ [Op.substring]: '%' + search_value + '%' }
+							}, {
+									time:
+											{ [Op.substring]: '%' + search_value + '%' }
+							}
+					]
+			},
+			raw: true,
+			offset: page * itemPerPage,
+			limit: itemPerPage,
+	})
+}
+
+exports.listTutorRequestBySearch = (search_value,page = 0, itemPerPage = 8) => {
+	return models.tutorrequest.findAndCountAll({
+			where: {
+					[Op.or]: [
+							{
+									tutor_request_id:
+											{ [Op.substring]: '%' + search_value + '%' }
+							},
+							{
+									post_id:
+											{ [Op.substring]: '%' + search_value + '%' }
+							},
+							{
+									phone:
+											{ [Op.substring]: '%' + search_value + '%' }
+							},
+							 {
+									status:
+											{ [Op.substring]: '%' + search_value + '%' }
+							}
+					]
+			},
+			raw: true,
+			offset: page * itemPerPage,
+			limit: itemPerPage,
+	})
 }

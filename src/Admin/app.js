@@ -32,6 +32,17 @@ app.engine(
         return options.inverse(this);
       },
       compareStatus: helpers.compareStatus,
+      
+      'pages': function(pages,page,search_name,block) {
+        var accum = '';
+        console.log(page);
+        for(var i = 1; i < pages+1; ++i)
+        if(i!=page+1)
+          accum += block.fn({index:i,search_name:search_name,active:""});
+        else
+          accum += block.fn({index:i,search_name:search_name,active:"active"});
+        return accum;
+      },
     },
   })
 );
