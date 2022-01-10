@@ -3,7 +3,7 @@
     <h1>Danh sách bài viết tìm gia sư</h1>
     <div class="row">
         {{> search}}
-        
+
         {{#each posts}}
         <div class="col-lg-4 col-md-6 col-mb-12 mb-3 px-2">
             <div class="post p-3">
@@ -70,7 +70,7 @@
                             <div class="form-group mb-3">
                                 <label for="fidpost" class="form-label">Mã bài đăng</label>
                                 <input type="text" class="form-control" id="fidpost" value="BD001" name="idpost"
-                                    disabled>
+                                    readonly>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="fphone" class="form-label">Số điện thoại (<span

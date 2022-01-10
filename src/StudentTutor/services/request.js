@@ -30,3 +30,28 @@ exports.showStudentRequest = async (id) => {
 	});
 };
 
+exports.createTutorRequest = async(newTutorRequest) => {
+	try{
+    await models.tutorrequest.create(newTutorRequest)
+
+	}
+	catch(err){console.log(err);}
+}
+exports.createStudentRequest = async(newStudentRequest) => {
+	try{
+    await models.studentrequest.create(newStudentRequest)
+	}
+	catch(err){console.log(err);}
+}
+exports.updateStatus = async(id) => {
+	try{
+		await models.studentrequest.update(
+			{status: 'Chờ chấp thuận'},
+			{where: {
+				student_request_id: id
+			}
+		})
+
+	}
+	catch(err){console.log(err);}
+}
