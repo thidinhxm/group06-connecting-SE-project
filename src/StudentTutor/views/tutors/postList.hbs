@@ -46,7 +46,7 @@
 
                 <div class="btn-box">
                     <form action="/tutors/send-request">
-                        <button type="submit" class="btn btn-info btn-lg btn-request-form p-2" data-toggle="modal"
+                        <button type="button" class="btn btn-info btn-lg btn-request-form p-2" data-toggle="modal"
                             data-target="#myModal">Yêu
                             cầu nhận lớp</button>
                     </form>
@@ -55,7 +55,7 @@
         </div>
         {{/each}}
 
-        {{#if roleTutor}}
+        {{#if user.tutor_id}}
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
