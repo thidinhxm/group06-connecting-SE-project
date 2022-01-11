@@ -67,6 +67,18 @@
 							{{/if}}
 						</div>
 					</div>
+					{{/with}}
+					{{#with post_detail}}
+					<div class="row">
+						<div class="col-md-5">
+							<label>Trạng thái giao cho người khác</label>
+						</div>
+						<div class="col-md-7">
+							<p>{{status}}</p>
+						</div>
+					</div>
+					{{/with}}
+					{{#with tutorRequest}}
 				</div>
 			</div>
 		</div>
@@ -77,7 +89,6 @@
 			{{!-- <input id="request-id" name="requestId" type="number" value={{student_request_id}} hidden> --}}
 			{{!-- <button class="btn accept-btn-primary btn-primary me-md-2 option" type="submit">Tạo bài đăng</button>
 		</form> --}}
-		
 		<button class="btn accept-btn-primary btn-primary me-md-2 option" href="" data-toggle="modal"
 			data-target="#accept-tutor-request-modal" data-id="{{tutor_request_id}}">
 			Nhận yêu cầu

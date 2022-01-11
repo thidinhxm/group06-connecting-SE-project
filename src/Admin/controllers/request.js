@@ -1,5 +1,5 @@
 const requestService = require('../services/request');
-
+const postService = require('../services/post');
 exports.listTutorRequests = async(req, res, next) => {
     const tutorRequests = await requestService.listTutorRequests();
     res.render('requests/tutorRequests/tutorRequestList', {tutorRequests});
@@ -7,7 +7,8 @@ exports.listTutorRequests = async(req, res, next) => {
 
 exports.showTutorRequest = async (req, res, next) => {
     const tutorRequest = await requestService.showTutorRequest(req.params.id);
-    res.render('requests/tutorRequests/tutorRequestDetail', {tutorRequest});
+    const post_detail = await postService.showPost(tutorRequest.post_id);
+    res.render('requests/tutorRequests/tutorRequestDetail', {tutorRequest, post_detail});
 }
 
 exports.listStudentRequests = async (req, res, next) => {
