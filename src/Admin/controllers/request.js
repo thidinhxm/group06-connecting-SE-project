@@ -34,8 +34,7 @@ exports.cancel = async (req, res, next) => {
 
 exports.accept = async (req, res, next) =>{
     var id= req.body.id;
-    console.log("Đây là id");
-    console.log(id);
-    await requestService.updateStatusAcceptRT(id, 'Đã duyệt');
+    const detailRequest = await requestService.showTutorRequest(id);
+    requestService.updateStatusAcceptRT(id, 'Đã duyệt', detailRequest.post_id);
     res.redirect('/requests/tutor-requests');
 }

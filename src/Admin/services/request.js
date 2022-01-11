@@ -88,14 +88,25 @@ exports.updateCancel = (id, userType) => {
 	}
 };
 
-exports.updateStatusAcceptRT = (id, status) => {
-	return models.tutorrequest.update(
+exports.updateStatusAcceptRT = (id, status, post_id) => {
+	models.tutorrequest.update(
 		{
 			status: status,
 		},
 		{
 			where: {
 				tutor_request_id: id,
+			},
+		}
+	);
+
+	models.post.update(
+		{
+			status: 'Đã giao',
+		},
+		{
+			where: {
+				post_id: post_id,
 			},
 		}
 	);
