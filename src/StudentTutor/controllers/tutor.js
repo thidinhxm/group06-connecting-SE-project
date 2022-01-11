@@ -48,7 +48,7 @@ exports.storeRequest = async (req, res, next) => {
         await requestService.updateStatus(postID)
 
         // res.redirect('/my-request');
-
+        req.flash('success','Gửi yêu cầu thành công')
         res.redirect('/tutors/posts');
 
     } catch (error) { console.log(error) }
