@@ -33,8 +33,7 @@ exports.storeRequest = async (req, res, next) => {
         const tutorID = req.user.account_id;
         const other_request = req.body.different
         const payment_option = req.body.payMethod
-        const currentTutor = await models.tutor.findOne({ where: { tutor_id: tutorID }, raw: true })
-        const phone = currentTutor.phone;
+        const phone = req.body.phone;
         const postID = req.body.idpost;
         const newTutorRequest = {
             post_id: postID,
