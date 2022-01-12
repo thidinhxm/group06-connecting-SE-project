@@ -7,7 +7,7 @@
         {{#each posts}}
         <div class="col-lg-4 col-md-6 col-mb-12 mb-3 px-2">
             <div class="post p-3">
-                <div class="form-group" >
+                <div class="form-group">
                     <label for="id" class="form-label">Mã bài đăng</label>
                     <span class="badge rounded-pill bg-light text-dark" style="font-size: 18px">{{post_id}}</span>
                 </div>
@@ -100,6 +100,24 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content rounded-4">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-left">Chức năng chỉ dùng cho gia sư</h4>
+                    </div>
+                  
+                    <a class="text-center py-2 text-info" href="/login">Đăng nhập bằng tài khoản gia sư để nhận lớp</a>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Đóng</button>
                     </div>
                 </div>
             </div>
