@@ -17,6 +17,9 @@ exports.showTutorRequest = async (id) => {
 
 exports.listStudentRequests = async () => {
 	return await models.studentrequest.findAll({
+		// where:{
+		// 	status: 'Chưa duyệt'
+		// },
 		raw: true,
 	});
 };
@@ -45,10 +48,10 @@ exports.createStudentRequest = async(newStudentRequest) => {
 }
 exports.updateStatus = async(id) => {
 	try{
-		await models.studentrequest.update(
+		await models.post.update(
 			{status: 'Chờ chấp thuận'},
 			{where: {
-				student_request_id: id
+				post_id: id
 			}
 		})
 
