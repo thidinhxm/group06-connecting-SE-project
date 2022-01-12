@@ -43,7 +43,7 @@
                     <textarea rows="3" readonly type="text" class="form-control"
                         name="otherrequest">{{other_request}}</textarea>
                 </div>
-
+                {{/each}}
                 {{#if user.tutor_id}}
                 <div class="btn-box">
                     <form action="/tutors/send-request">
@@ -55,7 +55,7 @@
                 {{/if}}
             </div>
         </div>
-        {{/each}}
+      
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
