@@ -1,60 +1,96 @@
 const {models} = require('../models');
 
-exports.getAdminAccountByEmail = async (email) => {
-    const admin = await models.account.findOne({
-        include: [{
-            model: models.admin,
-            as: 'admin_account',
-            attributes: [],
-        }],
-        where: {
-            is_locked: false,
-            email: email,
-        },
-        raw: true,
-    });
-    return admin;
-}
-exports.getInforProfileByEmail = async() => {
-    return await models.admin.findOne({ 
+exports.getAdminByEmail = async (email) =>{
+    try {
+        const account = await models.account.findOne({
+            where: {
+                email: email,
+            },
             raw: true,
-    });
-}
-exports.getAccForProfile = async(id_admin) =>{
-    return await models.account.findOne({
-        where:{
-            account_id: id_admin,
-        },
-        raw:true,
+        });
+    
+        if (!account) {
+            return null;
+        }
+    
+        const info = await models.admin.findOne({
+            where: {
+                admin_id: account.account_id,
+            },
+            raw: true,
+        });
+    
+        if (!info) {
+            return null;
+        }
+    
+        return {...account, ...info};
     }
-    );
+    catch (err) {
+        throw err;
+    }
 }
 
-exports.updatePassword = async(email_, new_pw) =>{
+exports.getAdminByID = async (account_id) => {
+    try {
+        const account = await models.account.findOne({
+            where: {
+                account_id: account_id,
+            },
+            raw: true,
+        });
+    
+        if (!account) {
+            return null;
+        }
+    
+        const info = await models.admin.findOne({
+            where: {
+                admin_id: account.account_id,
+            },
+            raw: true,
+        });
+    
+        if (!info) {
+            return null;
+        }
+    
+        return {...account, ...info};
+    }
+    catch (err) {
+        throw err;
+    }
+}
+
+
+exports.updatePassword = (account_id, newHashPassword) =>{
     return models.account.update({
-        password: new_pw,
+        password: newHashPassword,
     }, {
         where: {
-            email: email_,
+            account_id: account_id,
         },
-});
-}
-
-exports.getPassword = async(email)=>{
-    return await models.account.findOne({
-        where:{
-            email:email,
-        },
-        raw:true,
     });
 }
 
-exports.updateInfo = async(account_id, fullname, display_name) =>{
-    return await models.admin.update({
+exports.updateInfo = (account_id, fullname, display_name) =>{
+    return models.admin.update({
         fullname: fullname,
         display_name: display_name,
     }, {
         where: {
             admin_id: account_id,
         },
-});}
+    });
+};
+
+exports.updateAvatar = (account_id, avatar) =>{
+    return models.admin.update({
+        avatar: avatar,
+    }, {
+        where: {
+            admin_id: account_id,
+        },
+    });
+}
+

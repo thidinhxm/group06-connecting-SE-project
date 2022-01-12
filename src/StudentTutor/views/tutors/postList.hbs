@@ -3,7 +3,7 @@
     <h1>Danh sách bài viết tìm gia sư</h1>
     <div class="row">
         {{> search}}
-        
+
         {{#each posts}}
         <div class="col-lg-4 col-md-6 col-mb-12 mb-3 px-2">
             <div class="post p-3">
@@ -46,7 +46,8 @@
 
                 <div class="btn-box">
                     <form action="/tutors/send-request">
-                        <button type="button" class="btn btn-info btn-lg btn-request-form p-2" data-toggle="modal" data-target="#myModal">Yêu
+                        <button type="button" class="btn btn-info btn-lg btn-request-form p-2" data-toggle="modal"
+                            data-target="#myModal">Yêu
                             cầu nhận lớp</button>
                     </form>
                 </div>
@@ -54,6 +55,7 @@
         </div>
         {{/each}}
 
+        {{#if user.tutor_id}}
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
@@ -68,7 +70,7 @@
                             <div class="form-group mb-3">
                                 <label for="fidpost" class="form-label">Mã bài đăng</label>
                                 <input type="text" class="form-control" id="fidpost" value="BD001" name="idpost"
-                                    disabled>
+                                    readonly>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="fphone" class="form-label">Số điện thoại (<span
@@ -87,7 +89,8 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label for="fdifferent" class="form-label">Yêu cầu khác (nếu có)</label>
-                                <input type="text" class="form-control" id="fdifferent" placeholder="" name="different" value="">
+                                <input type="text" class="form-control" id="fdifferent" placeholder="" name="different"
+                                    value="">
                             </div>
 
                             <div class="form-group mb-2">
@@ -101,6 +104,7 @@
                 </div>
             </div>
         </div>
+        {{/if}}
     </div>
 </div>
 {{> footer}}

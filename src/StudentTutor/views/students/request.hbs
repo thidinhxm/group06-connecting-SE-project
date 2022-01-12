@@ -5,7 +5,8 @@
             <div class="form-request_body col-lg-10 col-md-10 col-sm-12">
                 <h3 class="form-heading text-center p-4">FORM YÊU CẦU TÌM KIẾM GIA SƯ</h3>
 
-                <form class="" action="/students/store-request/" method="POST" id='student-request-form'>
+                <form class="" action="{{#if roleStudent }}/students/store-request/{{/if}}" method="POST"
+                    id='student-request-form' onsubmit="return(checkValue())">
                     <div class="form-group mb-4">
                         <label for="phone" class="form-label">Số điện thoại (<span style="color: red">*</span>)</label>
                         <input type="tel" class="form-control" id="phone" placeholder="Ví dụ: 0323231141" name="phone"
@@ -48,13 +49,13 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row form-group mb-4">
-                        <div class="col-lg-2 col-md-3 col-sm-12 mt-2">
+                    <div class="row form-group">
+                        <div class="col-lg-2 col-md-3 col-sm-12 mb-4">
                             <label for="homeNumber" class="form-label">Số nhà</label>
                             <input type="text" class="form-control" id="homeNumber" placeholder="Số 321"
                                 name="homeNumber">
                         </div>
-                        <div class="col-lg-10 col-md-9 col-sm-12 mt-2">
+                        <div class="col-lg-10 col-md-9 col-sm-12 mb-4">
                             <label for="road" class="form-label">Địa chỉ chi tiết (<span
                                     style="color: red">*</span>)</label>
                             <input type="text" class="form-control" id="road"
@@ -200,8 +201,9 @@
                         </div>
                     </div>
                     <div class="form-group mb-4">
-                        <label for="ffee" class="form-label">Học phí mong muốn (VNĐ/tháng)</label>
-                        <input type="number" class="form-control" id="ffee" placeholder="Ví dụ: 3.000.000" name="fee">
+                        <label for="ffee" class="form-label">Học phí mong muốn (VNĐ/tháng) (<span
+                                    style="color: red">*</span>)</label>
+                        <input type="number" class="form-control" id="ffee" placeholder="Ví dụ: 3.000.000" name="fee" required>
                     </div>
                     <div class="form-group mb-4">
                         <label for="ftime" class="form-label">Thời gian học</label>
@@ -214,13 +216,48 @@
                             placeholder="Ví dụ: Có 1 năm kinh nghiệm" name="different">
                     </div>
 
-                    <div class="form-group mb-4 mt-4">
+                     <div class="form-group mb-4 message-class-subject d-none">
+                        <span style="color: red">Bạn cần tích chọn Lớp và môn học</span>
+                    </div>
+
+                    {{!-- <div class="form-group mb-4 mt-4">
                         <button type="submit" class="btn btn-success mb-3 w-100 form-request-btn">SUBMIT</button>
+                    </div> --}}
+
+                    {{#if roleStudent}}
+                    <div class="form-group mb-4 mt-4">
+                        <button class="btn btn-success mb-3 w-100 form-request-btn" type="submit">Gửi yêu
+                            cầu</button>
+                        {{else}}
+                        <div class="form-group mb-4 mt-4">
+                            <button class="btn btn-success mb-3 w-100 form-request-btn" type="" data-toggle="modal"
+                                data-target="#myModal">Gửi yêu cầu</button>
+                            {{/if}}
+                        </div>
                     </div>
                 </form>
 
             </div>
+        </div>
+    </div>
 
+
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                "Yêu cầu tìm gia sư" chỉ được phép truy cập bởi học sinh/phụ huynh
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Đã hiểu</button>
+            </div>
         </div>
     </div>
 </div>

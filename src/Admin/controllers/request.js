@@ -52,7 +52,8 @@ exports.listTutorRequests = async (req, res, next) => {
 
 exports.showTutorRequest = async (req, res, next) => {
     const tutorRequest = await requestService.showTutorRequest(req.params.id);
-    res.render('requests/tutorRequests/tutorRequestDetail', { tutorRequest, active });
+    const post_detail = await postService.showPost(tutorRequest.post_id);
+    res.render('requests/tutorRequests/tutorRequestDetail', {tutorRequest, post_detail, active});
 }
 
 exports.listStudentRequests = async (req, res, next) => {
@@ -120,10 +121,9 @@ exports.cancel = async (req, res, next) => {
     }
 }
 
-exports.accept = async (req, res, next) => {
-    var id = req.body.id;
-    console.log("Đây là id");
-    console.log(id);
-    await requestService.updateStatusAcceptRT(id, 'Đã duyệt');
+exports.accept = async (req, res, next) =>{
+    var id= req.body.id;
+    const detailRequest = await requestService.showTutorRequest(id);
+    requestService.updateStatusAcceptRT(id, 'Đã duyệt', detailRequest.post_id);
     res.redirect('/requests/tutor-requests');
 }

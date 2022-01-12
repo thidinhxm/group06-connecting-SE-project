@@ -4,9 +4,17 @@ const active= {
 	post: true
 }
 exports.list = async (req, res, next) => {
-	const posts = await postService.listPosts();
-
-	res.render('posts/postList', { posts, active });
+	const postList = await postService.listPosts();
+	const subjectSearch = req.query.query;
+	// posts return
+    const posts = postList;
+    if(subjectSearch != null){
+    const posts = postList.filter(e =>{
+        return e.subject.toUpperCase().includes(subjectSearch.toUpperCase());
+    	})
+    	res.render('posts/postList', {posts});
+	}
+    res.render('posts/postList', {posts});
 };
 
 exports.show = async (req, res, next) => {

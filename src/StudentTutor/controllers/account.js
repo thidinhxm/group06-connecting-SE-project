@@ -170,16 +170,14 @@ exports.logout = async(req, res, net) => {
 
 exports.profile = async(req, res, next) => { 
     try{
-        var id_user = req.params.account_id;
-        const profile = await accountService.getInforProfileByIDStudent(id_user);
-        const profile_tutor = await accountService.getInforProfileByIDTutor(id_user);
-        const profile_acc = await accountService.getAccForProfile(id_user);
-        console.log('Đây là thông tin người dùng');
-        console.log(profile);
-        console.log(profile_tutor);
-        console.log(profile_acc);
-        res.render('account/profile', {profile, profile_tutor, profile_acc,  error: req.flash('error'),
-        success: req.flash('success')});
+        if(req.user.student_id != null){
+            res.render('account/profileStudent', {error: req.flash('error'),
+            success: req.flash('success')});
+        }
+        else{
+            res.render('account/profileTutor', {error: req.flash('error'),
+            success: req.flash('success')});
+        }
     }
     catch(err) {
         next(err);
@@ -187,29 +185,33 @@ exports.profile = async(req, res, next) => {
 }
 
 exports.changePassword = async(req, res, next) => { 
-    try{
-        var new_pw = req.body.new_password;
-        const len = new_pw.length;
-        const hashPassword = bcrypt.hashSync(new_pw, len);
-        var present_pw = req.body.present_password;
-        var email = req.body.email_for_cp;
-        const pw = await accountService.getPassword(email);
-        var account_id=pw.account_id;
+    try {
+        const {present_password, new_password, confirm_password} = req.body;
+        
+        if (!bcrypt.compareSync(present_password, req.user.password)) {
+            req.flash('error', 'Mật khẩu hiện tại không đúng');
+            return res.redirect('/profile');
+        }  
 
-        if(bcrypt.compareSync(present_pw, pw.password))
-        {
-            await accountService.updatePassword(email, hashPassword);
-            req.flash('success', 'Mật khẩu đã được cật nhật');
-            res.redirect('/profile/'+ account_id);
-        }
-        else{
-            req.flash('error', 'Sai mật khẩu vui lòng thử lại.');
-            res.redirect('/profile/'+ account_id);
-        }
+        const salt = bcrypt.genSaltSync(10);
+        const hashPassword = bcrypt.hashSync(new_password, salt);
+
+        await accountService.updatePassword(req.user.email, hashPassword);
+
+        const email = req.user.email;
+        const user = await accountService.getUserByEmail(email);
+
+        req.login(user, {}, (err) => {
+            if (err) {
+                return next(err);
+            }
+            req.flash('success', 'Cật nhật mật khẩu thành công');
+            res.redirect('/profile');
+        });
     }
-    catch(err) {
-        next(err);
-    }
+    catch (err) {
+		next(err);
+	}
 }
 
 
@@ -290,7 +292,7 @@ exports.forgotPasswordAuthentication = async(req, res, next) => {
     }
 }
 
-exports.resetPassword = async(req, res, next) => {
+exports.resetPassword = (req, res, next) => {
     const email = req.flash('email')[0];
     const token = req.flash('token')[0];
     if (email && token) {
@@ -342,23 +344,26 @@ exports.resetPasswordPost = async(req, res, next) => {
 }
 exports.changeInfor = async(req, res, next) => { 
     try{
-        var account_id = req.body.faccount_id;
-        var fullname = req.body.ffullname;
-        var display_name = req.body.fdisplayname;
-        var phone = req.body.fphone;
-        var birthday = req.body.fbirthday;
-        var address = req.body.faddress;
+        const user_get = req.body;
+        if(user_get.tutor_id!=null){
+            await accountService.updateTutor(user_get);
+        }
+        else{
+            await accountService.updateStudent(user_get);
+        }
+        const email = req.user.email;
+        const user = await accountService.getUserByEmail(email);
 
-        var grade = req.body.fgrade;
-        var subject = req.body.fsubject;
-        var time = req.body.ftime;
-        var area = req.body.farea;
-        var job = req.body.fjob;
-        var min_salary = req.body.fmin_salary;
-        
-        const update = await accountService.updateInfo(account_id, fullname, display_name, phone, birthday, address, grade, subject, time, area, min_salary, job);
-        req.flash('success', 'Cật nhật tài khoản thành công');
-        res.redirect('/profile/'+ account_id);
+        req.login(user, {}, (err) => {
+            if (err) {
+                return next(err);
+            }
+            req.flash('success', 'Cật nhật thông tin thành công');
+            res.redirect('/profile');
+        });
+        // req.user=
+        // req.flash('success', 'Cật nhật tài khoản thành công');
+        // res.redirect('/profile');
     }
     catch(err) {
         next(err);

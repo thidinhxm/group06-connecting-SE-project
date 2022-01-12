@@ -20,5 +20,8 @@ router.get('/logout', auth.isLogin, accountController.logout);
 router.post('/profile/change-password', accountController.changePassword);
 
 router.post('/profile/change-info', accountController.changeInfo);
+
+router.post('/profile/change-avatar', accountController.changeAvatar);
+
 module.exports = router;
 

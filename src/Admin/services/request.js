@@ -64,15 +64,54 @@ exports.updateStatus = (id, status) => {
 			},
 		}
 	);
-}
-exports.updateStatusAcceptRT = (id, status) => {
-	return models.tutorrequest.update(
+};
+
+exports.updateCancel = (id, userType) => {
+	if (userType == 'student') {
+		return models.studentrequest.update(
+			{
+				status: 'Đã hủy',
+			},
+			{
+				where: {
+					student_request_id: id,
+				},
+			}
+		);
+	} else if (userType == 'tutor') {
+		return models.tutorrequest.update(
+			{
+				status: 'Đã hủy',
+			},
+			{
+				where: {
+					tutor_request_id: id,
+				},
+			}
+		);
+	} else {
+	}
+};
+
+exports.updateStatusAcceptRT = (id, status, post_id) => {
+	models.tutorrequest.update(
 		{
 			status: status,
 		},
 		{
 			where: {
 				tutor_request_id: id,
+			},
+		}
+	);
+
+	models.post.update(
+		{
+			status: 'Đã giao',
+		},
+		{
+			where: {
+				post_id: post_id,
 			},
 		}
 	);

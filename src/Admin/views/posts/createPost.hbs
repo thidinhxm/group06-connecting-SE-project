@@ -1,47 +1,47 @@
-	{{> header}}
+{{> header}}
 <div class="container container-add-post ">
-	<div class="row add-post-area ">
-	    <div class="col-md-8 col-md-offset-2">
-			<div class="title-add-post">
-				<h2>Tạo bài đăng</h2>
-                <div class="custom-underline"></div>
+	<div class="row add-post-area mt-4">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="page-title">
+				<span>Tạo bài đăng</span>
 			</div>
-            <div class="container add-post-container">
+			<div class="container add-post-container mt-2">
 				{{#with request}}
-				<form action="/posts/create?student_request_id={{student_request_id}}" method="POST" class ="form-add-post" >
+				<form action="/posts/create?student_request_id={{student_request_id}}" method="POST"
+					class="form-add-post">
 					<div class="form-group has-error row">
 						<div class="col-3"><label for="slug">Lớp</label></div>
-						<input type="text" class="col-7" value="{{grade}}" name="grade" >
-						
+						<input type="text" class="col-7" value="{{grade}}" name="grade">
+
 					</div>
 
 					<div class="form-group has-error row">
 						<div class="col-3"><label for="slug">Môn học</label></div>
 						<input type="text" class="col-7" value="{{subject}}" name="subject">
 					</div>
-					
+
 					<div class="form-group">
 						<label for="title">Địa chỉ</label>
-						<input type="text" class="form-control" name="address" value="{{address}}"/>
+						<input type="text" class="form-control" name="address" value="{{address}}" />
 					</div>
-				
+
 					<div class="form-group">
 						<label for="title">Lương</label>
-						<input type="text" class="form-control" name="salary" value="{{salary}}"  />
+						<input type="text" class="form-control" name="salary" value="{{salary}}" />
 					</div>
 
 					<div class="form-group">
 						<label for="title">Thời gian</label>
-						<input type="text" class="form-control" name="time" value="{{time}}"  />
+						<input type="text" class="form-control" name="time" value="{{time}}" />
 					</div>
 					<div class="form-group">
 						<label for="description">Yêu cầu khác </label>
 						<textarea rows="5" class="form-control" name="other_request">{{other_request}}</textarea>
 					</div>
-					
+
 					<div class="form-group row justify-content-around btn-form">
 						<button type="submit" class="btn btn-primary col-3 btn-detail ">
-							Đăng bài 
+							Đăng bài
 						</button>
 						<button class="btn btn-danger col-3 btn-detail">
 							Huỷ
