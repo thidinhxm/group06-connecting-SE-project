@@ -6,7 +6,7 @@ const passport = require('../middlewares/passport');
 const auth = require('../middlewares/auth');
 const accountAPI = require('../api/account');
 
-router.get('/profile', accountController.profile);
+router.get('/profile', auth.isLoggedIn, accountController.profile);
 router.get('/login', accountController.login);
 
 router.get('/signup', accountController.signup);

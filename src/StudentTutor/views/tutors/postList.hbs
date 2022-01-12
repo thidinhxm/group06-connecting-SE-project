@@ -7,7 +7,7 @@
         {{#each posts}}
         <div class="col-lg-4 col-md-6 col-mb-12 mb-3 px-2">
             <div class="post p-3">
-                <div class="form-group" >
+                <div class="form-group">
                     <label for="id" class="form-label">Mã bài đăng</label>
                     <span class="badge rounded-pill bg-light text-dark" style="font-size: 18px">{{post_id}}</span>
                 </div>
@@ -44,6 +44,7 @@
                         name="otherrequest">{{other_request}}</textarea>
                 </div>
 
+                {{#if user.tutor_id}}
                 <div class="btn-box">
                     <form action="/tutors/send-request">
                         <button type="button" class="btn btn-info btn-lg btn-request-form p-2" data-toggle="modal"
@@ -51,11 +52,11 @@
                             cầu nhận lớp</button>
                     </form>
                 </div>
+                {{/if}}
             </div>
         </div>
         {{/each}}
 
-        {{#if user.tutor_id}}
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
@@ -104,7 +105,6 @@
                 </div>
             </div>
         </div>
-        {{/if}}
     </div>
 </div>
 {{> footer}}

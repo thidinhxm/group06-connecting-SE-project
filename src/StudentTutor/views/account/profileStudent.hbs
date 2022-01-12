@@ -42,9 +42,8 @@
                         <div class="user-profile">
                             <div class="user-avatar">
                                 <img class="user-avatar-img"
-                                    src="https://bietmaytinh.com/wp-content/uploads/2021/06/cach-cat-anh-hinh-vuong-4.png"
-                                    alt="Ảnh đại diện"
-                                    onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'">
+                                    src="{{user.avatar}}"
+                                    onerror="src='/img/user_avatar.png'">
                             </div>
                             <h4 class="user-name">{{user.display_name}}</h4>
                             <h6 class="user-email">{{user.email}}</h6>
@@ -86,7 +85,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="phone" class="form-label">Số điện thoại</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" value={{user.phone}}>
+                            <input type="tel" class="form-control" id="phone" name="phone" value={{user.phone}} required pattern="[0]{1}[0-9]{9}">
                         </div>
 
                         <div class="form-group mb-3">
@@ -99,7 +98,7 @@
                         </div> --}}
                         <div class="form-group mb-3">
                             <label for="address" class="form-label">Địa chỉ</label>
-                            <input type="text" class="form-control" id="address" value="{{user.address}}" name="address">
+                            <input type="text" class="form-control" id="address" value="{{user.address}}" name="address" required>
                         </div>
 
                             <input type="number" name="student_id" id="student_id" value={{user.student_id}} hidden>

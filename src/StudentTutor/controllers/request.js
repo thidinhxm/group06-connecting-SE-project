@@ -20,7 +20,7 @@ exports.RequestList = async (req, res, next) => {
                 return request.tutor_id == req.user.tutor_id;
             })
 
-            return res.render('tutor/myRequests/myRequestList', {tutorRequests: myRequests});
+            return res.render('tutors/myRequests/myRequestList', {tutorRequests: myRequests});
         }
     } catch (error) {
         next(error);
@@ -38,14 +38,14 @@ exports.RequestDetail = async (req, res, next) => {
             if(req.user.student_id == requestDetail.student_id) {
                 return res.render('students/myRequests/myRequestDetail', {studentRequest: requestDetail})
             }
-            next();
+            res.sendStatus(404);
         } else if (req.user.tutor_id) {
-            requestDetail = await requestService.showStudentRequest(req.params.id);
+            requestDetail = await requestService.showTutorRequest(req.params.id);
 
             if (req.user.tutor_id == requestDetail.tutor_id){
-                return res.render('tutor/myRequests/myRequestDetail', {tutorRequest: requestDetail})
+                return res.render('tutors/myRequests/myRequestDetail', {tutorRequest: requestDetail})
             }
-            next();
+            res.sendStatus(404);
         }
         
     } catch (error) {
