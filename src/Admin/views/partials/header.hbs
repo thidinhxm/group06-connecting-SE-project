@@ -15,13 +15,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav h-100">
         <li class="nav-item">
-          <a class="active dashboard nav-link" href="/">
+          <a class=" {{#if active.dashboard}} active {{/if}} dashboard nav-link" href="/">
             TRANG CHỦ
           </a>
         </li>
-        <li class="nav-item dropdown">
+        <li class=" nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            class=" nav-link dropdown-toggle {{#if active.request}} active {{/if}}"
             href="#"
             id="navbarDropdown1"
             role="button"
@@ -41,7 +41,7 @@
           </div>
         </li>
 
-        <li class="nav-item dropdown">
+        <li class="{{#if active.user}} active {{/if}} nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -62,14 +62,14 @@
               ></i>&nbsp;Học sinh</a>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{#if active.post}} active {{/if}}">
           <a class="nav-link" href="/posts">
             QUẢN LÝ BÀI VIẾT
           </a>
         </li>
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            class="{{#if active.account}} active {{/if}} nav-link dropdown-toggle"
             href="#"
             id="navbarDropdown3"
             role="button"
@@ -79,7 +79,7 @@
           >
             <span><i class="far fa-user-circle"></i>&nbsp;Admin</span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+          <div class=" dropdown-menu" aria-labelledby="navbarDropdown3">
             <a class="dropdown-item" href="/profile">Thông tin cá nhân</a>
             <a class="dropdown-item" href="/logout">Đăng xuất</a>
           </div>

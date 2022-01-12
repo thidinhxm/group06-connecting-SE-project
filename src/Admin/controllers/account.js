@@ -3,6 +3,9 @@ const formidable = require('formidable');
 
 const accountService = require('../services/account');
 const bcrypt = require('bcrypt');
+const active= {
+    account: true
+}
 
 
 cloudinary.config({
