@@ -202,8 +202,9 @@
                     </div>
                     <div class="form-group mb-4">
                         <label for="ffee" class="form-label">Học phí mong muốn (VNĐ/tháng) (<span
-                                    style="color: red">*</span>)</label>
-                        <input type="number" class="form-control" id="ffee" placeholder="Ví dụ: 3.000.000" name="fee" required>
+                                style="color: red">*</span>)</label>
+                        <input type="number" class="form-control" id="ffee" placeholder="Ví dụ: 3.000.000" name="fee"
+                            required>
                     </div>
                     <div class="form-group mb-4">
                         <label for="ftime" class="form-label">Thời gian học</label>
@@ -216,7 +217,7 @@
                             placeholder="Ví dụ: Có 1 năm kinh nghiệm" name="different">
                     </div>
 
-                     <div class="form-group mb-4 message-class-subject d-none">
+                    <div class="form-group mb-4 message-class-subject d-none">
                         <span style="color: red">Bạn cần tích chọn Lớp và môn học</span>
                     </div>
 
@@ -224,25 +225,23 @@
                         <button type="submit" class="btn btn-success mb-3 w-100 form-request-btn">SUBMIT</button>
                     </div> --}}
 
-                    {{#if roleStudent}}
                     <div class="form-group mb-4 mt-4">
+                        {{#if user.student_id}}
                         <button class="btn btn-success mb-3 w-100 form-request-btn" type="submit">Gửi yêu
                             cầu</button>
                         {{else}}
-                        <div class="form-group mb-4 mt-4">
-                            <button class="btn btn-success mb-3 w-100 form-request-btn" type="" data-toggle="modal"
-                                data-target="#myModal">Gửi yêu cầu</button>
-                            {{/if}}
-                        </div>
+                        <button class="btn btn-success mb-3 w-100 form-request-btn" type="button" data-toggle="modal"
+                            data-target="#myModal">Gửi yêu cầu (Không khả dụng)</button>
+                        {{/if}}
                     </div>
-                </form>
-
             </div>
+            </form>
+
         </div>
     </div>
-
-
 </div>
+
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
