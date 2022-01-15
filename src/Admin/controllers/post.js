@@ -62,3 +62,17 @@ exports.createPost = async (req, res, next) => {
 	}
 };
 
+exports.edit = async (req, res, next) => {
+	try {
+		const {grade, subject, salary, address, other_request} = req.body;
+		const post_id = req.params.postID;
+
+		await postService.updatePost({
+			grade, subject, salary, address, other_request
+		}, post_id);
+		res.render('posts', { request, active });
+	}
+	catch (err) {
+		next(err);
+	}
+};

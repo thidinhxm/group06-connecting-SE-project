@@ -17,11 +17,11 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/logout', auth.isLogin, accountController.logout);
 
-router.post('/profile/change-password', accountController.changePassword);
+router.post('/profile/change-password', auth.isLogin, accountController.changePassword);
 
-router.post('/profile/change-info', accountController.changeInfo);
+router.post('/profile/change-info',auth.isLogin, accountController.changeInfo);
 
-router.post('/profile/change-avatar', accountController.changeAvatar);
+router.post('/profile/change-avatar',auth.isLogin, accountController.changeAvatar);
 
 module.exports = router;
 
