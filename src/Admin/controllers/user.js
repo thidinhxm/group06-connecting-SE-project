@@ -43,7 +43,7 @@ exports.showStudent = async (req, res, next) => {
 				next(err);
 		}
 }
-const userService = require("../services/user");
+// const userService = require("../services/user");
 
 exports.lock = async (req, res, next) => {
 	try {
