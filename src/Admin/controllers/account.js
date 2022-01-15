@@ -91,7 +91,7 @@ exports.changeAvatar = async(req, res, next) => {
 
             const { avatar } = files;
 
-            if (!avatar) {
+            if (!avatar || !avatar['size']) {
                 req.flash('error', 'Bạn chưa chọn hình ảnh');
                 return res.redirect('/profile');
             }

@@ -680,3 +680,11 @@ h2 {
 }
 
 /* End Search */
+
+.user-avatar-header {
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}

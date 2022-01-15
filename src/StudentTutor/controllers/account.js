@@ -1,8 +1,16 @@
 const bcrypt = require('bcrypt');
-
-const accountService = require('../services/account');
+const cloudinary = require('cloudinary').v2;
+const formidable = require('formidable');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
+
+const accountService = require('../services/account');
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 exports.login = (req, res, next) => {
     res.render('account/login', {
@@ -364,6 +372,87 @@ exports.changeInfor = async(req, res, next) => {
         // req.user=
         // req.flash('success', 'Cật nhật tài khoản thành công');
         // res.redirect('/profile');
+    }
+    catch(err) {
+        next(err);
+    }
+}
+
+
+exports.changeAvatarTutor = async(req, res, next) => {
+    try {
+        const form = formidable({ multiples: true });
+        form.parse(req, async(err, fields, files) => {
+            if (err) {
+                next(err);
+            }
+
+            const { avatar } = files;
+
+            if (!avatar || !avatar['size']) {
+                req.flash('error', 'Bạn chưa chọn hình ảnh');
+                return res.redirect('/profile');
+            }
+            
+            await cloudinary.uploader.upload(avatar['filepath'], {
+                folder: 'avatar',
+            }, async (err, result) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    await accountService.updateAvatarTutor(req.user.account_id, result.url);
+                    const user = await accountService.getUserByID(req.user.account_id);
+                    req.login(user, {}, (err) => {
+                        if (err) {
+                            return next(err);
+                        }
+                        req.flash('success', 'Cật nhật avatar thành công');
+                        res.redirect('/profile');
+                    });
+                }
+            });
+        });
+    }
+    catch(err) {
+        next(err);
+    }
+}
+
+exports.changeAvatarStudent = async(req, res, next) => {
+    try {
+        const form = formidable({ multiples: true });
+        form.parse(req, async(err, fields, files) => {
+            if (err) {
+                next(err);
+            }
+
+            const { avatar } = files;
+
+            if (!avatar || !avatar['size']) {
+                req.flash('error', 'Bạn chưa chọn hình ảnh');
+                return res.redirect('/profile');
+            }
+            
+            await cloudinary.uploader.upload(avatar['filepath'], {
+                folder: 'avatar',
+            }, async (err, result) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    await accountService.updateAvatarStudent(req.user.account_id, result.url);
+                    const user = await accountService.getUserByID(req.user.account_id);
+                    req.login(user, {}, (err) => {
+                        if (err) {
+                            return next(err);
+                        }
+                        req.flash('success', 'Cật nhật avatar thành công');
+                        res.redirect('/profile');
+                    });
+                }
+            });
+        });
     }
     catch(err) {
         next(err);

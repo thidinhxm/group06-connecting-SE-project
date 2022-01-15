@@ -37,6 +37,43 @@ exports.getUserByEmail = async (email) => {
     return 'admin';
 }
 
+exports.getUserByID = async(id_user) => {
+    const user = await models.account.findOne({
+        where: {
+            account_id: id_user
+        },
+        raw: true
+    });
+
+    if (!user) {
+        return null;
+    }
+
+    const student = await models.student.findOne({
+        where: {
+            student_id: user.account_id
+        },
+        raw: true
+    });
+
+    if (student) {
+        return {...user, ...student};
+    }
+
+    const tutor = await models.tutor.findOne({
+        where: {
+            tutor_id: user.account_id
+        },
+        raw: true,
+    });
+
+    if (tutor) {
+        return {...user, ...tutor};
+    }
+    
+    return 'admin';
+}
+
 exports.getAccountByEmail = async (email) => {
     const account = await models.account.findOne({
         where: {
@@ -140,6 +177,26 @@ exports.updateStudent = async(student) => {
     return await models.student.update(student, {
         where: {
             student_id: student.student_id,
+        },
+    });
+}
+
+exports.updateAvatarStudent = (account_id, avatar) =>{
+    return models.student.update({
+        avatar: avatar,
+    }, {
+        where: {
+            student_id: account_id,
+        },
+    });
+}
+
+exports.updateAvatarTutor = (account_id, avatar) =>{
+    return models.tutor.update({
+        avatar: avatar,
+    }, {
+        where: {
+            tutor_id: account_id,
         },
     });
 }

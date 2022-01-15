@@ -52,7 +52,7 @@
                                 <span>Đổi avatar</span>
                             </button>
                             <div class="form-change-avatar d-none">
-                                <form action="" method="POST" class="card card-body" enctype="multipart/form-data">
+                                <form action="/profile/changeAvatarTutor" method="POST" class="card card-body" enctype="multipart/form-data">
                                     <div class="form-group mb-3">
                                         <input type="file" class="form-control" name="avatar">
                                     </div>
@@ -92,10 +92,6 @@
                             <label for="phone" class="form-label">Ngày sinh</label>
                             <input type="date" class="form-control" id="birthday" name="birthday" value="{{user.birthday}}">
                         </div>
-                        {{!-- <div class="form-group mb-3">
-                            <label for="fmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="fmail" name="mail" value="abc@gmail.com">
-                        </div> --}}
                         <div class="form-group mb-3">
                             <label for="address" class="form-label">Địa chỉ</label>
                             <input type="text" class="form-control" id="address" value="{{user.address}}" name="address">

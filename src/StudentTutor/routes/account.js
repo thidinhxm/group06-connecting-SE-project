@@ -45,4 +45,8 @@ router.post('/reset-password', accountController.resetPasswordPost);
 
 router.get('/forgot-password-authentication', accountController.forgotPasswordAuthentication);
 
+router.post('/profile/changeAvatarStudent', auth.isLoggedIn, accountController.changeAvatarStudent);
+
+router.post('/profile/changeAvatarTutor', auth.isLoggedIn, accountController.changeAvatarTutor);
+
 module.exports = router;
