@@ -1,4 +1,5 @@
-	{{> header}}
+
+{{> header}}
 <div class="container post-container">
     <div class="row align-items-start">
         <div class="col id-col ">
@@ -9,18 +10,19 @@
     </div>
 
     <div class="content-post row ">
-        <form action="post/edit/{{post.post_id}}" method="post">
+        {{#with post}}
+        <form action="/posts/edit/{{post_id}}" method="post">
 
             <div class="row criteria-line ">
 
                 <div class="col-4 criteria-title ">Lớp</div>
-                <input class="col" type="text" id="grade" name="grade" value="{{post.grade}}" required>
+                <input class="col" type="text" id="grade" name="grade" value="{{grade}}" required>
             </div>
 
 
             <div class="row criteria-line">
                 <div class="col-4 criteria-title ">Môn học</div>
-                <input class="col" type="text" id="subject" name="subject" value="{{post.subject}}" required>
+                <input class="col" type="text" id="subject" name="subject" value="{{subject}}" required>
 
 
             </div>
@@ -28,14 +30,14 @@
 
             <div class="row criteria-line">
                 <div class="col-4 criteria-title">Mức lương/h</div>
-                <input class="col" type="text" id="salary" name="salary" value="{{post.salary}}" required>
+                <input class="col" type="text" id="salary" name="salary" value="{{salary}}" required>
 
 
             </div>
 
             <div class="row criteria-line">
                 <div class="col-4 criteria-title">Địa chỉ</div>
-                <input class="col" type="text" id="address" placeholder="" name="address" value="{{post.address}}"
+                <input class="col" type="text" id="address" placeholder="" name="address" value="{{address}}"
                     required>
 
             </div>
@@ -43,7 +45,7 @@
             <div class="row criteria-line">
                 <div class="col-4 criteria-title">Yêu cầu khác</div>
                 <textarea class="col" id="more" name="other_request" rows="3" cols="200 "
-                    wrap="soft ">{{post.other_request}}</textarea>
+                    wrap="soft ">{{other_request}}</textarea>
             </div>
 
             <div class="row criteria-line ">
@@ -51,16 +53,19 @@
                 <div class="col-5 ">
 
                     <select class="form-select " aria-label="Default select example" name="status">
-                        <option value=" " {{#ifStr postStatus "Chưa duyệt"}} selected {{/ifStr}}>Đang chờ duyệt</option>
-                        <!-- <option selected>Đang chờ duyệt</option> -->
-                        <option value="1" {{#ifStr postStatus "Hoàn thành"}} selected {{/ifStr}}>Hoàn thành</option>
-                        <option value="2" {{#ifStr postStatus "Chưa duyệt"}} selected {{/ifStr}}>Đang chờ duyệt</option>
-                        <option value="3" {{#ifStr postStatus "Từ chối"}} selected {{/ifStr}}>Từ chối</option>
+                        {{#if (compareStatus status "Chưa giao")}}
+                        <option value="Chưa giao" selected>Chưa giao</option>
+                        <option value="Đã giao" >Đã giao</option>
+                        {{else}}
+                        <option value="Đã giao" selected>Đã giao</option>
+                        <option value="Chưa giao" >Chưa giao</option>
+                        {{/if}}
                     </select>
                 </div>
             </div>
             <button type="submit " class="btn btn-block text-uppercase btn-edit-post col-4 ">Lưu thay đổi</button>
         </form>
+        {{/with}}
     </div>
 </div>
 {{> footer}}

@@ -25,14 +25,8 @@ app.engine(
     extname: 'hbs',
     defaultLayout: 'layout',
     helpers: {
-      ifStr(str1, str2, options) {
-        if (str1 == str2) {
-          return options.fn(this);
-        }
-        return options.inverse(this);
-      },
-      compareStatus: helpers.compareStatus,
       
+      compareStatus: helpers.compareStatus,
       'pages': function(pages,page,search_name,block) {
         var accum = '';
         console.log(page);

@@ -20,9 +20,7 @@ exports.list = async (req, res, next) => {
 exports.show = async (req, res, next) => {
 	try {
 		const post = await postService.showPost(req.params.postID);
-		const postStatus = post['student_request.status'];
-
-		res.render('posts/postDetail', { post, postStatus,active });
+		res.render('posts/postDetail', { post, active });
 	}
 	catch (err) {
 		next(err);
@@ -31,7 +29,6 @@ exports.show = async (req, res, next) => {
 
 exports.create = async (req, res, next) => {
 	try {
-		console.log('query', req.query);
 		const request = await requestService.showStudentRequest(req.query.requestId);
 		res.render('posts/createPost', { request, active });
 	}
@@ -64,13 +61,12 @@ exports.createPost = async (req, res, next) => {
 
 exports.edit = async (req, res, next) => {
 	try {
-		const {grade, subject, salary, address, other_request} = req.body;
+		const {grade, subject, salary, address, other_request, status} = req.body;
 		const post_id = req.params.postID;
-
 		await postService.updatePost({
-			grade, subject, salary, address, other_request
-		}, post_id);
-		res.render('posts', { request, active });
+			grade, subject, salary, address, other_request, post_id, status
+		});
+		res.redirect('/posts/edit/' + post_id);
 	}
 	catch (err) {
 		next(err);
