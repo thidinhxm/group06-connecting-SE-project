@@ -119,59 +119,40 @@ exports.updateStatusAcceptRT = (id, status, post_id) => {
 
 exports.listStudentRequestBySearch = (search_value,page = 0, itemPerPage = 8) => {
 	return models.studentrequest.findAndCountAll({
-			where: {
-					[Op.or]: [
-							{
-									student_request_id:
-											{ [Op.substring]: '%' + search_value + '%' }
-							},
-							{
-									phone:
-											{ [Op.substring]: '%' + search_value + '%' }
-							},
-							{
-									subject:
-											{ [Op.substring]: '%' + search_value + '%' }
-							},
-							{
-									grade:
-											{ [Op.substring]: '%' + search_value + '%' }
-							}, {
-									time:
-											{ [Op.substring]: '%' + search_value + '%' }
-							}
-					]
-			},
-			raw: true,
-			offset: page * itemPerPage,
-			limit: itemPerPage,
+		where: {
+			[Op.or]: [{
+				student_request_id:	{ [Op.substring]: '%' + search_value + '%' }
+			}, {
+				phone: { [Op.substring]: '%' + search_value + '%' }
+			},{
+				subject: { [Op.substring]: '%' + search_value + '%' }
+			},{
+				grade: { [Op.substring]: '%' + search_value + '%' }
+			}, {
+				time: { [Op.substring]: '%' + search_value + '%' }
+			}]
+		},
+		raw: true,
+		offset: page * itemPerPage,
+		limit: itemPerPage,
 	})
 }
 
-exports.listTutorRequestBySearch = (search_value,page = 0, itemPerPage = 8) => {
+exports.listTutorRequestBySearch = (search_value, page = 0, itemPerPage = 8) => {
 	return models.tutorrequest.findAndCountAll({
-			where: {
-					[Op.or]: [
-							{
-									tutor_request_id:
-											{ [Op.substring]: '%' + search_value + '%' }
-							},
-							{
-									post_id:
-											{ [Op.substring]: '%' + search_value + '%' }
-							},
-							{
-									phone:
-											{ [Op.substring]: '%' + search_value + '%' }
-							},
-							 {
-									status:
-											{ [Op.substring]: '%' + search_value + '%' }
-							}
-					]
-			},
-			raw: true,
-			offset: page * itemPerPage,
-			limit: itemPerPage,
+		where: {
+			[Op.or]: [{
+				tutor_request_id:{ [Op.substring]: '%' + search_value + '%' }
+			},{
+				post_id: { [Op.substring]: '%' + search_value + '%' }
+			},{
+				phone: { [Op.substring]: '%' + search_value + '%' }
+			}, {
+				status: { [Op.substring]: '%' + search_value + '%' }
+			}]
+		},
+		raw: true,
+		offset: page * itemPerPage,
+		limit: itemPerPage,
 	})
 }

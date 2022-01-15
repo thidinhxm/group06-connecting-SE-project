@@ -9,14 +9,11 @@ exports.listTutorRequests = async (req, res, next) => {
         const search_name = req.query.query;
         if (search_name) {
             const tutorRequests = await requestService.listTutorRequestBySearch(search_name, page);
-            // const Pages = Math.round(studentRequests.count / itemPerPage);
             let Pages = Math.round(tutorRequests.count / itemPerPage);
 			Pages < tutorRequests.count / itemPerPage ? Pages+=1 : Pages;
             let next = page < Pages - 1 ? page + 2 : Pages;
             let previous = page > 0 ? page : 1;
 
-            console.log(tutorRequests.count)
-            console.log(Pages)
             res.render('requests/tutorRequests/tutorRequestList', {
                 tutorRequests: tutorRequests.rows,
                 search_name,
@@ -29,13 +26,10 @@ exports.listTutorRequests = async (req, res, next) => {
         }
         else {
             const tutorRequests = await requestService.listTutorRequests(page);
-            // const Pages = Math.round(studentRequests.count / itemPerPage);
             let Pages = Math.round(tutorRequests.count / itemPerPage);
 			Pages < tutorRequests.count / itemPerPage ? Pages+=1 : Pages;
             let next = page < Pages - 1 ? page + 2 : Pages;
             let previous = page > 0 ? page : 1;
-            console.log(tutorRequests.count)
-            console.log(Pages)
             res.render('requests/tutorRequests/tutorRequestList', {
                 tutorRequests: tutorRequests.rows,
                 Pages,
@@ -63,14 +57,11 @@ exports.listStudentRequests = async (req, res, next) => {
         const search_name = req.query.query;
         if (search_name) {
             const studentRequests = await requestService.listStudentRequestBySearch(search_name, page);
-            // const Pages = Math.round(studentRequests.count / itemPerPage);
             let Pages = Math.round(studentRequests.count / itemPerPage);
 			Pages < studentRequests.count / itemPerPage ? Pages+=1 : Pages;
             let next = page < Pages - 1 ? page + 2 : Pages;
             let previous = page > 0 ? page : 1;
 
-            console.log(studentRequests.count)
-            console.log(Pages)
             res.render('requests/studentRequests/studentRequestList', {
                 studentRequests: studentRequests.rows,
                 search_name,
@@ -83,7 +74,6 @@ exports.listStudentRequests = async (req, res, next) => {
         }
         else {
             const studentRequests = await requestService.listStudentRequests(page);
-            // const Pages = Math.round(studentRequests.count / itemPerPage);
             let Pages = Math.round(studentRequests.count / itemPerPage);
 			Pages < studentRequests.count / itemPerPage ? Pages+=1 : Pages;
             let next = page < Pages - 1 ? page + 2 : Pages;
