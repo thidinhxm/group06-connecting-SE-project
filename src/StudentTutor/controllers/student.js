@@ -1,4 +1,3 @@
-const { models } = require('../models');
 const tutorService = require('../services/tutor');
 const requestService = require('../services/request');
 const active = { student: true }
@@ -17,7 +16,7 @@ exports.storeRequest = async (req, res, next) => {
 	const ward = req.body.ward
 	const road = req.body.road
 	const city = req.body.city
-	const address = homeNumber + ',' + road + ',' + ward + ',' + city
+	const address = homeNumber + ', ' + road + ', ' + ward + ', ' + city
 	const salary = req.body.fee
 	const phone = req.body.phone
 	const time = req.body.time

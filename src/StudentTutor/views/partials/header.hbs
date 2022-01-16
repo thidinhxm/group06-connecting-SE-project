@@ -51,9 +51,14 @@
 						<span>HỌC SINH</span>
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						{{#if user.student_id}}
 						<a class="dropdown-item" href="/students/send-request"><i
 								class="fas fa-user-graduate"
 							></i>&nbsp;Gửi yêu cầu tìm gia sư</a>
+						{{else}}
+						<button class="dropdown-item" data-toggle="modal" data-target="#modalFindTutor">
+							<i class="fas fa-user-graduate"></i>&nbsp;Gửi yêu cầu tìm gia sư</button>
+						{{/if}}
 						<a class="dropdown-item" href="/students/tutors-info"><i
 								class="fas fa-chalkboard-teacher"
 							></i>&nbsp;Thông tin gia sư</a>
@@ -91,3 +96,20 @@
 		</div>
 	</div>
 </nav>
+
+<div class="modal fade" id="modalFindTutor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Chức năng chỉ dùng cho học sinh</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <a href="/signup/student" class="text-center py-2 text-info">Đăng ký tài khoản học sinh để gửi yêu cầu tìm gia sư</a>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Đã hiểu</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,7 +5,7 @@
             <div class="form-request_body col-lg-10 col-md-10 col-sm-12">
                 <h3 class="form-heading text-center p-4">FORM YÊU CẦU TÌM KIẾM GIA SƯ</h3>
 
-                <form class="" action="{{#if roleStudent }}/students/store-request/{{/if}}" method="POST"
+                <form class="" action="/students/store-request" method="POST"
                     id='student-request-form' onsubmit="return(checkValue())">
                     <div class="form-group mb-4">
                         <label for="phone" class="form-label">Số điện thoại (<span style="color: red">*</span>)</label>
@@ -220,45 +220,16 @@
                         <span style="color: red">Bạn cần tích chọn Lớp và môn học</span>
                     </div>
 
-                    {{!-- <div class="form-group mb-4 mt-4">
-                        <button type="submit" class="btn btn-success mb-3 w-100 form-request-btn">SUBMIT</button>
-                    </div> --}}
-
-                    {{#if roleStudent}}
                     <div class="form-group mb-4 mt-4">
-                        <button class="btn btn-success mb-3 w-100 form-request-btn" type="submit">Gửi yêu
-                            cầu</button>
-                        {{else}}
-                        <div class="form-group mb-4 mt-4">
-                            <button class="btn btn-success mb-3 w-100 form-request-btn" type="" data-toggle="modal"
-                                data-target="#myModal">Gửi yêu cầu</button>
-                            {{/if}}
-                        </div>
+                        <button class="btn btn-success mb-3 w-100 form-request-btn" type="submit">
+                            Gửi yêu cầu
+                        </button>
                     </div>
                 </form>
 
             </div>
         </div>
     </div>
-
-
 </div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                "Yêu cầu tìm gia sư" chỉ được phép truy cập bởi học sinh/phụ huynh
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Đã hiểu</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 {{> footer}}
