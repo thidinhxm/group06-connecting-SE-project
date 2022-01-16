@@ -85,20 +85,10 @@
 	</div>
 	<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 		{{#if (compareStatus status "Chưa duyệt")}}
-		{{!-- <form action="/posts/create" method="GET"> --}}
-			{{!-- <input id="request-id" name="requestId" type="number" value={{student_request_id}} hidden> --}}
-			{{!-- <button class="btn accept-btn-primary btn-primary me-md-2 option" type="submit">Tạo bài đăng</button>
-		</form> --}}
 		<button class="btn accept-btn-primary btn-primary me-md-2 option" href="" data-toggle="modal"
 			data-target="#accept-tutor-request-modal" data-id="{{tutor_request_id}}">
 			Nhận yêu cầu
 		</button>
-
-		{{!-- <form action="/requests/student-requests/cancel" method="post">
-			<input id="userType" name="userType" value="student" type="text" hidden>
-			<input id="id" name="id" type="number" value={{student_request_id}} hidden>
-			<button class="btn denied-btn-danger btn-danger option" type="submit" >Hủy yêu cầu</button>
-		</form> --}}
 		<button class="btn denied-btn-danger btn-danger option" href="" data-toggle="modal"
 			data-target="#cancel-tutor-request-modal" data-id="{{tutor_request_id}}">
 			Hủy yêu cầu

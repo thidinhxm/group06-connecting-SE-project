@@ -56,10 +56,18 @@
                     <select class="form-select " aria-label="Default select example" name="status">
                         {{#if (compareStatus status "Chưa giao")}}
                         <option value="Chưa giao" selected>Chưa giao</option>
+                        <option value="Chờ chấp thuận">Chờ chấp thuận</option>
+                        <option value="Đã giao" >Đã giao</option>
+                        {{else}}  
+                        {{#if (compareStatus status "Chờ chấp thuận")}}
+                        <option value="Chờ chấp thuận" selected>Chờ chấp thuận</option>
+                        <option value="Chưa giao">Chưa giao</option>
                         <option value="Đã giao" >Đã giao</option>
                         {{else}}
                         <option value="Đã giao" selected>Đã giao</option>
                         <option value="Chưa giao" >Chưa giao</option>
+                        <option value="Chờ chấp thuận">Chờ chấp thuận</option>
+                        {{/if}}
                         {{/if}}
                     </select>
                 </div>

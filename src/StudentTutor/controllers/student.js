@@ -10,8 +10,8 @@ exports.sendRequest = async (req, res, next) => {
 };
 
 exports.storeRequest = async (req, res, next) => {
-	const classroom = req.body.classroom.toString()
-	const subjects = req.body.subject.toString()
+	const classroom = req.body.classroom.join(', ');
+	const subjects = req.body.subject.join(', ');
 	const homeNumber = req.body.homeNumber;
 	const ward = req.body.ward
 	const road = req.body.road
