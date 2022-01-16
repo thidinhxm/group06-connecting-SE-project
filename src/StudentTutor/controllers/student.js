@@ -10,7 +10,7 @@ exports.sendRequest = async (req, res, next) => {
 };
 
 exports.storeRequest = async (req, res, next) => {
-	const classroom = 'Lớp ' + req.body.classroom.toString()
+	const classroom = req.body.classroom.toString()
 	const subjects = req.body.subject.toString()
 	const homeNumber = req.body.homeNumber;
 	const ward = req.body.ward
